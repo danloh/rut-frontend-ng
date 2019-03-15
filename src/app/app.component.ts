@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RutHub';
+  per = 'index';
+  perid = 'index';
+  action= '0';
 }

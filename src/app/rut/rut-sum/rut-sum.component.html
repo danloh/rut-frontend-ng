@@ -1,0 +1,24 @@
+<div class="rut-sum">
+  <span class="title">
+    <div *ngIf="rut.url; else toForum">
+      {{ rut.title }}
+      <span class="host">
+        <a [href]="rut.url" target="_blank" rel="nofollow noopener noreferrer">
+          ({{ rut.url }})
+        </a>
+      </span>
+    </div>
+    <ng-template #toForum>
+      <a [routerLink]="['/login']">{{ rut.title }}</a>
+    </ng-template>
+  </span>
+  <a [routerLink]="toUrl">
+    <span>
+      <img class="cover" [src]="rut.logo" referrerPolicy="no-referrer">
+    </span>
+    <div class="content">{{ rut.content }}</div>
+    <span class="meta" *ngIf="rut.item_count>0">
+      including {{ rut.item_count }}  
+    </span>
+  </a>
+</div>
