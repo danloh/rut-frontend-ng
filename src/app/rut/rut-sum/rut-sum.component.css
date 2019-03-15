@@ -1,0 +1,33 @@
+.rut-sum {
+  background-color:#f7f7f7;
+  min-height: 115px;
+  padding: 10px 100px 10px 15px;
+  border-bottom: 1px dashed #ddd;
+  position: relative;
+}
+div.rut-sum:hover {
+  background-color:  #fcfdfc;
+}
+.cover {
+  position: absolute;
+  max-width: 80px;
+  max-height: 100px;
+  top: 10px;
+  right: 10px;
+}
+.title {
+  font-size: 20px;
+  padding-top: 10px;
+}
+.title .host {
+  color: #828282;
+  font-size: 12px;
+}
+.content {
+  color: #828282;
+  font-size: 16px;
+}
+.meta {
+  font-size: 14px;
+  color: #337ab7;
+}

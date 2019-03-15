@@ -9,7 +9,7 @@
       </span>
     </div>
     <ng-template #toForum>
-      <a routerLink="/login">{{ rut.title }}</a>
+      <a [routerLink]="'/r/' + rut.id">{{ rut.title }}</a>
     </ng-template>
   </span>
   <a [routerLink]="toUrl">
@@ -18,7 +18,7 @@
     </span>
     <div class="content">{{ rut.content }}</div>
     <span class="meta" *ngIf="rut.item_count>0">
-      including {{ rut.item_count }}  
+      including {{ rut.item_count }} item 
     </span>
   </a>
 </div>

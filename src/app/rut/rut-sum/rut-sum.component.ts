@@ -19,5 +19,4 @@ export class RutSumComponent implements OnInit {
       ? '/r/' + this.rut.id 
       : '/rforum/' + this.rut.id
   }
-
 }
