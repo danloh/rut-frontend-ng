@@ -1,3 +1,22 @@
-<p>
-  rut-view works!
-</p>
+<div class="rut-page" v-if="rut">
+  <div class="rut-view">
+    <div class="tagbar">
+      <!-- <button mat-button (click)="toAddTag">+Tag:</button>
+      <span class="tag" v-for="(tag, index) in tags" :key="index">
+        <router-link :to="'/tag/' + tag"><b>{{tag}}</b></router-link>
+      </span> -->
+    </div>
+    <div class="title">
+      <h2>{{ rut.title }}</h2>
+      <div class="meta">
+        <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
+        | <span> {{ rut.renew_at }}</span>
+        | including {{ rut.item_count }} 
+      </div>
+    </div>
+    <div class="content">
+      {{ rut.content }}
+    </div>
+  </div>
+  <div class="rut-side"></div>
+</div>

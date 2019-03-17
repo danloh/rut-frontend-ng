@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent } from './misc';
 import { HomeModule } from './home/home.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,11 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     BrowserModule,
+    NoopAnimationsModule,
     SharedModule,
-    AppRoutingModule,
     CoreModule,
     HomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

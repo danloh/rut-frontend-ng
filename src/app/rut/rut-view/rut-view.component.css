@@ -1,0 +1,47 @@
+.rut-page {
+  padding: 10px 250px 10px 0px;
+  position: relative;
+}
+.rut-page .rut-view {
+  background-color: #f5f7f8;
+  padding: auto;
+}
+.rut-view .tagbar {
+  display:inline-blcok;
+}
+.tagbar .tag {
+  padding: 2px 5px;
+  background-color: #eef4fa;
+}
+.tag a {
+  color: green;
+  font-size: 0.85em;
+}
+.tag a:hover {
+  background-color: #ddd;
+  padding: 2px;
+}
+.rut-view .title {
+    padding: 0 10px;
+}
+.rut-view .title .meta {
+  color: #828282;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+.rut-view .content, .item {
+  background-color: #fbfbf8;
+  padding: 10px;
+  border-bottom: 1px dashed #eee;
+}
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.85em;
+}
+.rut-page .rut-side {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 240px;
+}
