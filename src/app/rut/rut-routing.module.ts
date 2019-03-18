@@ -6,7 +6,7 @@ import { RutResolver } from './rut-resolver.service';
 
 const rutRoutes: Routes = [
   {
-    path: ':id',
+    path: 'r/:id',
     component: RutViewComponent,
     resolve: {
       res: RutResolver
