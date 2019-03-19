@@ -1,0 +1,33 @@
+.item-sum {
+  background-color: #fcfcfa;
+  min-height: 145px;
+  padding: 5px 115px 5px 115px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.thumb {
+  max-width: 110px;
+  max-height: 130px;
+  position: absolute;
+  top: 5px;
+  left: 2px;
+}
+.info {
+  font-size: 14px;
+  line-height: 1.6em;
+}
+.info .title {
+  font-size: 18px;
+}
+.info .indicator {
+  font-size: 14px;
+  color: #777;
+}
+.info .flag-note {
+  color: grey;
+}
+.operate {
+  position: absolute;
+  top: 10px;
+  right: 2px;
+}

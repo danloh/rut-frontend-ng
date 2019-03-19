@@ -8,15 +8,9 @@ import { Rut } from '../../core';
 })
 export class RutSumComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   @Input() rut: Rut;
 
-  toUrl: string;
-
-  ngOnInit() {
-    this.toUrl = this.rut.content 
-      ? '/r/' + this.rut.id 
-      : '/rforum/' + this.rut.id
-  }
+  ngOnInit() {}
 }

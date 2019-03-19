@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private title: Title) {}
 
   per = 'index';
   perid = 'index';
   action= '0';
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.title.setTitle('RutHub');
+  }
 }

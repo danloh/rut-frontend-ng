@@ -1,6 +1,5 @@
 <div class="collect-sum">
-  <div class="item-info">
-    <!-- here is an issue: _co.item is undefined , why?? -->
+  <div class="item-info" *ngIf="collect && item">
     <sup class="indicator" *ngIf="collect.item_order">#{{collect.item_order}}&nbsp;</sup> 
     <a [routerLink]="'/item/' + item.id">{{ item.title }}</a>
     <small class="meta">

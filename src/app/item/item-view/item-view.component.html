@@ -1,0 +1,19 @@
+<div class="item-page">
+  <div class="item-main">
+    <app-item-sum [item]="item"></app-item-sum>
+    <div>
+      <b>More Details</b>
+      <span style="float:right">
+        <a [routerLink]="'/update/item/' + itemID"><small>Edit..</small></a>
+      </span>
+    </div>
+    <div class="item-detail">
+      <div [innerHTML]="item.detail || '...'"></div>
+    </div>
+  </div>
+  <div class="include">
+    <app-rut-list [per]="'item'" [perid]="itemID" [action]="'0'"></app-rut-list>
+  </div>
+  <div class="item-side">
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="item-sum">
+  <div>
+    <img class="thumb" [src]="item.cover" alt="Cover" referrerPolicy="no-referrer">
+  </div>
+  <div class="info">
+    <span class="title">
+      {{item.category}} 
+      <b style="color:#337ab7">{{ item.title }}</b>
+    </span>
+    <table style="border-spacing:0px;">
+      <tr>
+        <td><small class="indicator">Byline</small></td>
+        <td>{{ item.authors }}</td>
+      </tr>
+      <tr>
+        <td><small class="indicator">Publish&nbsp;</small></td>
+        <td>{{ item.publisher }} &nbsp; {{ item.pub_at }}</td>
+      </tr>
+      <tr>
+        <td><small class="indicator">Edition</small></td>
+        <td>{{ item.uiid }} &nbsp; {{ item.edition }}</td>
+      </tr>
+      <tr>
+        <td><small class="indicator">Listed</small></td>
+        <td>
+          {{ item.rut_count }} 
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent } from './misc';
 import { HomeModule } from './home/home.module';
+import { ItemModule } from './item/item.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -23,9 +24,10 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     CoreModule,
     HomeModule,
+    ItemModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
