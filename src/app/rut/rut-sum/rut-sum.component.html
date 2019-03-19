@@ -4,7 +4,7 @@
       {{ rut.title }}
       <span class="host">
         <a [href]="rut.url" target="_blank" rel="nofollow noopener noreferrer">
-          ({{ rut.url }})
+          ({{ rut.url | host }})
         </a>
       </span>
     </div>
@@ -16,9 +16,9 @@
     <span>
       <img class="cover" [src]="rut.logo" referrerPolicy="no-referrer">
     </span>
-    <div class="content">{{ rut.content }}</div>
+    <div class="content">{{ rut.content | showLess }}</div>
     <span class="meta" *ngIf="rut.item_count>0">
-      including {{ rut.item_count }} item 
+      including {{ rut.item_count | plur:"item" }}
     </span>
   </a>
 </div>

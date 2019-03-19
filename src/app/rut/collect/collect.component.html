@@ -10,5 +10,5 @@
       <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
     </span>
   </div>
-  <div class="content">{{collect.content}}</div>
+  <div class="content" [innerHTML]="collect.content | md"></div>
 </div>
