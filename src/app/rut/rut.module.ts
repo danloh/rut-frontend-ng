@@ -7,12 +7,14 @@ import { RutListComponent } from './rut-list/rut-list.component';
 import { RutSumComponent } from './rut-sum/rut-sum.component';
 import { RutViewComponent } from './rut-view/rut-view.component';
 import { RutRoutingModule } from './rut-routing.module';
+import { CollectComponent } from './collect/collect.component';
 
 @NgModule({
   declarations: [
     RutListComponent, 
     RutSumComponent, 
-    RutViewComponent
+    RutViewComponent, 
+    CollectComponent
   ],
   imports: [
     CommonModule,

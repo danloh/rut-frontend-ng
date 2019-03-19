@@ -1,10 +1,10 @@
 <div class="rut-page" v-if="rut">
   <div class="rut-view">
     <div class="tagbar">
-      <!-- <button mat-button (click)="toAddTag">+Tag:</button>
-      <span class="tag" v-for="(tag, index) in tags" :key="index">
-        <router-link :to="'/tag/' + tag"><b>{{tag}}</b></router-link>
-      </span> -->
+      <!-- <button mat-button (click)="toAddTag">+Tag:</button> -->
+      <span class="tag" *ngFor="let tag of tags">
+        <a [routerLink]="'/tag/' + tag"><b>{{tag}}</b></a>
+      </span>
     </div>
     <div class="title">
       <h2>{{ rut.title }}</h2>
@@ -17,6 +17,11 @@
     <div class="content">
       {{ rut.content }}
     </div>
+    <app-collect class="item"
+                 *ngFor="let c of collects" 
+                 [collect]="c" 
+                 [item]="itemIDs.get(c.item_id)">
+    </app-collect>
   </div>
   <div class="rut-side"></div>
 </div>

@@ -3,3 +3,5 @@
 
 export * from './api.service';
 export * from './rut.service';
+export * from './item.service';
+export * from './tag.service';

@@ -18,14 +18,14 @@ export interface Rut {
 }
 
 export interface RutRes {
-  status: number,
-  msg: string,
-  rut: Rut,
+  status: number;
+  msg: string;
+  rut: Rut;
 }
 
 export interface RutListRes {
-  status: number,
-  msg: string,
-  ruts: Rut[],
-  count: number,
+  status: number;
+  msg: string;
+  ruts: Rut[];
+  count: number;
 }

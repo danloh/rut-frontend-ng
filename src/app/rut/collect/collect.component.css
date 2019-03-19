@@ -1,0 +1,20 @@
+.item-info {
+  padding-right: 40px;
+  position: relative;
+  border-bottom: 0.5px dashed #ddd;
+}
+.item-info .indicator {
+  font-size: 0.6em;
+  color:seagreen;
+}
+.item-info .meta {
+  color: #aaa;
+  font-size: 14px;
+}
+.item-info .thumb {
+  position: absolute;
+  max-width: 40px;
+  max-height: 40px;
+  top: 0px;
+  right: 0px;
+}
