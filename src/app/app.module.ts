@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent } from './misc';
 import { HomeModule } from './home/home.module';
 import { ItemModule } from './item/item.module';
+import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     HomeModule,
     ItemModule,
+    TagModule,
     AppRoutingModule
   ],
   providers: [Title],

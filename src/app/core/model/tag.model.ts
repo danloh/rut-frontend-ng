@@ -10,7 +10,7 @@ export interface Tag {
   rut_count: number;
   etc_count: number;
   star_count: number;
-  vote: number;   
+  vote: number;
 }
 
 export interface TagRes {

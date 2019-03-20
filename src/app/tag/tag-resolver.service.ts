@@ -5,19 +5,19 @@ import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { ItemService, ItemRes } from '../core';
+import { TagService, TagRes } from '../core';
 
 
 @Injectable()
-export class ItemResolver implements Resolve<ItemRes> {
+export class TagResolver implements Resolve<TagRes> {
   constructor(
-    private itemService: ItemService,
+    private tagService: TagService,
     private router: Router,
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    let itemid = route.paramMap.get('id');
-    return this.itemService.get(itemid)
+    let tname = route.paramMap.get('tname');
+    return this.tagService.get(tname)
       .pipe(catchError(() => this.router.navigateByUrl('/')));
   }
 }
