@@ -27,19 +27,13 @@ export class AuthService {
     .pipe(map(data => data));
   }
 
-  signIn(user: Auth): Observable<User> {
+  signIn(user: Auth): Observable<AuthUser> {
     return this.apiService.post('/signin', user)
     .pipe(map(data => {
-        this.setAuth(data.user);
+        this.setAuth(data);
         return data;
       }
     ));
-  }
-
-  toAuth(type: string, user: Auth): Observable<any> {
-    return (type === 'signin') 
-      ? this.signIn(user)
-      : this.signUp(user)
   }
 
   setAuth(user: AuthUser) {
