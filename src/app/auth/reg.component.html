@@ -1,0 +1,33 @@
+<div class="auth-page">
+  <section class="auth-box" #formWrapper>
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Welcome to Join</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="Username" required formControlName="uname" />
+          <!-- <mat-error *ngIf="checkErrorMatch('username', 'required')">Required</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'pattern')">letter or number</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'minlength')">Min 2</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'maxlength')">Max 16</mat-error> -->
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
+          <!-- <mat-error *ngIf="checkErrorMatch('password', 'required')">Required</mat-error>
+          <mat-error *ngIf="checkErrorMatch('password', 'minlength')">min 8</mat-error> -->
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Confirm" required type="password" autocomplete="off" formControlName="confirm" />
+          <!-- <mat-error *ngIf="checkErrorMatch('confirmPassword', 'equalTo')">Not Match</mat-error> -->
+        </mat-form-field><br>
+        <button mat-raised-button color="primary" [disabled]="form?.invalid" *ngIf="!isSubmitting">Submit</button>
+      </mat-card-content>
+      <mat-card-footer>
+        <a [routerLink]="['/signin']">Have an account?</a>
+      </mat-card-footer>
+    </mat-card>
+  </form>
+  </section>
+</div>

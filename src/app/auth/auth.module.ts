@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '../shared';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthComponent } from './auth.component';
+import { RegComponent } from './reg.component';
+import { SigninComponent } from './signin.component';
 
 @NgModule({
   declarations: [
-    AuthComponent
+    RegComponent,
+    SigninComponent
   ],
   imports: [
     CommonModule,
