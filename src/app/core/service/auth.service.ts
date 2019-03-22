@@ -23,12 +23,12 @@ export class AuthService {
   ) {}
 
   signUp(user: Auth): Observable<any> {
-    return this.apiService.post('/signup', {user})
+    return this.apiService.post('/signup', user)
     .pipe(map(data => data));
   }
 
   signIn(user: Auth): Observable<User> {
-    return this.apiService.post('/signin', {user})
+    return this.apiService.post('/signin', user)
     .pipe(map(data => {
         this.setAuth(data.user);
         return data;

@@ -31,6 +31,7 @@ export class SigninComponent implements OnInit {
     this.isSubmitting = true;
 
     const authdata = this.authForm.value;
+    console.log(authdata);
     this.authService.signIn(authdata)
     .subscribe(_ => this.isSubmitting = false);
   }

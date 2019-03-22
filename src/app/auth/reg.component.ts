@@ -33,7 +33,7 @@ export class RegComponent implements OnInit {
     this.isSubmitting = true;
 
     const authdata = this.regForm.value;
-
+    console.log(authdata);
     this.authService.signUp(authdata)
     .subscribe(
       data => this.router.navigateByUrl('/signin'),
