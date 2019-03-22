@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent } from './misc';
 import { HomeModule } from './home/home.module';
+import { AuthModule } from './auth/auth.module';
 import { ItemModule } from './item/item.module';
 import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     CoreModule,
     HomeModule,
+    AuthModule,
     ItemModule,
     TagModule,
     AppRoutingModule

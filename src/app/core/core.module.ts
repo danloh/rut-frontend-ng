@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
-  ApiService, RutService, ItemService, TagService 
+  ApiService, AuthService, RutService, ItemService, TagService 
 } from './service';
 
 @NgModule({
@@ -11,9 +11,10 @@ import {
   ],
   providers: [
     ApiService,
+    AuthService,
     RutService,
     ItemService, 
     TagService
   ]
 })
-export class CoreModule { }
+export class CoreModule {}

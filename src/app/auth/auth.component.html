@@ -1,0 +1,35 @@
+<div class="app-container auth-container">
+  <section class="auth-box" #formWrapper>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title *ngIf="authType == 'register'">Welcome to Join</mat-card-title>
+        <mat-card-title *ngIf="authType == 'signin'">Please Log In</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="input-line">
+          <input matInput placeholder="Username" required formControlName="uname" />
+          <!-- <mat-error *ngIf="checkErrorMatch('username', 'required')">Required</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'pattern')">letter or number</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'minlength')">Min 2</mat-error>
+          <mat-error *ngIf="checkErrorMatch('username', 'maxlength')">Max 16</mat-error> -->
+        </mat-form-field>
+        <mat-form-field  class="input-line">
+          <input matInput placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
+          <!-- <mat-error *ngIf="checkErrorMatch('password', 'required')">Required</mat-error>
+          <mat-error *ngIf="checkErrorMatch('password', 'minlength')">min 8</mat-error> -->
+        </mat-form-field>
+        <mat-form-field  class="input-line" *ngIf="authType == 'register'">
+          <input matInput placeholder="Confirm" required type="password" autocomplete="off" formControlName="confirm" />
+          <!-- <mat-error *ngIf="checkErrorMatch('confirmPassword', 'equalTo')">Not Match</mat-error> -->
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="form.invalid" *ngIf="!isSubmitting">Submit</button>
+      </mat-card-content>
+      <mat-card-footer>
+        <a [routerLink]="['/login']" *ngIf="authType == 'register'">Have an account?</a>
+        <a [routerLink]="['/register']" *ngIf="authType == 'signin'">Need an account?</a>
+      </mat-card-footer>
+    </mat-card>
+  </form>
+  </section>
+</div>

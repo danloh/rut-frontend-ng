@@ -4,3 +4,4 @@
 export * from './rut.model';
 export * from './item.model';
 export * from './tag.model';
+export * from './user.model';
