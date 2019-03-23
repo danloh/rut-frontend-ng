@@ -11,9 +11,9 @@
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput placeholder="Confirm" required type="password" autocomplete="off" formControlName="confirm" />
-      <!-- <mat-error *ngIf="checkErrorMatch('confirmPassword', 'equalTo')">Not Match</mat-error> -->
+      <!-- <mat-hint>Not Match</mat-hint> -->
     </mat-form-field>
     <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid" *ngIf="!isSubmitting">Submit</button>
-    <a [routerLink]="['/signin']"><small>  Have an account?</small></a>
+    <a routerLink="/signin"><small>  Have an account?</small></a>
   </form>
 </div>

@@ -6,7 +6,13 @@
       </small>
     </a>
     <div class="right-menu">
-      <a routerLink="/signin">Log in</a>
+      <div *ngIf="ifAuthed; else login">
+        <a routerLink="/new">New</a>
+        <a [routerLink]="'/p/' + actUname">Profile</a>
+      </div>
+      <ng-template #login>
+        <a routerLink="/signin">Log in</a>
+      </ng-template>
     </div>
   </nav>
 </header>

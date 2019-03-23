@@ -8,6 +8,6 @@
       <input matInput placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
     </mat-form-field>
     <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid" *ngIf="!isSubmitting">Submit</button>
-    <a [routerLink]="['/signup']"><small>  No Account?</small></a>
+    <a routerLink="/signup"><small>  No Account?</small></a>
   </form>
 </div>
