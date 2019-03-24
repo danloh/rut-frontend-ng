@@ -1,4 +1,4 @@
-// api for item
+// api for tag
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

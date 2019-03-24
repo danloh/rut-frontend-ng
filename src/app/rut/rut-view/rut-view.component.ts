@@ -27,17 +27,15 @@ export class RutViewComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched data
-    this.route.data.subscribe(
-      (data: { res: RutRes }) => {
-        this.rut = data.res.rut;
-        this.rutID = this.rut.id;
+    this.route.data.subscribe((data: { res: RutRes }) => {
+      this.rut = data.res.rut;
+      this.rutID = this.rut.id;
 
-        // Load tags, collects for this rut
-        this.getCollects();
-        this.getItems();
-        this.getTags();
-      }
-    );
+      // Load tags, collects for this rut
+      this.getCollects();
+      this.getItems();
+      this.getTags();
+    });
     this.title.setTitle('RutHub - ' + this.rut.title);
   }
 

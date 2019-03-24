@@ -21,13 +21,11 @@ export class TagViewComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched data
-    this.route.data.subscribe(
-      (data: { res: TagRes }) => {
-        this.tag = data.res.tag;
-        this.tname = this.tag.tname;
-        this.relatedTags = []; // to do
-      }
-    );
+    this.route.data.subscribe((data: { res: TagRes }) => {
+      this.tag = data.res.tag;
+      this.tname = this.tag.tname;
+      this.relatedTags = []; // to do
+    });
     this.title.setTitle('RutHub - #' + this.tag.tname);
   }
 

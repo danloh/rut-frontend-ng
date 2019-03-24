@@ -19,4 +19,4 @@ import { RutModule } from '../rut/rut.module';
     TagResolver
   ]
 })
-export class TagModule { }
+export class TagModule {}

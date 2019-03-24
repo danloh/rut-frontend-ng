@@ -1,0 +1,16 @@
+<div class="profile-page">
+  <div class="profile-head">
+    <a [routerLink]="'/p/' + uname">
+      <b style="font-size:1.6em">{{ user.nickname }}</b>
+    </a>
+    <a [routerLink]="'/updateuser/' + uname">
+      <small> @{{uname}}</small>
+    </a>
+    <small class="location"> &nbsp; {{ user.location }}</small>
+    <div class="aboutme">{{user.intro || '...'}}</div>
+  </div>
+  <div class="profile-view">
+  </div>
+  <div class="profile-side">
+  </div>
+</div>
