@@ -1,0 +1,10 @@
+<div>
+  <b *ngIf="flag">{{flag.toUpperCase()}}: {{ totalCount }}</b>
+  <br><br>
+  <app-item-min *ngFor="let item of items" [item]="item"></app-item-min>
+  <!-- <div *ngIff="hasMore">
+    <button (click)="loadMoreItem" [disabled]="!hasMore">
+      Show More
+    </button>
+  </div> -->
+</div>

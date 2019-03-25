@@ -23,7 +23,7 @@ export class RutViewComponent implements OnInit {
   rut: Rut;
   itemIDs: any;  // map
   collects: Collect[];
-  tags: Tag[];
+  tags: string[];
 
   ngOnInit() {
     // Retreive the prefetched data
@@ -41,21 +41,21 @@ export class RutViewComponent implements OnInit {
 
   getCollects() {
     this.itemService.get_collects('rut', this.rutID)
-      .subscribe(
-        res => this.collects = res.collects.sort((a,b) => a.item_order - b.item_order)
-      )
+    .subscribe(
+      res => this.collects = res.collects.sort((a,b) => a.item_order - b.item_order)
+    )
   }
 
   getItems() {
     this.itemIDs = new Map();
     this.itemService.get_list('rut', this.rutID, 'done', 1)
-      .subscribe(
-        res => res.items.forEach(i => this.itemIDs.set(i.id, i))
-      )
+    .subscribe(
+      res => res.items.forEach(i => this.itemIDs.set(i.id, i))
+    )
   }
 
   getTags() {
     this.tagService.get_list('rut', this.rutID)
-      .subscribe(res => this.tags = res.tags)
+    .subscribe(res => this.tags = res.tags)
   }
 }

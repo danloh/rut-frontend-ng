@@ -1,0 +1,10 @@
+<div class="item-info">
+  <sup class="indicator" *ngIf="item.item_order">#{{item.item_order}}&nbsp;</sup> 
+  <a [routerLink]="'/item/' + item.id">{{ item.title }}</a>
+  <small class="meta">
+    <br> {{item.uiid}}&nbsp;&nbsp;{{item.authors}}
+  </small>
+  <span>
+    <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
+  </span>
+</div>

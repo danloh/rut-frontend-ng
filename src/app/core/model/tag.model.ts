@@ -22,6 +22,6 @@ export interface TagRes {
 export interface TagListRes {
   status: number;
   msg: string;
-  tags: Tag[];
+  tags: string[];
   count: number;
 }

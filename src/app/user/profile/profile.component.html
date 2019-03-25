@@ -19,8 +19,24 @@
     </div>
     <div class="right-nav">
         <a [routerLink]="'/p/' + uname + '/create'">
-          <b style="color:royalblue">*</b> Created
-        </a>
+          <b style="color:royalblue">*</b> Creates
+        </a><br>
+        <a [routerLink]="'/p/' + uname + '/star'">
+          <b style="color:royalblue">*</b> Stars
+        </a><br>
+        <a [routerLink]="'/p/' + uname + '/doings'">
+          <b style="color:coral">~</b> Doing
+        </a><br>
+        <a [routerLink]="'/p/' + uname + '/todos'">
+          <b style="color:coral">~</b> ToDo
+        </a><br>
+        <a [routerLink]="'/p/' + uname + '/dones'">
+          <b style="color:coral">~</b> Done
+        </a><br><br>
+        <b># Topic: </b><br>
+        <span *ngFor="let tag of tags">
+          <a [routerLink]="'/tag/' + tag"><small>{{tag}} &nbsp;</small></a>
+        </span>
       </div>
   </div>
 </div>
