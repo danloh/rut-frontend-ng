@@ -10,11 +10,17 @@
     <div class="aboutme">{{user.intro || '...'}}</div>
   </div>
   <div class="profile-view">
+    <router-outlet></router-outlet>
   </div>
   <div class="profile-side">
-      <div class="right-avatar">
-        <app-avatar [uname]="uname" [size]="210" [src]="user.avatar"></app-avatar>
-        <small class="user-info"> &nbsp;{{user.join_at | date}} Joined</small>
+    <div class="right-avatar">
+      <app-avatar [uname]="uname" [size]="210" [src]="user.avatar"></app-avatar>
+      <small class="user-info"> &nbsp;{{user.join_at | date}} Joined</small>
+    </div>
+    <div class="right-nav">
+        <a [routerLink]="'/p/' + uname + '/create'">
+          <b style="color:royalblue">*</b> Created
+        </a>
       </div>
   </div>
 </div>

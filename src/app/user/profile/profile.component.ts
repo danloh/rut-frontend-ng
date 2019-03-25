@@ -28,5 +28,4 @@ export class ProfileComponent implements OnInit {
     });
     this.title.setTitle('Profile of ' + this.uname);
   }
-
 }
