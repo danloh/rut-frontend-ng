@@ -12,5 +12,9 @@
   <div class="profile-view">
   </div>
   <div class="profile-side">
+      <div class="right-avatar">
+        <app-avatar [uname]="uname" [size]="210" [src]="user.avatar"></app-avatar>
+        <small class="user-info"> &nbsp;{{user.join_at | date}} Joined</small>
+      </div>
   </div>
 </div>

@@ -16,6 +16,7 @@ export class RutListComponent implements OnInit {
   @Input() action: string;
 
   ruts: Rut[];
+  totalCount: number;
   paging: number = 1;
 
   ngOnInit() {
