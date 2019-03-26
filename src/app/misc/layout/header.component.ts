@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   actUname: string;
 
   ngOnInit() {
+    this.authService.checkAuth();
     this.authService.isAuthed.subscribe(auth => this.ifAuthed = auth);
     this.authService.actUser.subscribe(user => this.actUname = user.uname);
   }
