@@ -28,27 +28,15 @@ import {
 const modules = [
   FormsModule,
   ReactiveFormsModule,
-  MatCardModule,
+  
   MatButtonModule,
   MatInputModule,
-  MatIconModule,
   MatFormFieldModule,
   MatCheckboxModule,
-  MatToolbarModule,
   MatMenuModule,
-  MatSidenavModule,
-  MatListModule,
-  MatTabsModule,
   MatDialogModule,
-  MatProgressSpinnerModule,
-  MatTooltipModule,
-  MatSlideToggleModule,
   MatDividerModule,
-  MatProgressBarModule,
-  MatLineModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatSnackBarModule
+  MatProgressBarModule
 ];
 
 @NgModule({

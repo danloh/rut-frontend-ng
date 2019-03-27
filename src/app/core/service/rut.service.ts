@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { RutRes, RutListRes } from '../model';
+import { RutRes, RutListRes, NewRut } from '../model';
 
 @Injectable()
 export class RutService {
@@ -22,4 +22,10 @@ export class RutService {
       '/ruts/' + per + '/' + id + `?page=${p}&flag=${f}`
     ).pipe(map(data => data));
   }
+
+  create(rut: NewRut): Observable<RutRes> {
+    return this.apiService.post('/ruts', rut)
+    .pipe(map(data => data));
+  }
+
 }

@@ -1,0 +1,31 @@
+<div class="create-page">
+  <div class="title">
+    <span>Create: </span>
+    <small style="color:green;font-size:0.8em;">collection of books, courses, etc.</small> 
+  </div>
+  <form [formGroup]="createForm" (ngSubmit)="onCreate()" class="create-form">
+    <mat-form-field class="full-width">
+      <textarea matInput #t maxlength="255" cdkTextareaAutosize placeholder="Title"
+                required formControlName="title">
+      </textarea>
+      <mat-hint align="end">{{t.value?.length || 0}}/255</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput #u maxlength="255" cdkTextareaAutosize 
+                placeholder="either URL" formControlName="url">
+      </textarea>
+      <mat-hint align="end">{{u.value?.length || 0}}/255</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput #c cdkTextareaAutosize cdkAutosizeMinRows="5" 
+                placeholder="or Text Content" formControlName="content">
+      </textarea>
+      <mat-hint align="end">{{c.value?.length || 0}}</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput #a maxlength="32" placeholder="Origin Author" formControlName="author_id" />
+      <mat-hint align="end">{{a.value?.length || 0}}/32</mat-hint>
+    </mat-form-field><br>
+    <button mat-raised-button class="full-width" color="primary">Create</button>
+  </form>
+</div>

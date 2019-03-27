@@ -1,7 +1,6 @@
 // auth
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CanActivate } from '@angular/router';
 import { Observable,  BehaviorSubject,  ReplaySubject } from 'rxjs';
 import { map, take, distinctUntilChanged } from 'rxjs/operators';
@@ -18,10 +17,7 @@ export class AuthService {
   private isAuthedSubject = new ReplaySubject<boolean>(1);
   public isAuthed = this.isAuthedSubject.asObservable();
 
-  constructor (
-    private apiService: ApiService,
-    private http: HttpClient,
-  ) {}
+  constructor (private apiService: ApiService) {}
 
   signUp(user: Auth): Observable<any> {
     return this.apiService.post('/signup', user)
@@ -53,6 +49,7 @@ export class AuthService {
     let u = this.getID();
     if ( Boolean(t) && Boolean(u) ) {
       this.isAuthedSubject.next(true);
+      this.actUserSubject.next({uname: u} as User);
     }
   }
 

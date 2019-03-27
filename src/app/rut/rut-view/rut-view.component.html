@@ -9,7 +9,12 @@
     <div class="title">
       <h2>{{ rut.title }}</h2>
       <div class="meta">
-        <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
+        <span *ngIf="rutUrl; else profile">
+          <a [href]="rutUrl" target="_blank">{{ rut.uname }}</a>
+        </span>
+        <ng-template #profile>
+          <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
+        </ng-template>
         | <span> {{ rut.renew_at | date }}</span>
         | including {{ rut.item_count | plur:"item" }} 
       </div>

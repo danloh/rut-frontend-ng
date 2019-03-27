@@ -1,0 +1,11 @@
+.create-page {
+  padding: 20px 120px 20px 120px;
+  position: relative;
+}
+.title {
+  padding-bottom: 10px;
+}
+.create-form {
+  padding: 20px;
+  border: 1px dotted #689f38;
+}

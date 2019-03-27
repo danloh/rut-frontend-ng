@@ -21,6 +21,7 @@ export class RutViewComponent implements OnInit {
 
   rutID: string;
   rut: Rut;
+  rutUrl: string;
   itemIDs: any;  // map
   collects: Collect[];
   tags: string[];
@@ -30,6 +31,7 @@ export class RutViewComponent implements OnInit {
     this.route.data.subscribe((data: { res: RutRes }) => {
       this.rut = data.res.rut;
       this.rutID = this.rut.id;
+      this.rutUrl = this.rut.url;
 
       // Load tags, collects for this rut
       this.getCollects();

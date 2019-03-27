@@ -17,6 +17,15 @@ export interface Rut {
   vote: number;
 }
 
+export interface NewRut {
+  title: string;
+  url: string;
+  content: string;
+  uname: string;
+  author_id: string;
+  credential: string;
+}
+
 export interface RutRes {
   status: number;
   msg: string;
