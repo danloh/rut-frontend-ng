@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { 
-  Rut, RutRes, Collect, Tag, TagService, ItemService 
+  Rut, RutRes, Collect, AuthService, TagService, ItemService 
 } from '../../core';
 
 @Component({
@@ -15,9 +15,10 @@ export class RutViewComponent implements OnInit {
   constructor( 
     private route: ActivatedRoute,
     private title: Title,
+    private authService: AuthService,
     private itemService: ItemService,
     private tagService: TagService
-  ) { }
+  ) {}
 
   rutID: string;
   rut: Rut;
@@ -25,6 +26,8 @@ export class RutViewComponent implements OnInit {
   itemIDs: any;  // map
   collects: Collect[];
   tags: string[];
+  canEdit: Boolean;
+  uname: string;
 
   ngOnInit() {
     // Retreive the prefetched data
@@ -39,6 +42,12 @@ export class RutViewComponent implements OnInit {
       this.getTags();
     });
     this.title.setTitle('RutHub - ' + this.rut.title);
+
+    this.authService.checkAuth();
+    this.authService.actUser.subscribe(user => this.uname = user.uname);
+    this.authService.isAuthed.subscribe(auth => 
+      this.canEdit = auth && this.uname === this.rut.uname
+    );
   }
 
   getCollects() {

@@ -10,6 +10,7 @@ import { RutViewComponent } from './rut-view/rut-view.component';
 import { RutRoutingModule } from './rut-routing.module';
 import { CollectComponent } from './collect/collect.component';
 import { NewRutComponent } from './new-rut/new-rut.component';
+import { UpdateRutComponent } from './update-rut/update-rut.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewRutComponent } from './new-rut/new-rut.component';
     PlurPipe,
     HostPipe,
     ShowLessPipe,
-    NewRutComponent
+    NewRutComponent,
+    UpdateRutComponent
   ],
   imports: [
     CommonModule,

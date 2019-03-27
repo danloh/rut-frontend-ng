@@ -45,3 +45,17 @@
   top: 10px;
   width: 240px;
 }
+.credential {
+  background-color: #f5f9f5;
+  margin-bottom: 10px;
+}
+.credential-title {
+  padding: 2px 10px;
+  color: #3c763d;
+  font-size: 12px;
+}
+.credential-body {
+  padding: 0 10px;
+  min-height: 45px;
+  font-size: 0.85em;
+}

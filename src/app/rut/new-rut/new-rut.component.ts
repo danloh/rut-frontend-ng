@@ -34,18 +34,16 @@ export class NewRutComponent implements OnInit {
     this.createForm = this.formBuild.group(
       { 'title': ['', Validators.required],
         'url': [''],
-        'content': ['', Validators.required],
+        'content': [''],
         'author_id': [''],
+        'credential': [''],
       }
     );
   }
 
   onCreate() {
     const rut = this.createForm.value;
-    const rutdata = Object.assign(rut, {
-      uname: this.uname,
-      credential: ".."
-    });
+    const rutdata = Object.assign(rut, { uname: this.uname });
 
     let either_url_ctn = Boolean(rut.content.trim()) || Boolean(rut.url.trim());
 

@@ -17,8 +17,11 @@
       <img class="cover" [src]="rut.logo" referrerPolicy="no-referrer">
     </span>
     <div class="content">{{ rut.content | showLess }}</div>
-    <span class="meta" *ngIf="rut.item_count>0">
+    <span class="meta" *ngIf="rut.item_count > 0; else toview">
       including {{ rut.item_count | plur:"item" }}
     </span>
+    <ng-template #toview>
+      <span class="meta">...view</span>
+    </ng-template>
   </a>
 </div>

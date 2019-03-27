@@ -10,13 +10,16 @@
       <h2>{{ rut.title }}</h2>
       <div class="meta">
         <span *ngIf="rutUrl; else profile">
-          <a [href]="rutUrl" target="_blank">{{ rut.uname }}</a>
+          <a [href]="rutUrl" target="_blank">{{ rut.author_id || rut.uname }}</a>
         </span>
         <ng-template #profile>
           <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
         </ng-template>
         | <span> {{ rut.renew_at | date }}</span>
         | including {{ rut.item_count | plur:"item" }} 
+        <a [routerLink]="'/update/r/' + rutID" *ngIf="canEdit">
+          <b> | Edit...</b>
+        </a>
       </div>
     </div>
     <div class="content" [innerHTML]="rut.content | md"></div>
@@ -26,5 +29,13 @@
                  [item]="itemIDs.get(c.item_id)">
     </app-collect>
   </div>
-  <div class="rut-side"></div>
+  <div class="rut-side">
+    <div class="credential">
+      <span class="credential-title">About Creator(s)</span>
+      <div class="credential-body">
+        <span>{{ rut.author_id }}: </span>
+        <span>{{ rut.credential }}</span>
+      </div>
+    </div>
+  </div>
 </div>

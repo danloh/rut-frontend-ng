@@ -1,9 +1,8 @@
-<div class="create-page">
+<div class="update-page">
   <div class="title">
-    <span>New Post: </span>
-    <small style="color:green;font-size:0.8em;">collection of books, courses, etc.</small> 
+    <span>Update List: {{ rut.title}}</span>
   </div>
-  <form [formGroup]="createForm" (ngSubmit)="onCreate()" class="create-form">
+  <form [formGroup]="rutForm" (ngSubmit)="onUpdate()" class="rut-form">
     <mat-form-field class="full-width">
       <textarea matInput #t maxlength="255" cdkTextareaAutosize placeholder="Title"
                 required formControlName="title">
@@ -28,6 +27,7 @@
     <mat-form-field class="full-width">
       <input matInput #a maxlength="32" placeholder="Introduction or Credential (Optional)" formControlName="credential" />
     </mat-form-field>
-    <button mat-raised-button class="full-width" color="primary">Post</button>
+    <button mat-raised-button class="full-width" color="primary">Update</button>
   </form>
 </div>
+
