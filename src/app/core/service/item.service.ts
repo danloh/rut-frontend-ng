@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { ItemRes, ItemListRes, CollectsRes } from '../model';
+import { NewItem, ItemRes, ItemListRes, CollectsRes } from '../model';
 
 @Injectable()
 export class ItemService {
@@ -25,5 +25,10 @@ export class ItemService {
   get_collects(per: string, id: string): Observable<CollectsRes> {
     return this.apiService.get('/collects/' + per + '/' + id )
       .pipe(map(data => data));
+  }
+
+  submit(item: NewItem): Observable<ItemRes> {
+    return this.apiService.post('/items', item)
+    .pipe(map(data => data));
   }
 }

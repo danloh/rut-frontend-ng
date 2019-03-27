@@ -45,10 +45,9 @@ export class NewRutComponent implements OnInit {
     const rutdata = Object.assign(rut, {
       uname: this.uname,
       credential: ".."
-    })
-    console.log(rutdata);
+    });
 
-    let either_url_ctn = Boolean(rut.url.trim()) || Boolean(rut.content.trim());
+    let either_url_ctn = Boolean(rut.content.trim()) || Boolean(rut.url.trim());
 
     if (this.createForm.invalid || !either_url_ctn || !this.canCreate ) {
       alert("Invalid Input");

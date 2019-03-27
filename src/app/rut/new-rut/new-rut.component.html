@@ -1,6 +1,6 @@
 <div class="create-page">
   <div class="title">
-    <span>Create: </span>
+    <span>New Post: </span>
     <small style="color:green;font-size:0.8em;">collection of books, courses, etc.</small> 
   </div>
   <form [formGroup]="createForm" (ngSubmit)="onCreate()" class="create-form">
@@ -24,8 +24,7 @@
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput #a maxlength="32" placeholder="Origin Author" formControlName="author_id" />
-      <mat-hint align="end">{{a.value?.length || 0}}/32</mat-hint>
     </mat-form-field><br>
-    <button mat-raised-button class="full-width" color="primary">Create</button>
+    <button mat-raised-button class="full-width" color="primary">Post</button>
   </form>
 </div>

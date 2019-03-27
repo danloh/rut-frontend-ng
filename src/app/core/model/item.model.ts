@@ -18,6 +18,19 @@ export interface Item {
   vote: number;   
 }
 
+export interface NewItem {
+  title: string;
+  uiid: string;
+  authors: string;
+  pub_at: string;
+  publisher: string;
+  category: string;
+  url: string;
+  cover: string;
+  edition: string;
+  detail: string;
+}
+
 export interface ItemRes {
   status: number;
   msg: string;
