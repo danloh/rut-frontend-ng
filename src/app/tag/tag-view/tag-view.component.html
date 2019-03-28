@@ -5,17 +5,45 @@
       <a [routerLink]="'/tag/' + tag">{{ tag }}</a>
     </div>
   </div>
-  <div class="tagmeta">
+  <div class="tagmeta" *ngIf="!toEdit">
     <h4>
       <b style="font-size:1.6em">{{ tname }}</b>
+      <button mat-mini-button *ngIf="canUpdate" (click)="onToEdit()">Edit</button>
     </h4>
     <div>
-      <div [innerHTML]="detailIntro || '...'"></div>
+      <div [innerHTML]="tag.intro || '...'"></div>
     </div>
     <div class="fobtn">
+      <button mat-raised-button>Follow</button>
       <img *ngIf="logo" class="taglogo"
            [src]="logo" alt="Logo" referrerPolicy="no-referrer">
     </div>
+  </div>
+  <div class="edit-tag" *ngIf="toEdit">
+    <button mat-button class="full-width" color="primary" (click)="onShowEdit()">Cancel Edit</button>
+    <form [formGroup]="tagForm" (ngSubmit)="onUpdate()" class="tag-form">
+      <mat-form-field class="full-width">
+        <input matInput #t maxlength="42" placeholder="Tag Name" formControlName="tname" />
+        <mat-hint align="end">{{t.value?.length || 0}}/42</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput #url maxlength="255" cdkTextareaAutosize 
+                  placeholder="Tag Logo Image URL" formControlName="logo">
+        </textarea>
+        <mat-hint align="end">{{url.value?.length || 0}}/255</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput #p maxlength="42" placeholder="Parent Tag" formControlName="pname" />
+        <mat-hint align="end">{{p.value?.length || 0}}</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput #d maxlength="512" cdkTextareaAutosize cdkAutosizeMinRows="3" 
+                  placeholder="Tag Description" formControlName="intro">
+        </textarea>
+        <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
+      </mat-form-field><br>
+      <button mat-button class="full-width" color="primary">Update</button>
+    </form>
   </div>
   <div class="tag-view">
     <app-rut-list [per]="'tag'" [perid]="tname" [action]="'0'"></app-rut-list>

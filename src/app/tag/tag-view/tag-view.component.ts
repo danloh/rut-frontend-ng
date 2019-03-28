@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Title } from '@angular/platform-browser';
-import { Tag, TagRes } from '../../core';
+import { Tag, TagRes, TagService, AuthService } from '../../core';
 
 @Component({
   selector: 'app-tag-view',
@@ -10,14 +12,20 @@ import { Tag, TagRes } from '../../core';
 })
 export class TagViewComponent implements OnInit {
 
-  constructor( 
-    private route: ActivatedRoute,
-    private title: Title
-  ) {}
-
+  canUpdate: Boolean;
+  tagForm: FormGroup;
   tag: Tag;
   tname: string;
   relatedTags: Tag[];
+  toEdit: Boolean = false;
+
+  constructor( 
+    private route: ActivatedRoute,
+    private title: Title,
+    private formBuild: FormBuilder,
+    private authService: AuthService,
+    private tagService: TagService,
+  ) {}
 
   ngOnInit() {
     // Retreive the prefetched data
@@ -27,6 +35,42 @@ export class TagViewComponent implements OnInit {
       this.relatedTags = []; // to do
     });
     this.title.setTitle('RutHub - #' + this.tag.tname);
+    
+    this.authService.checkAuth();
+    this.authService.isAuthed.subscribe(auth => this.canUpdate = auth);
+  }
+
+  onShowEdit() {
+    this.toEdit = !this.toEdit;
+  }
+
+  onToEdit () {
+    this.onShowEdit();
+    this.tagForm = this.formBuild.group(
+      { 'tname': [this.tag.tname, Validators.required],
+        'logo': [this.tag.logo || ''],
+        'pname': [''],
+        'intro': [this.tag.intro || ''],
+      }
+    );
+  }
+
+  onUpdate() {
+    const tag_up = this.tagForm.value;
+
+    if (this.tagForm.invalid || !this.canUpdate ) {
+      alert("Invalid Input");
+      return
+    }
+    this.tagService.update(tag_up, this.tag.tname)
+    .subscribe(
+      res => {
+        this.tag = res.tag;
+        this.toEdit = false;
+        this.tagForm.reset();
+      },
+      err => console.log(err)
+    );
   }
 
 }

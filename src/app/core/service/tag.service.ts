@@ -21,4 +21,9 @@ export class TagService {
     return this.apiService.get('/tags/' + per + '/' + id)
       .pipe(map(data => data));
   }
+
+  update(tag: any, tname: string): Observable<TagRes> {
+    return this.apiService.put('/tags/' + tname, tag)
+    .pipe(map(data => data));
+  }
 }
