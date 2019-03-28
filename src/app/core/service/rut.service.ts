@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { RutRes, RutListRes, NewRut, UpdateRut } from '../model';
+import { 
+  RutRes, RutListRes, NewRut, UpdateRut, NewCollect, CollectsRes 
+} from '../model';
 
 @Injectable()
 export class RutService {
@@ -30,6 +32,11 @@ export class RutService {
 
   update(rut: UpdateRut, rutid: string): Observable<RutRes> {
     return this.apiService.post('/ruts/' + rutid, rut)
+    .pipe(map(data => data));
+  }
+
+  collect(rutid: string, item: NewCollect): Observable<CollectsRes> {
+    return this.apiService.post('/collectitem/' + rutid, item)
     .pipe(map(data => data));
   }
 

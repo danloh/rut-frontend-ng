@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Title } from '@angular/platform-browser';
 import { Tag, TagRes, TagService, AuthService } from '../../core';
@@ -47,9 +47,9 @@ export class TagViewComponent implements OnInit {
   onToEdit () {
     this.onShowEdit();
     this.tagForm = this.formBuild.group(
-      { 'tname': [this.tag.tname, Validators.required],
+      { 'tname': [this.tag.tname],
         'logo': [this.tag.logo || ''],
-        'pname': [''],
+        'pname': [this.tag.pname || ''],
         'intro': [this.tag.intro || ''],
       }
     );

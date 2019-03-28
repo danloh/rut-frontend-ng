@@ -54,6 +54,14 @@ export interface Collect {
   collect_at: string;
 }
 
+export interface NewCollect {
+  rut_id: string;
+  item_id: string;
+  item_order: number;
+  content: string;
+  uname: string;
+}
+
 export interface CollectsRes {
   status: number;
   msg: string;

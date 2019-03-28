@@ -14,18 +14,15 @@
       <div [innerHTML]="tag.intro || '...'"></div>
     </div>
     <div class="fobtn">
-      <button mat-raised-button>Follow</button>
-      <img *ngIf="logo" class="taglogo"
-           [src]="logo" alt="Logo" referrerPolicy="no-referrer">
+      <button mat-button>Follow</button><br>
+      <img *ngIf="tag.logo" class="taglogo"
+           [src]="tag.logo" alt="Logo" referrerPolicy="no-referrer">
     </div>
   </div>
   <div class="edit-tag" *ngIf="toEdit">
     <button mat-button class="full-width" color="primary" (click)="onShowEdit()">Cancel Edit</button>
     <form [formGroup]="tagForm" (ngSubmit)="onUpdate()" class="tag-form">
-      <mat-form-field class="full-width">
-        <input matInput #t maxlength="42" placeholder="Tag Name" formControlName="tname" />
-        <mat-hint align="end">{{t.value?.length || 0}}/42</mat-hint>
-      </mat-form-field>
+      <b>{{ tag.tname }} : </b><br>
       <mat-form-field class="full-width">
         <textarea matInput #url maxlength="255" cdkTextareaAutosize 
                   placeholder="Tag Logo Image URL" formControlName="logo">

@@ -1,0 +1,11 @@
+.add-page {
+  position: relative;
+}
+.add-form {
+  padding: 20px;
+  border: 1px dotted #689f38;
+  margin-bottom: 10px;
+}
+.title {
+  margin-bottom: 10px;
+}

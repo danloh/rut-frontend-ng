@@ -16,7 +16,7 @@
           <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
         </ng-template>
         | <span> {{ rut.renew_at | date }}</span>
-        | including {{ rut.item_count | plur:"item" }} 
+        | including {{ itemCount | plur:"item" }} 
         <a [routerLink]="'/update/r/' + rutID" *ngIf="canEdit">
           <b> | Edit...</b>
         </a>
@@ -28,6 +28,14 @@
                  [collect]="c" 
                  [item]="itemIDs.get(c.item_id)">
     </app-collect>
+  </div>
+  <div class="toolbar">
+    <button mat-button color="primary" (click)="onShowAdd()" *ngIf="canEdit">
+      {{ addLabel }}
+    </button>
+  </div>
+  <div class="add-item" *ngIf="showAdd">
+    <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"></app-add-item>
   </div>
   <div class="rut-side">
     <div class="credential">

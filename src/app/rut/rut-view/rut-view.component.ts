@@ -23,11 +23,14 @@ export class RutViewComponent implements OnInit {
   rutID: string;
   rut: Rut;
   rutUrl: string;
+  itemCount: number;
   itemIDs: any;  // map
   collects: Collect[];
   tags: string[];
   canEdit: Boolean;
-  uname: string;
+  uname: string;   // act user
+  showAdd: Boolean = false;
+  addLabel: string = 'Add Item';
 
   ngOnInit() {
     // Retreive the prefetched data
@@ -35,6 +38,7 @@ export class RutViewComponent implements OnInit {
       this.rut = data.res.rut;
       this.rutID = this.rut.id;
       this.rutUrl = this.rut.url;
+      this.itemCount = this.rut.item_count;
 
       // Load tags, collects for this rut
       this.getCollects();
@@ -68,5 +72,10 @@ export class RutViewComponent implements OnInit {
   getTags() {
     this.tagService.get_list('rut', this.rutID)
     .subscribe(res => this.tags = res.tags)
+  }
+
+  onShowAdd() {
+    this.showAdd = !this.showAdd;
+    this.addLabel = this.showAdd ? 'Cancel Add Item' : 'Add Item';
   }
 }
