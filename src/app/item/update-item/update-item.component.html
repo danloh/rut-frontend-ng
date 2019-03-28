@@ -1,9 +1,8 @@
-<div class="submit-page">
+<div class="update-page">
   <div class="title">
-    <span>Submit A New Item </span>
-    <small style="color:green;font-size:0.8em;">books, courses, etc.</small> 
+    <span>Update Item: {{ item.title}}</span>
   </div>
-  <form [formGroup]="submitForm" (ngSubmit)="onSubmit()" class="submit-form">
+  <form [formGroup]="itemForm" (ngSubmit)="onUpdate()" class="update-form">
     <mat-form-field class="full-width">
       <textarea matInput #t maxlength="255" cdkTextareaAutosize placeholder="Title"
                 required formControlName="title">
@@ -56,6 +55,6 @@
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
     </mat-form-field><br>
-    <button mat-raised-button class="full-width" color="primary">Submit</button>
+    <button mat-raised-button class="full-width" color="primary">Update</button>
   </form>
 </div>

@@ -10,6 +10,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { WrapItemListComponent } from './item-list/wrap-item-list.component';
 import { ItemMinComponent } from './item-min/item-min.component';
 import { NewItemComponent } from './new-item/new-item.component';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewItemComponent } from './new-item/new-item.component';
     ItemListComponent, 
     ItemMinComponent,
     WrapItemListComponent,
-    NewItemComponent
+    NewItemComponent,
+    UpdateItemComponent
   ],
   imports: [
     CommonModule,

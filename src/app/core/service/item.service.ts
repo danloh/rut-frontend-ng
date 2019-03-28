@@ -31,4 +31,9 @@ export class ItemService {
     return this.apiService.post('/items', item)
     .pipe(map(data => data));
   }
+
+  update(item: any, itemid: string): Observable<ItemRes> {
+    return this.apiService.post('/items/' + itemid, item)
+    .pipe(map(data => data));
+  }
 }
