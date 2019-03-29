@@ -2,16 +2,20 @@
 
 import { Injectable } from '@angular/core';
 //import { HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
 import { 
-  RutRes, RutListRes, NewRut, UpdateRut, NewCollect, CollectsRes 
+  RutRes, RutListRes, NewRut, UpdateRut, NewCollect, CollectsRes, Collect
 } from '../model';
 
 @Injectable()
 export class RutService {
+
+  private collectSubject = new BehaviorSubject<Collect>({} as Collect);
+  public addCollect = this.collectSubject.asObservable()
+
   constructor (private apiService: ApiService) {}
 
   get(id: string): Observable<RutRes> {
@@ -37,7 +41,11 @@ export class RutService {
 
   collect(rutid: string, item: NewCollect): Observable<CollectsRes> {
     return this.apiService.post('/collectitem/' + rutid, item)
-    .pipe(map(data => data));
+    .pipe(map(data => {
+        this.collectSubject.next(data.collect)
+        return data;
+      }
+    ));
   }
 
 }

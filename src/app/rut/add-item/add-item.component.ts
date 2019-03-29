@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ItemService, RutService, Item, Rut, ItemListRes } from '../../core';
@@ -13,6 +13,7 @@ export class AddItemComponent implements OnInit {
   @Input() rutID: string;
   @Input() itemnum: number;
   @Input() uname: string;
+  @Output() added = new EventEmitter<boolean>();
   items: Item[];  // items by search
   addForm: FormGroup;
 
@@ -52,7 +53,9 @@ export class AddItemComponent implements OnInit {
     }
     this.rutService.collect(this.rutID, cdata)
     .subscribe(
-      res => {},   // pass res up, to parent rut view
+      res => {
+        this.added.emit(true);
+      },   // pass res up, to parent rut view
       err => console.log(err)
     );
   }

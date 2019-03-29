@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { 
-  Rut, RutRes, Collect, AuthService, TagService, ItemService 
+  Rut, RutRes, Collect, AuthService, RutService, TagService, ItemService 
 } from '../../core';
 
 @Component({
@@ -17,7 +17,8 @@ export class RutViewComponent implements OnInit {
     private title: Title,
     private authService: AuthService,
     private itemService: ItemService,
-    private tagService: TagService
+    private tagService: TagService,
+    private rutService: RutService
   ) {}
 
   rutID: string;
@@ -77,5 +78,12 @@ export class RutViewComponent implements OnInit {
   onShowAdd() {
     this.showAdd = !this.showAdd;
     this.addLabel = this.showAdd ? 'Cancel Add Item' : 'Add Item';
+  }
+  
+  onAdded() {
+    //this.rutService.addCollect.subscribe(c => this.collects.push(c));
+    this.getCollects();
+    this.getItems();
+    this.onShowAdd();
   }
 }

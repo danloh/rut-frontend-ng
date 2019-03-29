@@ -35,7 +35,9 @@
     </button>
   </div>
   <div class="add-item" *ngIf="showAdd">
-    <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"></app-add-item>
+    <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"
+                  (added)="onAdded()">
+    </app-add-item>
   </div>
   <div class="rut-side">
     <div class="credential">
