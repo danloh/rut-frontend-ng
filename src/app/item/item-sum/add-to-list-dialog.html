@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add Item to one of Post Lists</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width">
+    <mat-label>Select A List</mat-label>
+    <mat-select [(ngModel)]="data.rut_id">
+      <mat-option *ngFor="let rut of data.ruts" [value]="rut.id">
+        {{rut.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
+              placeholder="Compose..." [(ngModel)]="data.content">
+    </textarea>
+    <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

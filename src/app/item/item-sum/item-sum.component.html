@@ -28,4 +28,13 @@
       </tr>
     </table>
   </div>
+  <div class="operate">
+    <button mat-button [matMenuTriggerFor]="option">Option</button>
+    <mat-menu #option="matMenu">
+      <button mat-menu-item (click)="toAddDialog()">Add To List</button>
+      <button mat-menu-item>Todo</button>
+      <button mat-menu-item>Doing</button>
+      <button mat-menu-item>Done</button>
+    </mat-menu>
+  </div>
 </div>

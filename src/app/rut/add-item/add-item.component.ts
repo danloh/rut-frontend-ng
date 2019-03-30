@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
 import { ItemService, RutService, Item, Rut, ItemListRes } from '../../core';
 
 @Component({
@@ -34,9 +33,7 @@ export class AddItemComponent implements OnInit {
 
   searchItems() {
     this.itemService.get_list('user', this.uname, 'done', 1)
-    .subscribe(
-      res => this.items= res.items
-    )
+      .subscribe(res => this.items= res.items)
   }
 
   onAdd() {
