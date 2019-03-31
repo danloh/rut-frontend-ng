@@ -1,5 +1,5 @@
 <div class="auth-page">
-  <form [formGroup]="regForm" (ngSubmit)="onSubmit()" class="auth-form">
+  <form [formGroup]="regForm" (ngSubmit)="onReg()" class="auth-form">
     <h3 class="title">Welcome to Join</h3>
     <mat-form-field class="full-width">
       <input matInput #input maxlength="16" placeholder="Username" required formControlName="uname" />
@@ -13,7 +13,7 @@
       <input matInput placeholder="Confirm" required type="password" autocomplete="off" formControlName="confirm" />
       <!-- <mat-hint>Not Match</mat-hint> -->
     </mat-form-field>
-    <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid" *ngIf="!isSubmitting">Submit</button>
+    <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid">Register</button>
     <a routerLink="/signin"><small>  Have an account?</small></a>
   </form>
 </div>

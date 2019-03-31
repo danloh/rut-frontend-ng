@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
 import { 
-  RutRes, RutListRes, NewRut, UpdateRut, NewCollect, CollectsRes, Collect
+  RutRes, MsgRes, RutListRes, NewRut, UpdateRut, TagRut, NewCollect, CollectRes, Collect
 } from '../model';
 
 @Injectable()
@@ -39,13 +39,28 @@ export class RutService {
     .pipe(map(data => data));
   }
 
-  collect(rutid: string, item: NewCollect): Observable<CollectsRes> {
+  collect(rutid: string, item: NewCollect): Observable<CollectRes> {
     return this.apiService.post('/collectitem/' + rutid, item)
     .pipe(map(data => {
         this.collectSubject.next(data.collect)
         return data;
       }
     ));
+  }
+
+  star(rutid: string, action: number = 0, note: string = 'Love'): Observable<MsgRes> {
+    return this.apiService.get(`/starrut/${rutid}/${action}/${note}`)
+    .pipe(map(data => data));
+  }
+
+  checkStar(rutid: string): Observable<MsgRes> {
+    return this.apiService.get(`/ifstarrut/${rutid}`)
+    .pipe(map(data => data));
+  }
+
+  tagRut(act: string, rutid: string, tag: TagRut): Observable<MsgRes> {
+    return this.apiService.post(`/tagr/${act}/${rutid}`, tag)
+    .pipe(map(data => data));
   }
 
 }

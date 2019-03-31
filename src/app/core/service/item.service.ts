@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { NewItem, ItemRes, ItemListRes, CollectsRes, StarRes } from '../model';
+import { 
+  NewItem, MsgRes, ItemRes, ItemListRes, CollectsRes, CollectRes, 
+  UpdateCollect, StarRes 
+} from '../model';
 
 @Injectable()
 export class ItemService {
@@ -45,6 +48,16 @@ export class ItemService {
 
   checkStar(itemid: string): Observable<StarRes> {
     return this.apiService.get(`/itemflag/${itemid}`)
+    .pipe(map(data => data));
+  }
+
+  updateCollect(cid: string, cData: UpdateCollect): Observable<CollectRes> {
+    return this.apiService.put(`/collects/${cid}`, cData)
+    .pipe(map(data => data));
+  }
+
+  delCollect(cid: string): Observable<MsgRes> {
+    return this.apiService.delete(`/collects/${cid}`)
     .pipe(map(data => data));
   }
 }

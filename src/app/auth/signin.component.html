@@ -1,5 +1,5 @@
 <div class="auth-page">
-  <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-form">
+  <form [formGroup]="authForm" (ngSubmit)="onLogin()" class="auth-form">
     <h3 class="title">Please Log in</h3>
     <mat-form-field class="full-width" >
       <input matInput placeholder="Username" required formControlName="uname" />
@@ -7,7 +7,7 @@
     <mat-form-field class="full-width">
       <input matInput placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
     </mat-form-field>
-    <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid" *ngIf="!isSubmitting">Submit</button>
+    <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid">Log In</button>
     <a routerLink="/signup"><small>  No Account?</small></a>
   </form>
 </div>

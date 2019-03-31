@@ -14,7 +14,6 @@ import { regName } from '../shared';
 })
 export class RegComponent implements OnInit {
   title: string = 'Register';
-  isSubmitting = false;
   regForm: FormGroup;
 
   constructor(
@@ -42,7 +41,7 @@ export class RegComponent implements OnInit {
     );
   }
 
-  onSubmit() {
+  onReg() {
     const authdata = this.regForm.value;
     const notMatch = authdata.password !== authdata.confirm;
     // custom validation vs  effect on status of form

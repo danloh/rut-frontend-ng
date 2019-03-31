@@ -13,6 +13,12 @@ export interface Tag {
   vote: number;
 }
 
+export interface TagRut {
+  tnames: string[];
+  rut_id: string;
+  action: string;
+}
+
 export interface TagRes {
   status: number;
   message: string;

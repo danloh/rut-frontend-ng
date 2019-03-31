@@ -32,6 +32,9 @@ export class RutViewComponent implements OnInit {
   uname: string;   // act user
   showAdd: Boolean = false;
   addLabel: string = 'Add Item';
+  starStatus: string = 'Star';
+  showAddTag: boolean = false;
+  newTag: string = '';
 
   ngOnInit() {
     // Retreive the prefetched data
@@ -50,8 +53,10 @@ export class RutViewComponent implements OnInit {
 
     this.authService.checkAuth();
     this.authService.actUser.subscribe(user => this.uname = user.uname);
-    this.authService.isAuthed.subscribe(auth => 
-      this.canEdit = auth && this.uname === this.rut.uname
+    this.authService.isAuthed.subscribe(auth => {
+      this.canEdit = auth && this.uname === this.rut.uname;
+      this.checkStar();
+    }
     );
   }
 
@@ -85,5 +90,56 @@ export class RutViewComponent implements OnInit {
     this.getCollects();
     this.getItems();
     this.onShowAdd();
+  }
+
+  checkStar() {
+    this.rutService.checkStar(this.rutID).subscribe(
+      res => this.starStatus = res.message === 'star' ? 'unStar' : 'Star'
+    );
+  }
+
+  onStarOrUnstar() {
+    if (!this.canEdit) return;
+    const action = this.starStatus === 'Star' ? 1 : 0;
+    this.rutService.star(this.rutID, action).subscribe(
+      res => { 
+        res.message === 'star' ? 'unStar' : 'Star';
+        this.checkStar();
+      }
+    );
+  }
+
+  toAddTag() {
+    this.showAddTag = !this.showAddTag;
+  }
+
+  addOrDelTag(tag?: string) {
+    let to_tag = tag || this.newTag;
+    let len = to_tag.length;
+    if (len <= 1 || len > 42) return;
+    let act: string;
+    if (tag) {
+      act = '0';
+      let cf = confirm('Are You Sure to Delete this Tag?');
+      if (!cf) return;
+    } else {
+      act = '1'
+    }
+    let tagData = {
+      tnames: [to_tag],
+      rut_id: this.rutID,
+      action: act,
+    };
+    
+    this.rutService.tagRut(act, this.rutID, tagData).subscribe(
+      () => {
+        this.showAddTag = false;
+        if (act === '1') {
+          this.tags.push(to_tag);
+        } else if (act === '0') {
+          this.tags.splice(this.tags.indexOf(to_tag), 1);
+        }
+      }
+    );
   }
 }

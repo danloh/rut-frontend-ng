@@ -9,5 +9,19 @@
       <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
     </span>
   </div>
-  <div class="content" [innerHTML]="collect.content | md"></div>
+  <div class="content" [innerHTML]="collectContent | md" *ngIf="!showEdit"></div>
+  <div *ngIf="canEdit">
+    <button mat-button class="hiden-edit" color="primary" (click)="onShowEdit()">Edit</button>
+    <button mat-button class="hiden-edit" color="primary" (click)="onDel()">Delete</button>
+    <div class="edit-tag" *ngIf="canEdit && showEdit">
+      <mat-form-field class="full-width" *ngIf="showEdit">
+        <button mat-button class="full-width" color="primary" (click)="onShowEdit()">{{ editLable }}</button>
+        <textarea matInput #c cdkTextareaAutosize cdkAutosizeMinRows="5"
+                  placeholder="Edit..." [(ngModel)]="collectContent">
+        </textarea>
+        <mat-hint align="end">{{c.value?.length || 0}}</mat-hint>
+      </mat-form-field><br>
+      <button mat-button class="full-width" color="primary" (click)="onUpdate()">Update</button>
+    </div>
+  </div>
 </div>

@@ -18,3 +18,11 @@
   top: 0px;
   right: 0px;
 }
+.hiden-edit {
+  cursor: pointer;
+  color: transparent;
+}
+.hiden-edit:hover {
+  color: orangered;
+  font-size: 10px;
+}

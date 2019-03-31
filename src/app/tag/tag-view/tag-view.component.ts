@@ -17,7 +17,8 @@ export class TagViewComponent implements OnInit {
   tag: Tag;
   tname: string;
   relatedTags: Tag[];
-  toEdit: Boolean = false;
+  toEdit: boolean = false;
+  followStatus: string = 'Follow';
 
   constructor( 
     private route: ActivatedRoute,
@@ -37,7 +38,10 @@ export class TagViewComponent implements OnInit {
     this.title.setTitle('RutHub - #' + this.tag.tname);
     
     this.authService.checkAuth();
-    this.authService.isAuthed.subscribe(auth => this.canUpdate = auth);
+    this.authService.isAuthed.subscribe(auth => {
+      this.canUpdate = auth;
+      if (auth) { this.checkFollow();}
+    });
   }
 
   onShowEdit() {
@@ -70,6 +74,23 @@ export class TagViewComponent implements OnInit {
         this.tagForm.reset();
       },
       err => console.log(err)
+    );
+  }
+
+  checkFollow() {
+    this.tagService.checkFollow(this.tname).subscribe(
+      res => this.followStatus = res.message === 'star' ? 'unFollow' : 'Follow'
+    );
+  }
+
+  onFoOrUnFo() {
+    if (!this.canUpdate) return;
+    const action = this.followStatus === 'Follow' ? 1 : 0;
+    this.tagService.follow(this.tname, action).subscribe(
+      res => { 
+        res.message === 'star' ? 'unFollow' : 'Follow';
+        this.checkFollow();
+      }
     );
   }
 

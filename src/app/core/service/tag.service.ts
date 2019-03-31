@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { TagRes, TagListRes } from '../model';
+import { TagRes, TagListRes, MsgRes } from '../model';
 
 
 @Injectable()
@@ -24,6 +24,16 @@ export class TagService {
 
   update(tag: any, tname: string): Observable<TagRes> {
     return this.apiService.put('/tags/' + tname, tag)
+    .pipe(map(data => data));
+  }
+
+  follow(tname: string, action: number = 0, note: string = 'Love'): Observable<MsgRes> {
+    return this.apiService.get(`/startag/${tname}/${action}/${note}`)
+    .pipe(map(data => data));
+  }
+
+  checkFollow(tname: string): Observable<MsgRes> {
+    return this.apiService.get(`/ifstartag/${tname}`)
     .pipe(map(data => data));
   }
 }

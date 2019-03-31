@@ -45,7 +45,7 @@ export interface ItemListRes {
 }
 
 export interface Collect {
-  cid: string;
+  id: string;
   rut_id: string;
   item_id: string;
   item_order: number;
@@ -62,10 +62,22 @@ export interface NewCollect {
   uname: string;
 }
 
+export interface UpdateCollect {
+  id: string;
+  content: string;
+  uname: string;
+}
+
 export interface CollectsRes {
   status: number;
   message: string;
   collects: Collect[];
+}
+
+export interface CollectRes {
+  status: number;
+  message: string;
+  collect: Collect;
 }
 
 export interface StarRes {

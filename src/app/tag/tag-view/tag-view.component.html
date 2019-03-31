@@ -14,7 +14,7 @@
       <div [innerHTML]="tag.intro || '...'"></div>
     </div>
     <div class="fobtn">
-      <button mat-button>Follow</button><br>
+      <button mat-button (click)="onFoOrUnFo()">{{ followStatus }}</button><br>
       <img *ngIf="tag.logo" class="taglogo"
            [src]="tag.logo" alt="Logo" referrerPolicy="no-referrer">
     </div>

@@ -1,9 +1,16 @@
 <div class="rut-page" v-if="rut">
   <div class="rut-view">
     <div class="tagbar">
-      <!-- <button mat-button (click)="toAddTag">+Tag:</button> -->
+      <button mat-button (click)="toAddTag()">+Tag:</button>
+      <span *ngIf="showAddTag">
+        <mat-form-field>
+          <input matInput maxlength="42" [(ngModel)]="newTag"/>
+        </mat-form-field>
+        <button mat-button (click)="addOrDelTag()">Add</button>
+      </span>
       <span class="tag" *ngFor="let tag of tags">
-        <a [routerLink]="'/tag/' + tag"><b>{{tag}}</b></a>
+        <a [routerLink]="'/tag/' + tag"><b>{{ tag }}</b></a>
+        <sup class="hiden-del-tag" (click)="addOrDelTag(tag)">x</sup>
       </span>
     </div>
     <div class="title">
@@ -26,12 +33,17 @@
     <app-collect class="item"
                  *ngFor="let c of collects" 
                  [collect]="c" 
-                 [item]="itemIDs.get(c.item_id)">
+                 [item]="itemIDs.get(c.item_id)"
+                 [uname]="uname"
+                 [canEdit]="canEdit">
     </app-collect>
   </div>
   <div class="toolbar">
     <button mat-button color="primary" (click)="onShowAdd()" *ngIf="canEdit">
       {{ addLabel }}
+    </button>
+    <button mat-button color="primary" (click)="onStarOrUnstar()" *ngIf="canEdit">
+      {{ starStatus }}
     </button>
   </div>
   <div class="add-item" *ngIf="showAdd">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../core';
 
@@ -10,11 +11,11 @@ import { AuthService } from '../core';
 })
 export class SigninComponent implements OnInit {
   title: string = 'Sign In';
-  isSubmitting = false;
   authForm: FormGroup;
 
   constructor(
     private authService: AuthService,
+    private router: Router,
     private formBuild: FormBuilder
   ) {
     // use FormBuilder to create a form group
@@ -26,14 +27,12 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {
-    this.isSubmitting = true;
-
+  onLogin() {
     const authdata = this.authForm.value;
     this.authService.signIn(authdata)
     .subscribe(
-      data => console.log(data),
-      err => this.isSubmitting = false
+      data => this.router.navigateByUrl('/'),
+      err => console.log(err)
     );
   }
 }
