@@ -37,13 +37,13 @@ export interface UpdateRut {
 
 export interface RutRes {
   status: number;
-  msg: string;
+  message: string;
   rut: Rut;
 }
 
 export interface RutListRes {
   status: number;
-  msg: string;
+  message: string;
   ruts: Rut[];
   count: number;
 }

@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <mat-form-field class="full-width">
     <mat-label>Select A List</mat-label>
-    <mat-select [(ngModel)]="data.rut_id">
+    <mat-select [(ngModel)]="data.selectedRutID">
       <mat-option *ngFor="let rut of data.ruts" [value]="rut.id">
         {{rut.title}}
       </mat-option>
@@ -16,6 +16,5 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
 </div>

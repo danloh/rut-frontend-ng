@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { NewItem, ItemRes, ItemListRes, CollectsRes } from '../model';
+import { NewItem, ItemRes, ItemListRes, CollectsRes, StarRes } from '../model';
 
 @Injectable()
 export class ItemService {
@@ -35,6 +35,16 @@ export class ItemService {
 
   update(item: any, itemid: string): Observable<ItemRes> {
     return this.apiService.post('/items/' + itemid, item)
+    .pipe(map(data => data));
+  }
+
+  star(itemid: string, flag: string, rate: number, note: string): Observable<StarRes> {
+    return this.apiService.get(`/staritem/${itemid}/${flag}/${rate}/${note}`)
+    .pipe(map(data => data));
+  }
+
+  checkStar(itemid: string): Observable<StarRes> {
+    return this.apiService.get(`/itemflag/${itemid}`)
     .pipe(map(data => data));
   }
 }

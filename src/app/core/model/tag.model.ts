@@ -15,13 +15,13 @@ export interface Tag {
 
 export interface TagRes {
   status: number;
-  msg: string;
+  message: string;
   tag: Tag;
 }
 
 export interface TagListRes {
   status: number;
-  msg: string;
+  message: string;
   tags: string[];
   count: number;
 }

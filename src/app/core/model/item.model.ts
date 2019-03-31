@@ -33,13 +33,13 @@ export interface NewItem {
 
 export interface ItemRes {
   status: number;
-  msg: string;
+  message: string;
   item: Item;
 }
 
 export interface ItemListRes {
   status: number;
-  msg: string;
+  message: string;
   items: Item[];
   count: number;
 }
@@ -64,6 +64,13 @@ export interface NewCollect {
 
 export interface CollectsRes {
   status: number;
-  msg: string;
+  message: string;
   collects: Collect[];
+}
+
+export interface StarRes {
+  status: number;
+  message: string;
+  note: string;
+  when: string;
 }

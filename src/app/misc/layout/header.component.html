@@ -7,8 +7,12 @@
     </a>
     <div class="right-menu">
       <div *ngIf="ifAuthed; else login">
-        <a routerLink="/new">New</a>
-        <a [routerLink]="'/p/' + actUname">Profile</a>
+        <button mat-button [matMenuTriggerFor]="option">Menu</button>
+        <mat-menu #option="matMenu" class="drop-menu">
+          <a routerLink="/new"><small> New</small></a><br>
+          <a [routerLink]="'/p/' + actUname"><small> Profile</small></a>
+          <button mat-menu-item (click)="onLogOut()">Log Out</button>
+        </mat-menu>
       </div>
       <ng-template #login>
         <a routerLink="/signin">Log in</a>

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Flag Item</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width">
+    <input matInput maxlength="42" [(ngModel)]="data.note"
+           placeholder="Some Note: Optional, Max 42 words" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>As {{ data.flag}}</button>
+</div>

@@ -4,7 +4,7 @@ import { MaterialModule } from '../shared';
 import { ItemResolver } from './item-resolver.service';
 import { ItemRoutingModule } from './item-routing.module';
 import { ItemViewComponent } from './item-view/item-view.component';
-import { ItemSumComponent, AddToListDialog } from './item-sum/item-sum.component';
+import { ItemSumComponent, AddToListDialog, FlagItemDialog } from './item-sum/item-sum.component';
 import { RutModule } from '../rut/rut.module';
 import { ItemListComponent } from './item-list/item-list.component';
 import { WrapItemListComponent } from './item-list/wrap-item-list.component';
@@ -17,6 +17,7 @@ import { UpdateItemComponent } from './update-item/update-item.component';
     ItemViewComponent, 
     ItemSumComponent,
     AddToListDialog,
+    FlagItemDialog,
     ItemListComponent, 
     ItemMinComponent,
     WrapItemListComponent,
@@ -30,7 +31,8 @@ import { UpdateItemComponent } from './update-item/update-item.component';
     RutModule
   ],
   entryComponents: [
-    AddToListDialog
+    AddToListDialog,
+    FlagItemDialog
   ],
   providers: [
     ItemResolver

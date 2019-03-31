@@ -13,7 +13,7 @@ export interface User {
 
 export interface AuthUser {
   status: number;
-  msg: string;
+  message: string;
   token: string;
   exp: number;
   user: User;

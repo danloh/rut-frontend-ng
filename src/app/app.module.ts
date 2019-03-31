@@ -6,6 +6,7 @@ import { SharedModule } from './shared';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { FooterComponent, HeaderComponent } from './misc';
+import { MaterialModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     NoopAnimationsModule,
     SharedModule,
+    MaterialModule,
     CoreModule,
     HomeModule,
     AuthModule,

@@ -29,12 +29,12 @@
     </table>
   </div>
   <div class="operate">
-    <button mat-button [matMenuTriggerFor]="option">Option</button>
+    <button mat-button [matMenuTriggerFor]="option">{{ flagStatus }}</button>
     <mat-menu #option="matMenu">
       <button mat-menu-item (click)="toAddDialog()">Add To List</button>
-      <button mat-menu-item>Todo</button>
-      <button mat-menu-item>Doing</button>
-      <button mat-menu-item>Done</button>
+      <button mat-menu-item (click)="toFlagDialog('todo')">Todo</button>
+      <button mat-menu-item (click)="toFlagDialog('doing')">Doing</button>
+      <button mat-menu-item (click)="toFlagDialog('done')">Done</button>
     </mat-menu>
   </div>
 </div>
