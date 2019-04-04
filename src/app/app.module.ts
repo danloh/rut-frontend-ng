@@ -14,6 +14,10 @@ import { ItemModule } from './item/item.module';
 import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
 
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
+
 @NgModule({
   declarations: [
     AppComponent,

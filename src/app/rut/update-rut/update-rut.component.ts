@@ -27,13 +27,13 @@ export class UpdateRutComponent implements OnInit {
 
   ngOnInit() {
     this.authService.checkAuth();
-    this.authService.actUser.subscribe(user => this.uname = user.uname);
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
     
     this.route.data.subscribe((data: { res: RutRes }) => {
       let res = data.res;
       this.rut = res.rut;
       this.rutID = this.rut.id;
-      this.authService.isAuthed.subscribe(auth => 
+      this.authService.isAuthed$.subscribe(auth => 
         this.canUpdate = auth && res.status === 200 && this.uname === res.rut.uname
       );
     });

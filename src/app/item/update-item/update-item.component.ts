@@ -31,7 +31,7 @@ export class UpdateItemComponent implements OnInit {
       let res = data.res;
       this.item = res.item;
       this.itemID = this.item.id;
-      this.authService.isAuthed.subscribe(auth => 
+      this.authService.isAuthed$.subscribe(auth => 
         this.canUpdate = auth && res.status === 200
       );
     });

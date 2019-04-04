@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Base64 } from 'js-base64';
 import { ItemService, RutService, Item, Rut, ItemListRes } from '../../core';
+import { regUrl } from '../../shared';
 
 @Component({
   selector: 'app-add-item',
@@ -28,11 +30,20 @@ export class AddItemComponent implements OnInit {
         'content': [''],
       }
     );
-    this.searchItems();
+    this.loadDoneItems();
   }
 
-  searchItems() {
+  loadDoneItems() {
     this.itemService.get_list('user', this.uname, 'done', 1)
+      .subscribe(res => this.items= res.items)
+  }
+
+  onSearch(key: string){
+    console.log(key);
+    if ( key.length < 6) return;  // check the keyword length
+    let per = regUrl.test(key) ? 'url' : 'uiid';
+    let perid = per === 'url' ? Base64.encode(key) : key;
+    this.itemService.get_list(per, perid, 'done', 1)
       .subscribe(res => this.items= res.items)
   }
 

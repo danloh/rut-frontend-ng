@@ -12,10 +12,10 @@ import { User, Auth, AuthUser } from '../model';
 @Injectable()
 export class AuthService {
   private actUserSubject = new BehaviorSubject<User>({} as User);
-  public actUser = this.actUserSubject.asObservable().pipe(distinctUntilChanged());
+  public actUser$ = this.actUserSubject.asObservable().pipe(distinctUntilChanged());
 
   private isAuthedSubject = new ReplaySubject<boolean>(1);
-  public isAuthed = this.isAuthedSubject.asObservable();
+  public isAuthed$ = this.isAuthedSubject.asObservable();
 
   constructor (private apiService: ApiService) {}
 
@@ -98,6 +98,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): Observable<boolean> {
     this.authService.checkAuth();
-    return this.authService.isAuthed.pipe(take(1));
+    return this.authService.isAuthed$.pipe(take(1));
   }
 }

@@ -26,6 +26,8 @@ import {
   MatSnackBarModule
 } from '@angular/material';
 
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+
 
 const modules = [
   FormsModule,
@@ -40,7 +42,8 @@ const modules = [
   MatMenuModule,
   MatDialogModule,
   MatDividerModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  NgZorroAntdModule
 ];
 
 @NgModule({
@@ -50,6 +53,6 @@ const modules = [
   exports: [
     ...modules
   ],
-  providers: []
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
 })
 export class MaterialModule {}

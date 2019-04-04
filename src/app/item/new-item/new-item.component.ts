@@ -23,7 +23,7 @@ export class NewItemComponent implements OnInit {
 
   ngOnInit() {
     this.authService.checkAuth();
-    this.authService.isAuthed.subscribe(auth => this.canSubmit = auth);
+    this.authService.isAuthed$.subscribe(auth => this.canSubmit = auth);
     if (!this.canSubmit) {
       alert("No Permission")
       return

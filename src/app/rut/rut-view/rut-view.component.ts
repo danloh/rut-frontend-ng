@@ -52,8 +52,8 @@ export class RutViewComponent implements OnInit {
     this.title.setTitle('RutHub - ' + this.rut.title);
 
     this.authService.checkAuth();
-    this.authService.actUser.subscribe(user => this.uname = user.uname);
-    this.authService.isAuthed.subscribe(auth => {
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
+    this.authService.isAuthed$.subscribe(auth => {
       this.canEdit = auth && this.uname === this.rut.uname;
       this.checkStar();
     }

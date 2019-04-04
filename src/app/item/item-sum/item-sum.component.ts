@@ -32,8 +32,8 @@ export class ItemSumComponent implements OnInit {
   checkCan(): boolean {
     let can: boolean;
     this.authService.checkAuth();
-    this.authService.actUser.subscribe(user => this.uname = user.uname);
-    this.authService.isAuthed.subscribe(auth => can = auth);
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
+    this.authService.isAuthed$.subscribe(auth => can = auth);
     return can
   }
 

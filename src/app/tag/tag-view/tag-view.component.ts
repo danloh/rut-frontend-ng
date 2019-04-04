@@ -38,7 +38,7 @@ export class TagViewComponent implements OnInit {
     this.title.setTitle('RutHub - #' + this.tag.tname);
     
     this.authService.checkAuth();
-    this.authService.isAuthed.subscribe(auth => {
+    this.authService.isAuthed$.subscribe(auth => {
       this.canUpdate = auth;
       if (auth) { this.checkFollow();}
     });

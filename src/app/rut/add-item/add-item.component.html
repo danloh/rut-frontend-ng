@@ -5,14 +5,19 @@
   </div> -->
   <div>
     <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
-      <mat-form-field class="full-width">
-        <mat-label>Select A Item</mat-label>
-        <mat-select formControlName="item_id">
-          <mat-option *ngFor="let item of items" [value]="item.id">
-            {{item.title}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <!-- cannot call onEnter ?? -->
+      <nz-select #slct
+        class="full-width"
+        nzShowSearch nzServerSearch
+        (nzOnSearch)="onSearch($event)"
+        nzAllowClear
+        nzPlaceHolder="Select an Item"
+        formControlName="item_id">
+        <nz-option *ngFor="let item of items" 
+                   [nzLabel]="item.title" 
+                   [nzValue]="item.id">
+        </nz-option>
+      </nz-select>
       <mat-form-field class="full-width">
         <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
                   placeholder="Compose..." formControlName="content">
