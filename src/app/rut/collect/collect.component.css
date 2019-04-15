@@ -1,3 +1,6 @@
+.collect-sum {
+  padding: 5px;
+}
 .item-info {
   padding-right: 40px;
   position: relative;
@@ -15,7 +18,7 @@
   position: absolute;
   max-width: 40px;
   max-height: 40px;
-  top: 0px;
+  top: 2px;
   right: 0px;
 }
 .hiden-edit {
@@ -24,5 +27,8 @@
 }
 .hiden-edit:hover {
   color: orangered;
-  font-size: 10px;
+}
+.edit-box {
+  padding: 10px;
+  border: 1px dotted #689f38;
 }

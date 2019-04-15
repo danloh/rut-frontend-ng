@@ -7,12 +7,20 @@
     </a>
     <div class="right-menu">
       <div *ngIf="ifAuthed; else login">
-        <button mat-button [matMenuTriggerFor]="option">Menu</button>
-        <mat-menu #option="matMenu" class="drop-menu">
-          <a routerLink="/new"><small> New</small></a><br>
-          <a [routerLink]="'/p/' + actUname"><small> Profile</small></a>
-          <button mat-menu-item (click)="onLogOut()">Log Out</button>
-        </mat-menu>
+        <nz-dropdown>
+          <button nz-button nz-dropdown><i nz-icon type="down"></i></button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a routerLink="/new"><b style="color: orange">New</b></a>
+            </li>
+            <li nz-menu-item>
+              <a [routerLink]="'/p/' + actUname"><b>Profile</b></a>
+            </li>
+            <li nz-menu-item>
+              <a (click)="onLogOut()">Sign Out</a>
+            </li>
+          </ul>
+        </nz-dropdown>
       </div>
       <ng-template #login>
         <a routerLink="/signin">Log in</a>

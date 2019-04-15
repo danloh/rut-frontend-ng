@@ -1,11 +1,11 @@
 <div class="rut-list-view">
-  <b *ngIf="action !== '0'">{{ action }}: {{ totalCount }}</b>
+  <b *ngIf="action !== '0'"> {{ action | titleCase }}: {{ totalCount }}</b>
   <div class="rut-list">
     <app-rut-sum *ngFor="let rut of ruts" [rut]="rut"></app-rut-sum>
   </div>
-  <!-- <div *ngIf="hasMore">
-    <el-button size="mini" @click="loadMoreRut" :disabled="!hasMore">
+  <div *ngIf="hasMore">
+    <button mat-button color="primary" (click)="loadMore()">
       Show More
-    </el-button>
-  </div> -->
+    </button>
+  </div>
 </div>

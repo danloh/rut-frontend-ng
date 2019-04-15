@@ -1,0 +1,8 @@
+.main-view {
+  max-width: 960px;
+  min-width: 800px;
+  min-height: 42em;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}

@@ -5,13 +5,13 @@
       <a [routerLink]="'/tag/' + tag">{{ tag }}</a>
     </div>
   </div>
-  <div class="tagmeta" *ngIf="!toEdit">
+  <div class="tagmeta" >
     <h4>
       <b style="font-size:1.6em">{{ tname }}</b>
-      <button mat-mini-button *ngIf="canUpdate" (click)="onToEdit()">Edit</button>
+      <a *ngIf="canUpdate" (click)="onToEdit()"><small> Edit</small></a>
     </h4>
     <div>
-      <div [innerHTML]="tag.intro || '...'"></div>
+      <div [innerHTML]="(tag.intro | md) || '...'"></div>
     </div>
     <div class="fobtn">
       <button mat-button (click)="onFoOrUnFo()">{{ followStatus }}</button><br>
@@ -20,9 +20,10 @@
     </div>
   </div>
   <div class="edit-tag" *ngIf="toEdit">
-    <button mat-button class="full-width" color="primary" (click)="onShowEdit()">Cancel Edit</button>
+    <button mat-button class="full-width" color="primary" (click)="onShowEdit()">
+      Cancel Edit: <b>{{ tag.tname }}</b>
+    </button>
     <form [formGroup]="tagForm" (ngSubmit)="onUpdate()" class="tag-form">
-      <b>{{ tag.tname }} : </b><br>
       <mat-form-field class="full-width">
         <textarea matInput #url maxlength="255" cdkTextareaAutosize 
                   placeholder="Tag Logo Image URL" formControlName="logo">

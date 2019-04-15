@@ -3,7 +3,8 @@ import { AuthService } from '../../core';
 
 @Component({
   selector: 'app-layout-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrls: ['./layout.component.css']
 })
 export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) {}

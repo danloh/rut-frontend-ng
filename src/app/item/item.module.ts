@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../shared';
+import { MaterialModule, PipeModule } from '../shared';
 import { ItemResolver } from './item-resolver.service';
 import { ItemRoutingModule } from './item-routing.module';
 import { ItemViewComponent } from './item-view/item-view.component';
@@ -28,6 +28,7 @@ import { UpdateItemComponent } from './update-item/update-item.component';
     CommonModule,
     ItemRoutingModule,
     MaterialModule,
+    PipeModule,
     RutModule
   ],
   entryComponents: [

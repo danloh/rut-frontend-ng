@@ -17,4 +17,4 @@ import { SigninComponent } from './signin.component';
     AuthRoutingModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {}

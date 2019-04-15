@@ -25,7 +25,7 @@ export class RutViewComponent implements OnInit {
   rut: Rut;
   rutUrl: string;
   itemCount: number;
-  itemIDs: any;  // map
+  itemIDs: any;  // map {itemID: {Item}}
   collects: Collect[];
   tags: string[];
   canEdit: Boolean;
@@ -56,13 +56,13 @@ export class RutViewComponent implements OnInit {
     this.authService.isAuthed$.subscribe(auth => {
       this.canEdit = auth && this.uname === this.rut.uname;
       this.checkStar();
-    }
-    );
+    });
   }
 
   getCollects() {
     this.itemService.get_collects('rut', this.rutID)
     .subscribe(
+      // sort collect per item_order, no order in Item
       res => this.collects = res.collects.sort((a,b) => a.item_order - b.item_order)
     )
   }
@@ -71,6 +71,7 @@ export class RutViewComponent implements OnInit {
     this.itemIDs = new Map();
     this.itemService.get_list('rut', this.rutID, 'done', 1)
     .subscribe(
+      // build a itenID-Item key-value map
       res => res.items.forEach(i => this.itemIDs.set(i.id, i))
     )
   }

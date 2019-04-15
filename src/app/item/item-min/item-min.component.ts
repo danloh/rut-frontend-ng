@@ -11,6 +11,7 @@ export class ItemMinComponent implements OnInit {
   constructor() {}
 
   @Input() item: Item;
+  @Input() order: number;
 
   ngOnInit() {}
 

@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ItemModule } from './item/item.module';
+import { RutModule } from './rut/rut.module';
 import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -34,6 +35,7 @@ registerLocaleData(en);
     AuthModule,
     UserModule,
     ItemModule,
+    RutModule,
     TagModule,
     AppRoutingModule
   ],

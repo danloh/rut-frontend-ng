@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../shared';
-import { MarkdownPipe, PlurPipe, HostPipe, ShowLessPipe } from '../app.pipe';
+import { MaterialModule, PipeModule } from '../shared';
 import { RutResolver } from './rut-resolver.service';
 import { RutListComponent } from './rut-list/rut-list.component';
 import { WrapRutListComponent } from './rut-list/wrap-rut-list.component';
@@ -20,10 +19,6 @@ import { AddItemComponent } from './add-item/add-item.component';
     RutSumComponent, 
     RutViewComponent, 
     CollectComponent,
-    MarkdownPipe,
-    PlurPipe,
-    HostPipe,
-    ShowLessPipe,
     NewRutComponent,
     UpdateRutComponent,
     AddItemComponent
@@ -31,6 +26,7 @@ import { AddItemComponent } from './add-item/add-item.component';
   imports: [
     CommonModule,
     MaterialModule,
+    PipeModule,
     RutRoutingModule
   ],
   exports: [

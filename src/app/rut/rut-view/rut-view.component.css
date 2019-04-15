@@ -27,12 +27,17 @@
 .rut-view .title .meta {
   color: #828282;
   font-size: 12px;
-  padding-bottom: 10px;
 }
-.rut-view .content, .item {
+.rut-view .content {
   background-color: #fbfbf8;
   padding: 10px;
-  border-bottom: 1px dashed #eee;
+  border-bottom: 2px solid #eee;
+}
+.org-src {
+  font-size: 12px;
+  text-align: center;
+  padding: 2px;
+  background-color: #f3f5f8;
 }
 .toolbar {
   display: flex;
@@ -40,7 +45,7 @@
   font-size: 0.85em;
 }
 .add-item {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .rut-page .rut-side {
   position: absolute;
@@ -65,8 +70,10 @@
 .hiden-del-tag {
   cursor: pointer;
   color: transparent;
+  font-size: 5px;
 }
 .hiden-del-tag:hover {
   color: orangered;
-  font-size: 10px;
+  font-size: 15px;
+  padding-left: 2px;
 }

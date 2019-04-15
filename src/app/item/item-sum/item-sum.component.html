@@ -31,7 +31,9 @@
   <div class="operate">
     <button mat-button [matMenuTriggerFor]="option">{{ flagStatus }}</button>
     <mat-menu #option="matMenu">
-      <button mat-menu-item (click)="toAddDialog()">Add To List</button>
+      <button mat-menu-item (click)="toAddDialog()">
+        <b style="color:orange">Add To List</b>
+      </button>
       <button mat-menu-item (click)="toFlagDialog('todo')">Todo</button>
       <button mat-menu-item (click)="toFlagDialog('doing')">Doing</button>
       <button mat-menu-item (click)="toFlagDialog('done')">Done</button>

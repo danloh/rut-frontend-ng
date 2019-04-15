@@ -1,8 +1,8 @@
 <div class="item-info">
-  <sup class="indicator" *ngIf="item.item_order">#{{item.item_order}}&nbsp;</sup> 
+  <!-- <sup class="indicator" *ngIf="order">#{{order}}&nbsp;</sup>  -->
   <a [routerLink]="'/item/' + item.id">{{ item.title }}</a>
   <small class="meta">
-    <br> {{item.uiid}}&nbsp;&nbsp;{{item.authors}}
+    <br>{{item.category}} |&nbsp;{{item.uiid}} |&nbsp;{{item.authors}} |&nbsp;{{item.pub_at}}
   </small>
   <span>
     <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">

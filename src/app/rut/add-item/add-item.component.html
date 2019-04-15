@@ -1,30 +1,24 @@
 <div class="add-page">
-  <!-- <div class="title"> 
-    <b style="font-size:1.2em">Add Item To List:&nbsp;&nbsp;</b>
-    {{ rutTitle }}&nbsp;&nbsp;
-  </div> -->
-  <div>
-    <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
-      <!-- cannot call onEnter ?? -->
-      <nz-select #slct
-        class="full-width"
-        nzShowSearch nzServerSearch
-        (nzOnSearch)="onSearch($event)"
-        nzAllowClear
-        nzPlaceHolder="Select an Item"
-        formControlName="item_id">
-        <nz-option *ngFor="let item of items" 
-                   [nzLabel]="item.title" 
-                   [nzValue]="item.id">
-        </nz-option>
-      </nz-select>
-      <mat-form-field class="full-width">
-        <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
-                  placeholder="Compose..." formControlName="content">
-        </textarea>
-        <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
-      </mat-form-field><br>
-      <button mat-button class="full-width" color="primary">Add</button>
-    </form>
-  </div>
+  <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
+    <!-- cannot call onEnter ?? -->
+    <nz-select #slct
+      class="full-width"
+      nzShowSearch nzServerSearch
+      (nzOnSearch)="onSearch($event)"
+      nzAllowClear
+      nzPlaceHolder="Select an Item"
+      formControlName="item_id">
+      <nz-option *ngFor="let item of items" 
+                  [nzLabel]="item.title" 
+                  [nzValue]="item.id">
+      </nz-option>
+    </nz-select>
+    <mat-form-field class="full-width">
+      <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
+                formControlName="content" placeholder="Compose..., like Reading tips, etc.">
+      </textarea>
+      <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
+    </mat-form-field><br>
+    <button mat-button class="full-width" color="primary">Add</button>
+  </form>
 </div>

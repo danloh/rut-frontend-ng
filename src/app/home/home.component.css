@@ -1,12 +1,12 @@
 .home-page {
-    padding: 10px 230px 10px 0px;
-    position: relative;
-  }
-  .home-side {
-    position: absolute;
-    top: 10px;
-    right: 0;
-    width: 220px;
-    text-align: center;
-    background-color: #fafbfa;
-  }
+  padding: 10px 230px 10px 0px;
+  position: relative;
+}
+.home-side {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 220px;
+  text-align: center;
+  background-color: #fafbfa;
+}

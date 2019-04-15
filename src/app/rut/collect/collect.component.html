@@ -1,9 +1,11 @@
 <div class="collect-sum">
   <div class="item-info" *ngIf="collect && item">
+    <!-- component in 2 module issue or Circular dependency issue  -->
+    <!-- <app-item-min [order]="collect.item_order" [item]="item"></app-item-min> -->
     <sup class="indicator" *ngIf="collect.item_order">#{{collect.item_order}}&nbsp;</sup> 
     <a [routerLink]="'/item/' + item.id">{{ item.title }}</a>
     <small class="meta">
-      <br> {{item.uiid}}&nbsp;&nbsp;{{item.authors}}
+      <br>{{item.category}} |&nbsp;{{item.uiid}} |&nbsp;{{item.authors}} |&nbsp;{{item.pub_at}}
     </small>
     <span>
       <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
@@ -11,13 +13,15 @@
   </div>
   <div class="content" [innerHTML]="collectContent | md" *ngIf="!showEdit"></div>
   <div *ngIf="canEdit">
-    <button mat-button class="hiden-edit" color="primary" (click)="onShowEdit()">Edit</button>
-    <button mat-button class="hiden-edit" color="primary" (click)="onDel()">Delete</button>
-    <div class="edit-tag" *ngIf="canEdit && showEdit">
+    <button mat-button class="hiden-edit" color="warn" (click)="onDel()">Delete</button>
+    <button mat-button color="primary" *ngIf="showEdit; else editbox" (click)="onShowEdit()">Cancel Edit</button>
+    <ng-template #editbox>
+      <button mat-button class="hiden-edit" color="primary" (click)="onShowEdit()">Edit</button>
+    </ng-template>
+    <div class="edit-box" *ngIf="canEdit && showEdit">
       <mat-form-field class="full-width" *ngIf="showEdit">
-        <button mat-button class="full-width" color="primary" (click)="onShowEdit()">{{ editLable }}</button>
         <textarea matInput #c cdkTextareaAutosize cdkAutosizeMinRows="5"
-                  placeholder="Edit..." [(ngModel)]="collectContent">
+                  [(ngModel)]="collectContent" placeholder="Compose..., like Reading tips, etc.">
         </textarea>
         <mat-hint align="end">{{c.value?.length || 0}}</mat-hint>
       </mat-form-field><br>

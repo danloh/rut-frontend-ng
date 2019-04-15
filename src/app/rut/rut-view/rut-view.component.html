@@ -10,7 +10,7 @@
       </span>
       <span class="tag" *ngFor="let tag of tags">
         <a [routerLink]="'/tag/' + tag"><b>{{ tag }}</b></a>
-        <sup class="hiden-del-tag" (click)="addOrDelTag(tag)">x</sup>
+        <sup class="hiden-del-tag" (click)="addOrDelTag(tag)"> x</sup>
       </span>
     </div>
     <div class="title">
@@ -29,9 +29,14 @@
         </a>
       </div>
     </div>
-    <div class="content" [innerHTML]="rut.content | md"></div>
-    <app-collect class="item"
-                 *ngFor="let c of collects" 
+    <div class="content">
+      <div [innerHTML]="rut.content | md"></div>
+      <div class="org-src" *ngIf="rut.url">
+        <a [href]="rut.url" target="_blank"><b>Origin Source</b></a>
+      </div>
+    </div>
+    <!-- match collect / item per item_id -->
+    <app-collect *ngFor="let c of collects" 
                  [collect]="c" 
                  [item]="itemIDs.get(c.item_id)"
                  [uname]="uname"

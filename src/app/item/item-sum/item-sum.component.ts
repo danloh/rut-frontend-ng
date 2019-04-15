@@ -38,7 +38,10 @@ export class ItemSumComponent implements OnInit {
   }
 
   toAddDialog() {
-    if (!this.checkCan()) return;
+    if (!this.checkCan()) {
+      alert("Should Log In");
+      return;
+    }
     
     this.rutService.get_list('user', this.uname, 1, 'create')
     .subscribe(res => {
@@ -82,7 +85,10 @@ export class ItemSumComponent implements OnInit {
   }
 
   toFlagDialog(flag: string) {
-    if (!this.checkCan()) return;
+    if (!this.checkCan()) {
+      alert("Should Log In");
+      return;
+    }
 
     const dialogRef = this.dialog.open(FlagItemDialog, {
       width: '450px',
