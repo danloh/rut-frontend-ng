@@ -39,7 +39,7 @@
   line-height: 28px;
   font-weight: 400;
 }
-.right-nav a.router-link-active {
+.right-nav a.active {
   color: green;
   font-weight: 800;
 }

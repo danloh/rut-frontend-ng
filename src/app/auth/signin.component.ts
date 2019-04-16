@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { AuthService } from '../core';
 
@@ -15,7 +15,7 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
+    private location: Location,
     private formBuild: FormBuilder
   ) {
     // use FormBuilder to create a form group
@@ -31,8 +31,8 @@ export class SigninComponent implements OnInit {
     const authdata = this.authForm.value;
     this.authService.signIn(authdata)
     .subscribe(
-      data => this.router.navigateByUrl('/'),
-      err => console.log(err)
+      data => this.location.back(), // once login direct to the page before logged
+      err => console.log(err),
     );
   }
 }

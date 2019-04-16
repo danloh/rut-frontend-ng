@@ -1,6 +1,6 @@
 <div class="update-page">
   <div class="title">
-    <span>Update Item: {{ item.title}}</span>
+    <span>Update Item: <small>{{ item.title}}</small></span>
   </div>
   <form [formGroup]="itemForm" (ngSubmit)="onUpdate()" class="update-form">
     <mat-form-field class="full-width">

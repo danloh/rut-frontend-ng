@@ -17,6 +17,7 @@ const itemRoutes: Routes = [
   {
     path: 'update/item/:id',
     component: UpdateItemComponent,
+    canActivate: [AuthGuard],
     resolve: {
       res: ItemResolver
     }

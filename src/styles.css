@@ -43,7 +43,6 @@ blockquote {
   width: 100%;
 }
 
-
 .submenu {
   margin-bottom: 5px;
   border-bottom: 1px solid #eee;
@@ -55,7 +54,7 @@ blockquote {
 .submenu a:hover {
   color: darkgreen;
 }
-.submenu a.router-link-active {
+.submenu a.active {
   color: orange;
   font-weight: 800;
 }

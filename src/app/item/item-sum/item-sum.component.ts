@@ -39,7 +39,7 @@ export class ItemSumComponent implements OnInit {
 
   toAddDialog() {
     if (!this.checkCan()) {
-      alert("Should Log In");
+      alert("Need to Log In");
       return;
     }
     
@@ -86,12 +86,12 @@ export class ItemSumComponent implements OnInit {
 
   toFlagDialog(flag: string) {
     if (!this.checkCan()) {
-      alert("Should Log In");
+      alert("Need to Log In");
       return;
     }
 
     const dialogRef = this.dialog.open(FlagItemDialog, {
-      width: '450px',
+      width: '350px',
       data: {
         flag: flag,
         note: 'Love',

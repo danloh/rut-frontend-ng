@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { 
   Rut, RutRes, Collect, AuthService, RutService, TagService, ItemService 
@@ -14,6 +14,7 @@ export class RutViewComponent implements OnInit {
 
   constructor( 
     private route: ActivatedRoute,
+    private router: Router,
     private title: Title,
     private authService: AuthService,
     private itemService: ItemService,
@@ -28,8 +29,10 @@ export class RutViewComponent implements OnInit {
   itemIDs: any;  // map {itemID: {Item}}
   collects: Collect[];
   tags: string[];
+
   canEdit: Boolean;
   uname: string;   // act user
+
   showAdd: Boolean = false;
   addLabel: string = 'Add Item';
   starStatus: string = 'Star';
@@ -82,15 +85,18 @@ export class RutViewComponent implements OnInit {
   }
 
   onShowAdd() {
+    if (!this.canEdit) return;
+
     this.showAdd = !this.showAdd;
     this.addLabel = this.showAdd ? 'Cancel Add Item' : 'Add Item';
   }
   
-  onAdded() {
+  afterAdded() {
     //this.rutService.addCollect.subscribe(c => this.collects.push(c));
     this.getCollects();
     this.getItems();
-    this.onShowAdd();
+    this.showAdd = false;
+    this.addLabel = 'Add Item';
   }
 
   checkStar() {
@@ -101,6 +107,7 @@ export class RutViewComponent implements OnInit {
 
   onStarOrUnstar() {
     if (!this.canEdit) return;
+
     const action = this.starStatus === 'Star' ? 1 : 0;
     this.rutService.star(this.rutID, action).subscribe(
       res => { 
@@ -111,13 +118,24 @@ export class RutViewComponent implements OnInit {
   }
 
   toAddTag() {
+    if (!this.canEdit) {
+      alert('Need To Log in');
+      //this.router.navigateByUrl('/signin');
+      return;
+    }
     this.showAddTag = !this.showAddTag;
   }
 
   addOrDelTag(tag?: string) {
+    if (!this.canEdit) return; 
+
     let to_tag = tag || this.newTag;
     let len = to_tag.length;
-    if (len <= 1 || len > 42) return;
+    if (len <= 1 || len > 42) {
+      alert('Must be 2 - 42');
+      return; 
+    }
+
     let act: string;
     if (tag) {
       act = '0';

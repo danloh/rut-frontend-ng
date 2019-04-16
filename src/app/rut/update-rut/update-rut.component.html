@@ -1,6 +1,6 @@
 <div class="update-page">
   <div class="title">
-    <span>Update List: {{ rut.title}}</span>
+    <span>Update List: <small>{{ rut.title}}</small></span>
   </div>
   <form [formGroup]="rutForm" (ngSubmit)="onUpdate()" class="rut-form">
     <mat-form-field class="full-width">

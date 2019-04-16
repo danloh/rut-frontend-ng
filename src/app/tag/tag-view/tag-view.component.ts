@@ -49,6 +49,10 @@ export class TagViewComponent implements OnInit {
   }
 
   onToEdit () {
+    if (!this.canUpdate) {
+      alert('Need To Log in');
+      return;
+    }
     this.onShowEdit();
     this.tagForm = this.formBuild.group(
       { 'tname': [this.tag.tname],
@@ -60,11 +64,13 @@ export class TagViewComponent implements OnInit {
   }
 
   onUpdate() {
+    if (!this.canUpdate) return;
+
     const tag_up = this.tagForm.value;
 
     if (this.tagForm.invalid || !this.canUpdate ) {
       alert("Invalid Input");
-      return
+      return;
     }
     this.tagService.update(tag_up, this.tag.tname)
     .subscribe(

@@ -18,6 +18,7 @@ const rutRoutes: Routes = [
   {
     path: 'update/r/:id',
     component: UpdateRutComponent,
+    canActivate: [AuthGuard],
     resolve: {
       res: RutResolver
     }

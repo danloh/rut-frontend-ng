@@ -53,7 +53,7 @@
   </div>
   <div class="add-item" *ngIf="showAdd">
     <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"
-                  (added)="onAdded()">
+                  (added)="afterAdded()">
     </app-add-item>
   </div>
   <div class="rut-side">
