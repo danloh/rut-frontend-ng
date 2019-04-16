@@ -26,7 +26,7 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuild.group(
-      { 'item_id': ['', Validators.required],
+      { 'item_id': [null, [Validators.required]],
         'content': [''],
       }
     );

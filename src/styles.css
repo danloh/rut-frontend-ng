@@ -42,6 +42,10 @@ blockquote {
 .full-width {
   width: 100%;
 }
+.help-tips {
+  color: green;
+  font-size: 0.8em;
+}
 
 .submenu {
   margin-bottom: 5px;

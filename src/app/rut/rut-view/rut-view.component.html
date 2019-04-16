@@ -51,7 +51,7 @@
       {{ starStatus }}
     </button>
   </div>
-  <div class="add-item" *ngIf="showAdd">
+  <div class="add-item" *ngIf="showAddItem">
     <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"
                   (added)="afterAdded()">
     </app-add-item>

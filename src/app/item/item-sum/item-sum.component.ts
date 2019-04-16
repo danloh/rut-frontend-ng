@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
 
@@ -10,6 +11,7 @@ import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
 export class ItemSumComponent implements OnInit {
 
   constructor(
+    private router: Router,
     public dialog: MatDialog,
     private rutService: RutService,
     private itemService: ItemService,
@@ -19,9 +21,11 @@ export class ItemSumComponent implements OnInit {
   @Input() item: Item;
   ruts: Rut[];
   uname: string;
+  cover: string;
   flagStatus: string = 'Options';
 
   ngOnInit() {
+    this.cover = this.item.cover;
     if (this.checkCan()) {
       this.itemService.checkStar(this.item.id).subscribe(
         res => this.flagStatus = res.message
@@ -42,24 +46,27 @@ export class ItemSumComponent implements OnInit {
       alert("Need to Log In");
       return;
     }
-    
+    // pre-fetch created ruts, then open dialog
     this.rutService.get_list('user', this.uname, 1, 'create')
     .subscribe(res => {
       const ruts = res.ruts;
       const dialogRef = this.dialog.open(AddToListDialog, {
-        width: '450px',
+        width: '550px',
         data: {
-          selectedRutID: '', 
+          selectedRutID: null, // but required
           content: '',
+          uname: this.uname,
           ruts: ruts,
         }
       });
 
       dialogRef.afterClosed().subscribe(res => {
         if (!res) return;
+        let rutID = res.selectedRutID;
+        if (!rutID) return;
         // then add to rut
         let cdata = { 
-          rut_id: res.selectedRutID,
+          rut_id: rutID,
           item_id: this.item.id,
           item_order:  1,  // just  a placeholder
           content: res.content,
@@ -67,23 +74,13 @@ export class ItemSumComponent implements OnInit {
         }
         this.rutService.collect(res.selectedRutID, cdata)
         .subscribe(
-          res => console.log('Done'), 
+          res => this.router.navigateByUrl('/r/' + res.collect.rut_id), 
           err => console.log(err)
         );
       });
     })
   }
   
-  // currently, not use
-  searchRuts() {
-    console.log(this.uname);
-    this.rutService.get_list('user', this.uname, 1, 'create')
-      .subscribe(res => {
-        this.ruts = res.ruts;
-        console.log(this.ruts);
-    })
-  }
-
   toFlagDialog(flag: string) {
     if (!this.checkCan()) {
       alert("Need to Log In");
@@ -94,7 +91,7 @@ export class ItemSumComponent implements OnInit {
       width: '350px',
       data: {
         flag: flag,
-        note: 'Love',
+        note: '',
         rate: 1, // to do
       }
     });
@@ -102,19 +99,21 @@ export class ItemSumComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (!res) return;
       // then flag
-      this.itemService.star(this.item.id, res.flag, res.rate, res.note)
+      this.itemService.star(this.item.id, res.flag, res.rate, res.note || 'Love')
       .subscribe(
         res => console.log('Done'),
         err => console.log(err)
       );
     });
   }
+
 }
 
 // type of inject to addtolist dialog
 export interface AddData {
   selectedRutID: string;
   content: string;
+  uname: string;
   ruts: Rut[];
 }
 
@@ -124,11 +123,23 @@ export interface AddData {
 })
 export class AddToListDialog {
   constructor(
+    private rutService: RutService,
     public dialogRef: MatDialogRef<AddToListDialog>,
     @Inject(MAT_DIALOG_DATA) public data: AddData
   ) {}
 
-  ngOnInit() {}
+  ruts: Rut[];
+
+  ngOnInit() {
+    this.ruts = this.data.ruts;
+  }
+
+  onSearch(key: string){
+    if (key.length < 6) return;
+    this.rutService.get_list('key', this.data.uname, 1, 'create', key, 'user')
+    .subscribe(res => { this.ruts = res.ruts;})
+  }
+
 }
 
 // type of inject to flag item dialog

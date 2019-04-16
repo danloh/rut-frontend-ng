@@ -23,10 +23,14 @@ export class RutService {
       .pipe(map(data => data));
   }
 
-  get_list(per: string, id: string, p: number, f: string): Observable<RutListRes> {
-    return this.apiService.get(
-      '/ruts/' + per + '/' + id + `?page=${p}&flag=${f}`
-    ).pipe(map(data => data));
+  get_list(
+    per: string, id: string, p: number, f: string, k?: string, fr?: string
+  ): Observable<RutListRes> {
+    let qry = k && fr 
+      ? `?page=${p}&flag=${f}&keyword=${k}&from=${fr}`
+      : `?page=${p}&flag=${f}`;
+    return this.apiService.get('/ruts/' + per + '/' + id + qry)
+      .pipe(map(data => data));
   }
 
   create(rut: NewRut): Observable<RutRes> {

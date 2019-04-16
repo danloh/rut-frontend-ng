@@ -1,6 +1,9 @@
 <div class="item-sum">
-  <div>
-    <img class="thumb" [src]="item.cover" alt="Cover" referrerPolicy="no-referrer">
+  <div class="thumb-box">
+    <img class="thumb" *ngIf="cover; else avatar" [src]="cover" referrerPolicy="no-referrer">
+    <ng-template #avatar>
+      <app-avatar [uname]="item.title" [size]="100"></app-avatar>
+    </ng-template>
   </div>
   <div class="info">
     <span class="title">
@@ -24,6 +27,7 @@
         <td><small class="indicator">Listed</small></td>
         <td>
           {{ item.rut_count }} 
+          <a [href]="item.url" *ngIf="item.url">...src</a>
         </td>
       </tr>
     </table>

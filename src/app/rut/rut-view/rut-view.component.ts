@@ -33,7 +33,7 @@ export class RutViewComponent implements OnInit {
   canEdit: Boolean;
   uname: string;   // act user
 
-  showAdd: Boolean = false;
+  showAddItem: Boolean = false;
   addLabel: string = 'Add Item';
   starStatus: string = 'Star';
   showAddTag: boolean = false;
@@ -87,15 +87,15 @@ export class RutViewComponent implements OnInit {
   onShowAdd() {
     if (!this.canEdit) return;
 
-    this.showAdd = !this.showAdd;
-    this.addLabel = this.showAdd ? 'Cancel Add Item' : 'Add Item';
+    this.showAddItem = !this.showAddItem;
+    this.addLabel = this.showAddItem ? 'Cancel Add Item' : 'Add Item';
   }
   
   afterAdded() {
     //this.rutService.addCollect.subscribe(c => this.collects.push(c));
     this.getCollects();
     this.getItems();
-    this.showAdd = false;
+    this.showAddItem = false;
     this.addLabel = 'Add Item';
   }
 
@@ -127,15 +127,15 @@ export class RutViewComponent implements OnInit {
   }
 
   addOrDelTag(tag?: string) {
-    if (!this.canEdit) return; 
+    if (!this.canEdit) return;
 
-    let to_tag = tag || this.newTag;
-    let len = to_tag.length;
+    let newTg = this.newTag.trim().replace(/[ ]/gi, '-');
+    let len = newTg.length;
     if (len <= 1 || len > 42) {
-      alert('Must be 2 - 42');
+      alert('Must be 2 - 42 length');
       return; 
     }
-
+    let act_tag = tag || newTg;
     let act: string;
     if (tag) {
       act = '0';
@@ -145,20 +145,19 @@ export class RutViewComponent implements OnInit {
       act = '1'
     }
     let tagData = {
-      tnames: [to_tag],
+      tnames: [act_tag],
       rut_id: this.rutID,
       action: act,
     };
     
-    this.rutService.tagRut(act, this.rutID, tagData).subscribe(
-      () => {
-        this.showAddTag = false;
-        if (act === '1') {
-          this.tags.push(to_tag);
-        } else if (act === '0') {
-          this.tags.splice(this.tags.indexOf(to_tag), 1);
-        }
+    this.rutService.tagRut(act, this.rutID, tagData)
+    .subscribe(() => {
+      this.showAddTag = false;
+      if (act === '1') {
+        this.tags.push(act_tag);
+      } else if (act === '0') {
+        this.tags.splice(this.tags.indexOf(act_tag), 1);
       }
-    );
+    });
   }
 }

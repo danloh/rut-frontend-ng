@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
+  MatIconRegistry,
   MatCardModule,
   MatButtonModule,
   MatInputModule,

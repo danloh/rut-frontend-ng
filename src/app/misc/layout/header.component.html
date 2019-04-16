@@ -1,10 +1,6 @@
 <header class="header">
   <nav class="nav-menu">
-    <a routerLink="/">
-      <small style="color:darkorange;font-size:1.2em;letter-spacing:0.005em">
-        RutHub<sup style="font-size:0.5em;color:grey"> alpha</sup>
-      </small>
-    </a>
+    <a routerLink="/"><b class="logo">RutHub</b></a><sup class="logo-sup">alpha</sup>
     <div class="right-menu">
       <div *ngIf="ifAuthed; else login">
         <nz-dropdown>

@@ -5,12 +5,14 @@
   border-bottom: 1px solid #eee;
   position: relative;
 }
-.thumb {
-  max-width: 110px;
-  max-height: 130px;
+.thumb-box {
   position: absolute;
   top: 5px;
   left: 2px;
+}
+.thumb {
+  max-width: 110px;
+  max-height: 135px;
 }
 .info {
   font-size: 14px;

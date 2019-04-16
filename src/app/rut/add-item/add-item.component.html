@@ -1,12 +1,10 @@
 <div class="add-page">
   <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
     <!-- cannot call onEnter ?? -->
-    <nz-select #slct
-      class="full-width"
-      nzShowSearch nzServerSearch
+    <nz-select #slct class="full-width"
+      nzShowSearch nzServerSearch nzAllowClear
       (nzOnSearch)="onSearch($event)"
-      nzAllowClear
-      nzPlaceHolder="Select an Item"
+      nzPlaceHolder="Input ISBN or Other UID, Then Search and Select"
       formControlName="item_id">
       <nz-option *ngFor="let item of items" 
                   [nzLabel]="item.title" 

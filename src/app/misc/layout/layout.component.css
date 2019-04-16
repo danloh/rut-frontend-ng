@@ -14,6 +14,15 @@
   margin: 0px auto;
   padding: 6px 0px;
 }
+.logo {
+  color: darkorange;
+  font-size: 1.2em;
+  letter-spacing: 0.005em;
+}
+.logo-sup {
+  font-size: 0.5em;
+  color: grey;
+}
 .header .nav-menu .right-menu {
   float: right;
 }
@@ -23,12 +32,11 @@
   display: inline-block;
   vertical-align: middle;
   letter-spacing: 0.075em;
-  margin-right: 0.85em;
 }
 .header .nav-menu a:hover {
   color: orange;
 }
-.header .nav-menu a.router-link-active {
+.header .nav-menu a.active {
   color: green;
 }
 .drop-menu {

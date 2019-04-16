@@ -15,7 +15,7 @@ export class AvatarComponent implements OnInit {
   @Input() inline: boolean = false;
   @Input() rounded: boolean = false;
   
-  isImage: boolean = Boolean(this.src);
+  isImage: Boolean;
   initials: string;
   style = {};
   bgColors: string[] = [
@@ -26,6 +26,7 @@ export class AvatarComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.isImage = Boolean(this.src);
     if (!this.isImage) {
       this.initial(this.uname);
     }
