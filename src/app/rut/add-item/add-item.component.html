@@ -4,11 +4,11 @@
     <nz-select #slct class="full-width"
       nzShowSearch nzServerSearch nzAllowClear
       (nzOnSearch)="onSearch($event)"
-      nzPlaceHolder="Input ISBN or Other UID, Then Search and Select"
-      formControlName="item_id">
+      formControlName="item_id"
+      nzPlaceHolder="Input ISBN or Other UID, Then Search and Select">
       <nz-option *ngFor="let item of items" 
-                  [nzLabel]="item.title" 
-                  [nzValue]="item.id">
+                [nzLabel]="item.title" 
+                [nzValue]="item.id">
       </nz-option>
     </nz-select>
     <mat-form-field class="full-width">

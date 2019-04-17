@@ -2,15 +2,15 @@
   <form [formGroup]="regForm" (ngSubmit)="onReg()" class="auth-form">
     <h3 class="title">Welcome to Join</h3>
     <mat-form-field class="full-width">
-      <input matInput #n maxlength="16" placeholder="Username" required formControlName="uname" />
+      <input matInput #n formControlName="uname" maxlength="16" required placeholder="Username"/>
       <mat-hint align="end">{{n.value?.length || 0}}/16</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput minlength="8" placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
+      <input matInput formControlName="password" minlength="8" required type="password" autocomplete="off" placeholder="Password"/>
       <mat-hint align="end">At Least 8</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput placeholder="Confirm" required type="password" autocomplete="off" formControlName="confirm" />
+      <input matInput formControlName="confirm" required type="password" autocomplete="off" placeholder="Confirm"/>
       <!-- <mat-hint>Not Match</mat-hint> -->
     </mat-form-field>
     <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid">Register</button>

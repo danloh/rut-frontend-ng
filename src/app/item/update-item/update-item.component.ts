@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ItemService, AuthService, Item, ItemRes } from '../../core';
+import { itemCates } from '../../shared';
 
 @Component({
   selector: 'app-update-item',
@@ -16,7 +17,7 @@ export class UpdateItemComponent implements OnInit {
   item: Item;
   itemID: string;
 
-  cates: string[] = ['Book','Documentary','Movie','Course','Paper','WebPage', 'Other'];
+  cates: string[];
 
   constructor(
     private route: ActivatedRoute,
@@ -43,10 +44,12 @@ export class UpdateItemComponent implements OnInit {
       return
     }
 
+    this.cates = itemCates;
+
     this.itemForm = this.formBuild.group(
-      { 'title': [this.item.title, Validators.required],
+      { 'title': [this.item.title, [Validators.required]],
         'uiid': [this.item.uiid || ''],
-        'authors': [this.item.authors || '', Validators.required],
+        'authors': [this.item.authors || '', [Validators.required]],
         'pub_at': [this.item.pub_at || ''],
         'publisher': [this.item.publisher || ''],
         'category': [this.item.category || 'Book'],

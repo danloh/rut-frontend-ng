@@ -20,17 +20,17 @@
     <form [formGroup]="tagForm" (ngSubmit)="onUpdate()" class="tag-form">
       <mat-form-field class="full-width">
         <textarea matInput #url maxlength="255" cdkTextareaAutosize 
-                  placeholder="Tag Logo Image URL" formControlName="logo">
+                  formControlName="logo" placeholder="Tag Logo Image URL">
         </textarea>
         <mat-hint align="end">{{url.value?.length || 0}}/255</mat-hint>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput #p maxlength="42" placeholder="Parent Tag" formControlName="pname" />
+        <input matInput #p formControlName="pname" maxlength="42" placeholder="Parent Tag"/>
         <mat-hint align="end">{{p.value?.length || 0}}</mat-hint>
       </mat-form-field>
       <mat-form-field class="full-width">
         <textarea matInput #d maxlength="512" cdkTextareaAutosize cdkAutosizeMinRows="3" 
-                  placeholder="Tag Description" formControlName="intro">
+                  formControlName="intro" placeholder="Tag Description">
         </textarea>
         <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
       </mat-form-field><br>

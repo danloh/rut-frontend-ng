@@ -2,10 +2,10 @@
   <form [formGroup]="authForm" (ngSubmit)="onLogin()" class="auth-form">
     <h3 class="title">Please Log in</h3>
     <mat-form-field class="full-width" >
-      <input matInput placeholder="Username" required formControlName="uname" />
+      <input matInput formControlName="uname" required placeholder="Username"/>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput placeholder="Password" required type="password" autocomplete="off" formControlName="password" />
+      <input matInput formControlName="password" required type="password" autocomplete="off" placeholder="Password"/>
     </mat-form-field>
     <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid">Log In</button>
     <a routerLink="/signup"><small>  No Account?</small></a>

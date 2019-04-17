@@ -20,8 +20,8 @@ export class SigninComponent implements OnInit {
   ) {
     // use FormBuilder to create a form group
     this.authForm = this.formBuild.group({
-      'uname': ['', Validators.required],
-      'password': ['', Validators.required]
+      'uname': [null, [Validators.required]],
+      'password': [null, [Validators.required]]
     });
   }
 

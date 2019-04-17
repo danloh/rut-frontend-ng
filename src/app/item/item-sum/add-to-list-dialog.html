@@ -3,8 +3,8 @@
   <nz-select #slct class="full-width"
     nzShowSearch nzServerSearch nzAllowClear
     (nzOnSearch)="onSearch($event)"
-    nzPlaceHolder="Select a Collection or Input Keyword to Search"
-    [(ngModel)]="data.selectedRutID">
+    [(ngModel)]="data.selectedRutID"
+    nzPlaceHolder="Select a Collection or Input Keyword to Search">
     <nz-option *ngFor="let rut of ruts" 
                 [nzLabel]="rut.title" 
                 [nzValue]="rut.id">
@@ -12,7 +12,7 @@
   </nz-select>
   <mat-form-field class="full-width">
     <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
-              placeholder="Compose..." [(ngModel)]="data.content">
+              [(ngModel)]="data.content" placeholder="Compose...">
     </textarea>
     <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
   </mat-form-field>

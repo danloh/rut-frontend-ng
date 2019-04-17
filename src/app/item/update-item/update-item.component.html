@@ -1,38 +1,41 @@
 <div class="update-page">
   <div class="title">
-    <span>Update Item: <small>{{ item.title}}</small></span>
+    <span>
+      Update Item: <br>
+      <small class="help-tips">{{ item.title}}</small>
+    </span>
   </div>
   <form [formGroup]="itemForm" (ngSubmit)="onUpdate()" class="update-form">
     <mat-form-field class="full-width">
-      <textarea matInput #t maxlength="255" cdkTextareaAutosize placeholder="Title"
-                required formControlName="title">
+      <textarea matInput #t maxlength="255" cdkTextareaAutosize required 
+                formControlName="title" placeholder="Title">
       </textarea>
       <mat-hint align="end">{{t.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <textarea matInput #author maxlength="255" cdkTextareaAutosize placeholder="Author or Instructor"
-                required formControlName="authors">
+      <textarea matInput #author maxlength="255" cdkTextareaAutosize required 
+                formControlName="authors" placeholder="Author or Instructor">
       </textarea>
       <mat-hint align="end">{{author.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
       <textarea matInput #uid maxlength="32" cdkTextareaAutosize 
-                placeholder="either UID, like ISBN" formControlName="uiid">
+                formControlName="uiid" placeholder="either UID, like ISBN">
       </textarea>
       <mat-hint align="end">{{uid.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
       <textarea matInput #url maxlength="255" cdkTextareaAutosize 
-                placeholder="or Source URL" formControlName="url">
+                formControlName="url" placeholder="or Source URL">
       </textarea>
       <mat-hint align="end">{{url.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput #pub maxlength="25" placeholder="Publish Date" formControlName="pub_at" />
+      <input matInput #pub maxlength="25" formControlName="pub_at" placeholder="Publish Date" />
       <mat-hint align="end">{{pub.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput #puber maxlength="64" placeholder="Publisher" formControlName="publisher" />
+      <input matInput #puber maxlength="64" formControlName="publisher" placeholder="Publisher" />
       <mat-hint align="end">{{puber.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
@@ -42,17 +45,17 @@
       <mat-hint align="end">{{cover.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput #e maxlength="32" placeholder="Edition" formControlName="edition" />
+      <input matInput #e maxlength="32" formControlName="edition" placeholder="Edition" />
       <mat-hint align="end">{{e.value?.length || 0}}/32</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
       <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
-                placeholder="Detail" formControlName="detail">
+                formControlName="detail" placeholder="Detail">
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <mat-select placeholder="Category" formControlName="category">
+      <mat-select formControlName="category" placeholder="Category" >
         <mat-option *ngFor="let cate of cates" [value]="cate">
           {{cate}}
         </mat-option>

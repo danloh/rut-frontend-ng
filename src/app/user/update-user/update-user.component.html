@@ -6,12 +6,12 @@
     <h3 class="title">Update My Profile</h3>
     <form [formGroup]="userForm" (ngSubmit)="onUpdate()" class="user-form">
       <mat-form-field class="full-width">
-        <input matInput #n maxlength="16" formControlName="nickname" placeholder="Screen Name" />
+        <input matInput #n formControlName="nickname" maxlength="16" placeholder="Screen Name" />
         <mat-hint align="end">{{n.value?.length || 0}}/16</mat-hint>
       </mat-form-field>
       <mat-form-field class="full-width">
         <textarea matInput #a maxlength="256" cdkTextareaAutosize 
-                  placeholder="Avatar URL" formControlName="avatar">
+                  formControlName="avatar" placeholder="Avatar URL">
         </textarea>
         <mat-hint align="end">{{a.value?.length || 0}}/256</mat-hint>
       </mat-form-field>
@@ -20,7 +20,7 @@
       </mat-form-field>
       <mat-form-field class="full-width">
         <textarea matInput #intro cdkTextareaAutosize cdkAutosizeMinRows="5" 
-                  placeholder="Introduce Myself" formControlName="intro">
+                  formControlName="intro" placeholder="Introduce Myself">
         </textarea>
         <mat-hint align="end">{{intro.value?.length || 0}}</mat-hint>
       </mat-form-field>
@@ -31,15 +31,15 @@
     <h3 class="title">Change My Password</h3>
     <form [formGroup]="pswForm" (ngSubmit)="onChangePsw()" class="user-form">
       <mat-form-field class="full-width">
-        <input matInput minlength="8" formControlName="old_psw" required type="password" autocomplete="off" placeholder="Old Password" />
+        <input matInput formControlName="old_psw" minlength="8" required type="password" autocomplete="off" placeholder="Old Password" />
         <mat-hint align="end">At Least 8</mat-hint>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput minlength="8" formControlName="new_psw" required type="password" autocomplete="off" placeholder="New Password" />
+        <input matInput formControlName="new_psw" minlength="8" required type="password" autocomplete="off" placeholder="New Password" />
         <mat-hint align="end">At Least 8</mat-hint>
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput minlength="8" formControlName="confirm" required type="password" autocomplete="off" placeholder="Confirm Password" />
+        <input matInput formControlName="confirm" minlength="8" required type="password" autocomplete="off" placeholder="Confirm Password" />
       </mat-form-field>
       <button mat-raised-button class="full-width" color="primary" [disabled]="form?.invalid">Change Password</button>
     </form>

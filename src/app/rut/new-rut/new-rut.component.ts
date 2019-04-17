@@ -32,7 +32,7 @@ export class NewRutComponent implements OnInit {
     }
 
     this.createForm = this.formBuild.group(
-      { 'title': ['', Validators.required],
+      { 'title': [null, [Validators.required]],
         'url': [''],
         'content': [''],
         'author_id': [''],

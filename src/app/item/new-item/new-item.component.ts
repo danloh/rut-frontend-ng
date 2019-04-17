@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ItemService, AuthService } from '../../core';
+import { itemCates } from '../../shared';
 
 @Component({
   selector: 'app-new-item',
@@ -14,7 +15,7 @@ export class NewItemComponent implements OnInit {
   submitForm: FormGroup;
   canSubmit: Boolean;
 
-  cates: string[] = ['Book','Documentary','Movie','Course','Paper','WebPage', 'Other'];
+  cates: string[];
 
   constructor(
     private router: Router,
@@ -31,10 +32,12 @@ export class NewItemComponent implements OnInit {
       return
     }
 
+    this.cates = itemCates;
+
     this.submitForm = this.formBuild.group(
-      { 'title': ['', Validators.required],
+      { 'title': [null, [Validators.required]],
         'uiid': [''],
-        'authors': ['', Validators.required],
+        'authors': [null, [Validators.required]],
         'pub_at': [''],
         'publisher': [''],
         'category': ['Book'],
