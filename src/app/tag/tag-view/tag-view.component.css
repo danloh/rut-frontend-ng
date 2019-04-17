@@ -2,14 +2,8 @@
   padding: 10px 230px 10px 0px;
   position: relative;
 }
-.tag-side {
-  position: absolute;
-  right: 0;
-  width: 220px;
-  background-color: #fafbfa;
-}
 .tagmeta {
-  background-color: white;
+  background-color: #fcfcfa;
   min-height: 120px;
   padding: 5px 120px 5px 10px;
   margin-bottom: 5px;
@@ -29,4 +23,12 @@
 .edit-tag {
   padding: 10px;
   border: 1px dotted #689f38;
+}
+.tag-side {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 220px;
+  text-align: center;
+  background-color: #fafbfa;
 }

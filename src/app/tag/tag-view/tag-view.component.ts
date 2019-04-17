@@ -35,7 +35,7 @@ export class TagViewComponent implements OnInit {
       this.tname = this.tag.tname;
       this.relatedTags = []; // to do
     });
-    this.title.setTitle('RutHub - #' + this.tag.tname);
+    this.title.setTitle('#' + this.tag.tname + ' - RutHub');
     
     this.authService.checkAuth();
     this.authService.isAuthed$.subscribe(auth => {

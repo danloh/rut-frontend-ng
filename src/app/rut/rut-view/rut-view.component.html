@@ -25,7 +25,7 @@
         | <span> {{ rut.renew_at | date }}</span>
         | including {{ itemCount | plur:"item" }} 
         <a [routerLink]="'/update/r/' + rutID" *ngIf="canEdit">
-          <b> | Edit...</b>
+          <b> |  ....Edit....</b>
         </a>
       </div>
     </div>

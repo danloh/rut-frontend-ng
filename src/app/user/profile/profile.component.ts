@@ -30,6 +30,6 @@ export class ProfileComponent implements OnInit {
     this.tagService.get_list('user', this.uname).subscribe(
       res => this.tags = res.tags
     );
-    this.title.setTitle('Profile of ' + this.uname);
+    this.title.setTitle('@' + this.uname + ' - RutHub');
   }
 }

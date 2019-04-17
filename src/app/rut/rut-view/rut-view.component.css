@@ -14,7 +14,6 @@
   background-color: #eef4fa;
 }
 .tag a {
-  color: green;
   font-size: 0.85em;
 }
 .tag a:hover {
@@ -29,7 +28,6 @@
   font-size: 12px;
 }
 .rut-view .content {
-  background-color: #fbfbf8;
   padding: 10px;
   border-bottom: 2px solid #eee;
 }
@@ -59,7 +57,6 @@
 }
 .credential-title {
   padding: 2px 10px;
-  color: #3c763d;
   font-size: 12px;
 }
 .credential-body {

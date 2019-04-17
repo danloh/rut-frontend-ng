@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
 
+type FlagType = 'Todo' | 'Doing' | 'Done';  // for flag item
+
 @Component({
   selector: 'app-item-sum',
   templateUrl: './item-sum.component.html',

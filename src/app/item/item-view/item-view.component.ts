@@ -28,7 +28,7 @@ export class ItemViewComponent implements OnInit {
         // Load starStatus
       }
     );
-    this.title.setTitle('RutHub - ' + this.item.title);
+    this.title.setTitle(this.item.title + ' - RutHub');
   }
 
 }

@@ -52,7 +52,7 @@ export class RutViewComponent implements OnInit {
       this.getItems();
       this.getTags();
     });
-    this.title.setTitle('RutHub - ' + this.rut.title);
+    this.title.setTitle(this.rut.title + ' - RutHub');
 
     this.authService.checkAuth();
     this.authService.actUser$.subscribe(user => this.uname = user.uname);
