@@ -44,7 +44,7 @@ export class UpdateRutComponent implements OnInit {
     }
 
     this.rutForm = this.formBuild.group(
-      { 'title': [this.rut.title, Validators.required],
+      { 'title': [this.rut.title, [Validators.required]],
         'url': [this.rut.url || ''],
         'content': [this.rut.content || ''],
         'author_id': [this.rut.author_id || ''],
@@ -61,9 +61,9 @@ export class UpdateRutComponent implements OnInit {
 
     if (this.rutForm.invalid || !either_url_ctn || !this.canUpdate ) {
       alert("Invalid Input");
-      return
+      return;
     }
-    this.rutService.update(rutdata, this.rutID)
+    this.rutService.update(this.rutID, rutdata)
     .subscribe(
       res => this.router.navigateByUrl('/r/' + res.rut.id),
       err => console.log(err)

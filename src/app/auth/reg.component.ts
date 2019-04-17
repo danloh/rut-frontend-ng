@@ -33,9 +33,9 @@ export class RegComponent implements OnInit {
   ngOnInit() {
     // use FormBuilder to create a form group
     this.regForm = this.formBuild.group(
-      { 'uname': ['', [Validators.required, Validators.pattern(regName)]],
-        'password': ['', Validators.required],
-        'confirm': ['', Validators.required]
+      { 'uname': [null, [Validators.required, Validators.pattern(regName)]],
+        'password': [null, [Validators.required]],
+        'confirm': [null, [Validators.required]]
       }
       //, {validators: this.matchValidator}
     );

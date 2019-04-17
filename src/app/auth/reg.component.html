@@ -2,8 +2,8 @@
   <form [formGroup]="regForm" (ngSubmit)="onReg()" class="auth-form">
     <h3 class="title">Welcome to Join</h3>
     <mat-form-field class="full-width">
-      <input matInput #input maxlength="16" placeholder="Username" required formControlName="uname" />
-      <mat-hint align="end">{{input.value?.length || 0}}/16</mat-hint>
+      <input matInput #n maxlength="16" placeholder="Username" required formControlName="uname" />
+      <mat-hint align="end">{{n.value?.length || 0}}/16</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput minlength="8" placeholder="Password" required type="password" autocomplete="off" formControlName="password" />

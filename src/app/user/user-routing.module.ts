@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { WrapRutListComponent } from '../rut/rut-list/wrap-rut-list.component';
 import { WrapItemListComponent } from '../item/item-list/wrap-item-list.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserResolver } from './user-resolver.service';
 
 const routes: Routes = [
@@ -40,6 +41,13 @@ const routes: Routes = [
         data: {per: 'user', flag: 'done'}
       }
     ]
+  },
+  {
+    path: 'updateuser/:id',   // as uname, general 
+    component: UpdateUserComponent,
+    resolve: {
+      res: UserResolver
+    }
   }
 ];
 

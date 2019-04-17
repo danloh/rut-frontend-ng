@@ -23,3 +23,12 @@ export interface Auth {
   uname: string;
   [index: string]: string;  // password, comfirm
 }
+
+export interface UpdateUser {
+  uname: string;
+  email: string;
+  avatar: string;
+  intro: string;
+  location: string;
+  nickname: string;
+}
