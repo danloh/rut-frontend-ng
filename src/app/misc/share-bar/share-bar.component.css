@@ -1,0 +1,19 @@
+#social-share-bar {
+  padding: 5px;
+  text-align: center;
+}
+#social-share-bar > .share-link {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+a.tw:hover {
+  background-color: #1da1f2;
+}
+a.fb:hover {
+  background-color: #3c5a98;
+}
+.icon {
+  padding: 15px 5px;
+}

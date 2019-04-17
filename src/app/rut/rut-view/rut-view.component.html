@@ -50,6 +50,7 @@
     <button mat-button color="primary" (click)="onStarOrUnstar()" *ngIf="canEdit">
       {{ starStatus }}
     </button>
+    <app-share-bar></app-share-bar>
   </div>
   <div class="add-item" *ngIf="showAddItem">
     <app-add-item [rutID]="rutID" [itemnum]="itemCount" [uname]="uname"

@@ -11,9 +11,11 @@ import { CollectComponent } from './collect/collect.component';
 import { NewRutComponent } from './new-rut/new-rut.component';
 import { UpdateRutComponent } from './update-rut/update-rut.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ShareBarComponent } from '../misc';
 
 @NgModule({
   declarations: [
+    ShareBarComponent,
     RutListComponent,
     WrapRutListComponent,
     RutSumComponent, 
