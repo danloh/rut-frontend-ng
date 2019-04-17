@@ -5,7 +5,7 @@ import {
   ApiService, AuthService, AuthGuard, RutService, ItemService, 
   TagService, UserService 
 } from './service';
-import { HttpIntercept } from './interceptor/http.interceptor';
+import { AuthIntercept, ResponIntercept } from './interceptor/http.interceptor';
 
 @NgModule({
   declarations: [],
@@ -13,7 +13,8 @@ import { HttpIntercept } from './interceptor/http.interceptor';
     CommonModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpIntercept, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthIntercept, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponIntercept, multi: true },
     ApiService,
     AuthService,
     AuthGuard,
