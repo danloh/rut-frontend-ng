@@ -14,6 +14,8 @@ export class NewItemComponent implements OnInit {
   submitForm: FormGroup;
   canSubmit: Boolean;
 
+  cates: string[] = ['Book','Documentary','Movie','Course','Paper','WebPage', 'Other'];
+
   constructor(
     private router: Router,
     private itemService: ItemService,

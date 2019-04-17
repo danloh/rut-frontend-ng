@@ -16,6 +16,8 @@ export class UpdateItemComponent implements OnInit {
   item: Item;
   itemID: string;
 
+  cates: string[] = ['Book','Documentary','Movie','Course','Paper','WebPage', 'Other'];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,

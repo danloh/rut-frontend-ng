@@ -43,10 +43,6 @@
       <mat-hint align="end">{{cover.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput #cate maxlength="25" placeholder="Category" formControlName="category" />
-      <mat-hint align="end">{{cate.value?.length || 0}}</mat-hint>
-    </mat-form-field>
-    <mat-form-field class="full-width">
       <input matInput #e maxlength="32" placeholder="Edition" formControlName="edition" />
       <mat-hint align="end">{{e.value?.length || 0}}/32</mat-hint>
     </mat-form-field>
@@ -55,7 +51,15 @@
                 placeholder="Detail" formControlName="detail">
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
-    </mat-form-field><br>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-select placeholder="Category" formControlName="category">
+        <mat-option *ngFor="let cate of cates" [value]="cate">
+          {{cate}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
     <button mat-raised-button class="full-width" color="primary">Submit</button>
   </form>
 </div>
