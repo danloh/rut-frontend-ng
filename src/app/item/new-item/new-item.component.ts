@@ -51,8 +51,7 @@ export class NewItemComponent implements OnInit {
 
   onSubmit() {
     const item = this.submitForm.value;
-
-    let either_url_uiid = Boolean(item.url.trim()) || Boolean(item.uiid.trim());
+    const either_url_uiid = Boolean(item.url.trim()) || Boolean(item.uiid.trim());
 
     if (this.submitForm.invalid || !either_url_uiid || !this.canSubmit ) {
       alert("Invalid Input");

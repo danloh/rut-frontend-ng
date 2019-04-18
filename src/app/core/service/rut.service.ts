@@ -27,7 +27,7 @@ export class RutService {
     per: string, id: string, 
     p: number, f: string, k: string = '', fr: string = ''
   ): Observable<RutListRes> {
-    let qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
+    const qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
     return this.apiService.get('/ruts/' + per + '/' + id + qry)
       .pipe(map(data => data));
   }

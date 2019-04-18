@@ -44,10 +44,10 @@
     </app-collect>
   </div>
   <div class="toolbar">
-    <button mat-button color="primary" (click)="onShowAdd()" *ngIf="canEdit">
+    <button mat-button color="primary" (click)="onShowAddItem()" *ngIf="canEdit">
       {{ addLabel }}
     </button>
-    <button mat-button color="primary" (click)="onStarOrUnstar()" *ngIf="canEdit">
+    <button mat-button color="primary" (click)="onStarOrUnstar()" *ngIf="isAuthed">
       {{ starStatus }}
     </button>
     <app-share-bar></app-share-bar>

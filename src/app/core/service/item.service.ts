@@ -24,7 +24,7 @@ export class ItemService {
     per: string, id: string, 
     p: number, f: string, k: string = '', fr: string = ''
   ): Observable<ItemListRes> {
-    let qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
+    const qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
     return this.apiService.get(
       '/items/' + per + '/' + id + qry
     ).pipe(map(data => data));
@@ -34,7 +34,7 @@ export class ItemService {
     per: string, id: string, 
     p: number = 1, f: string = '', k: string = '', fr: string = ''
   ): Observable<CollectsRes> {
-    let qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
+    const qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
     return this.apiService.get('/collects/' + per + '/' + id + qry )
       .pipe(map(data => data));
   }

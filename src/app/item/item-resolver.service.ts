@@ -16,7 +16,7 @@ export class ItemResolver implements Resolve<ItemRes> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    let itemid = route.paramMap.get('id');
+    const itemid = route.paramMap.get('id');
     return this.itemService.get(itemid)
       .pipe(catchError(() => this.router.navigateByUrl('/')));
   }

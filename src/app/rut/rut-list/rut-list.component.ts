@@ -31,7 +31,7 @@ export class RutListComponent implements OnInit {
   loadMore() {
     this.rutService.get_list(this.per, this.perid, this.paging + 1, this.action)
     .subscribe((res: RutListRes) => {
-      let res_ruts = res.ruts;
+      const res_ruts = res.ruts;
       this.ruts.push(...res_ruts);
       this.checkMore();
       this.paging += 1;

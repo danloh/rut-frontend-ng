@@ -45,8 +45,8 @@ export class AuthService {
   }
 
   checkAuth() {
-    let t = this.getToken();
-    let u = this.getID();
+    const t = this.getToken();
+    const u = this.getID();
     if ( Boolean(t) && Boolean(u) ) {
       this.isAuthedSubject.next(true);
       this.actUserSubject.next({uname: u} as User);

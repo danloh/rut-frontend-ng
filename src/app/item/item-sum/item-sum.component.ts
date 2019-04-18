@@ -64,10 +64,10 @@ export class ItemSumComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(res => {
         if (!res) return;
-        let rutID = res.selectedRutID;
+        const rutID = res.selectedRutID;
         if (!rutID) return;
         // then add to rut
-        let cdata = { 
+        const cdata = { 
           rut_id: rutID,
           item_id: this.item.id,
           item_order:  1,  // just  a placeholder
@@ -83,7 +83,7 @@ export class ItemSumComponent implements OnInit {
     })
   }
   
-  toFlagDialog(flag: string) {
+  toFlagDialog(flag: FlagType) {
     if (!this.checkCan()) {
       alert("Need to Log In");
       return;
@@ -103,7 +103,7 @@ export class ItemSumComponent implements OnInit {
       // then flag
       this.itemService.star(this.item.id, res.flag, res.rate, res.note || 'Love')
       .subscribe(
-        res => console.log('Done'),
+        res => this.flagStatus = res.message,
         err => console.log(err)
       );
     });

@@ -29,7 +29,8 @@ export class RutViewComponent implements OnInit {
   itemIDs: any;  // map {itemID: {Item}}
   collects: Collect[];
   tags: string[];
-
+  
+  isAuthed: Boolean;
   canEdit: Boolean;
   uname: string;   // act user
 
@@ -48,8 +49,8 @@ export class RutViewComponent implements OnInit {
       this.itemCount = this.rut.item_count;
 
       // Load tags, collects for this rut
-      this.getCollects();
       this.getItems();
+      this.getCollects();
       this.getTags();
     });
     this.title.setTitle(this.rut.title + ' - RutHub');
@@ -57,6 +58,7 @@ export class RutViewComponent implements OnInit {
     this.authService.checkAuth();
     this.authService.actUser$.subscribe(user => this.uname = user.uname);
     this.authService.isAuthed$.subscribe(auth => {
+      this.isAuthed = auth;
       this.canEdit = auth && this.uname === this.rut.uname;
       this.checkStar();
     });
@@ -84,7 +86,7 @@ export class RutViewComponent implements OnInit {
     .subscribe(res => this.tags = res.tags)
   }
 
-  onShowAdd() {
+  onShowAddItem() {
     if (!this.canEdit) return;
 
     this.showAddItem = !this.showAddItem;
@@ -101,24 +103,27 @@ export class RutViewComponent implements OnInit {
 
   checkStar() {
     this.rutService.checkStar(this.rutID).subscribe(
-      res => this.starStatus = res.message === 'star' ? 'unStar' : 'Star'
+      res => this.starStatus = res.message === 'star' ? 'Unstar' : 'Star'
     );
   }
 
   onStarOrUnstar() {
-    if (!this.canEdit) return;
+    if (!this.isAuthed) {
+      alert('Need To Log in');
+      return;
+    }
 
     const action = this.starStatus === 'Star' ? 1 : 0;
     this.rutService.star(this.rutID, action).subscribe(
       res => { 
-        res.message === 'star' ? 'unStar' : 'Star';
+        res.message === 'star' ? 'Unstar' : 'Star';
         this.checkStar();
       }
     );
   }
 
   toAddTag() {
-    if (!this.canEdit) {
+    if (!this.isAuthed) {
       alert('Need To Log in');
       //this.router.navigateByUrl('/signin');
       return;
@@ -127,10 +132,13 @@ export class RutViewComponent implements OnInit {
   }
 
   addOrDelTag(tag?: string) {
-    if (!this.canEdit) return;
+    if (!this.isAuthed) {
+      alert('Need To Log in');
+      return;
+    }
 
     let newTg = this.newTag.trim().replace(/[ ]/gi, '-');
-    let len = newTg.length;
+    const len = newTg.length;
     if (len <= 1 || len > 42) {
       alert('Must be 2 - 42 length');
       return; 
@@ -144,7 +152,7 @@ export class RutViewComponent implements OnInit {
     } else {
       act = '1'
     }
-    let tagData = {
+    const tagData = {
       tnames: [act_tag],
       rut_id: this.rutID,
       action: act,

@@ -44,8 +44,7 @@ export class NewRutComponent implements OnInit {
   onCreate() {
     const rut = this.createForm.value;
     const rutdata = Object.assign(rut, { uname: this.uname });
-
-    let either_url_ctn = Boolean(rut.content.trim()) || Boolean(rut.url.trim());
+    const either_url_ctn = Boolean(rut.content.trim()) || Boolean(rut.url.trim());
 
     if (this.createForm.invalid || !either_url_ctn || !this.canCreate ) {
       alert("Invalid Input");

@@ -41,8 +41,8 @@ export class AddItemComponent implements OnInit {
   onSearch(key: string){
     console.log(key);
     if ( key.length < 6) return;  // check the keyword length
-    let per = regUrl.test(key) ? 'url' : 'uiid';
-    let perid = per === 'url' ? Base64.encode(key) : key;
+    const per = regUrl.test(key) ? 'url' : 'uiid';
+    const perid = per === 'url' ? Base64.encode(key) : key;
     this.itemService.get_list(per, perid, 1, 'done')
       .subscribe(res => this.items= res.items)
   }

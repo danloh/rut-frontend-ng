@@ -68,8 +68,7 @@ export class ResponIntercept implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let url = req.url;
-
+    const url = req.url;
     const newReq = req.clone({ url });
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {

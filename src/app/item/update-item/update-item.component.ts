@@ -31,7 +31,7 @@ export class UpdateItemComponent implements OnInit {
     this.authService.checkAuth();
     
     this.route.data.subscribe((data: { res: ItemRes }) => {
-      let res = data.res;
+      const res = data.res;
       this.item = res.item;
       this.itemID = this.item.id;
       this.authService.isAuthed$.subscribe(auth => 
@@ -64,8 +64,7 @@ export class UpdateItemComponent implements OnInit {
   onUpdate() {
     const item_up = this.itemForm.value;
     const itemdata = Object.assign(item_up, { id: this.itemID });
-
-    let either_url_uid = Boolean(item_up.url.trim()) || Boolean(item_up.uiid.trim());
+    const either_url_uid = Boolean(item_up.url.trim()) || Boolean(item_up.uiid.trim());
 
     if (this.itemForm.invalid || !either_url_uid || !this.canUpdate ) {
       alert("Invalid Input");

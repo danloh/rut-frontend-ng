@@ -16,7 +16,7 @@ export class RutResolver implements Resolve<RutRes> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    let id = route.paramMap.get('id');
+    const id = route.paramMap.get('id');
     return this.rutService.get(id)
       .pipe(catchError(() => this.router.navigateByUrl('/')));
   }

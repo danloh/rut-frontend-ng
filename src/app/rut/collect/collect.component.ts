@@ -31,7 +31,7 @@ export class CollectComponent implements OnInit {
   }
 
   onUpdate() {
-    let cdata = {
+    const cdata = {
       id: this.collect.id,
       content: this.collectContent,
       uname: this.uname,
