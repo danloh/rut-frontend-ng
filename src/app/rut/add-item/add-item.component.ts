@@ -34,7 +34,7 @@ export class AddItemComponent implements OnInit {
   }
 
   loadDoneItems() {
-    this.itemService.get_list('user', this.uname, 'done', 1)
+    this.itemService.get_list('user', this.uname, 1, 'done')
       .subscribe(res => this.items= res.items)
   }
 
@@ -43,7 +43,7 @@ export class AddItemComponent implements OnInit {
     if ( key.length < 6) return;  // check the keyword length
     let per = regUrl.test(key) ? 'url' : 'uiid';
     let perid = per === 'url' ? Base64.encode(key) : key;
-    this.itemService.get_list(per, perid, 'done', 1)
+    this.itemService.get_list(per, perid, 1, 'done')
       .subscribe(res => this.items= res.items)
   }
 

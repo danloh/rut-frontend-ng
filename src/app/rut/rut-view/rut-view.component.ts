@@ -63,7 +63,7 @@ export class RutViewComponent implements OnInit {
   }
 
   getCollects() {
-    this.itemService.get_collects('rut', this.rutID)
+    this.itemService.get_list_collects('rut', this.rutID)
     .subscribe(
       // sort collect per item_order, no order in Item
       res => this.collects = res.collects.sort((a,b) => a.item_order - b.item_order)
@@ -72,7 +72,7 @@ export class RutViewComponent implements OnInit {
 
   getItems() {
     this.itemIDs = new Map();
-    this.itemService.get_list('rut', this.rutID, 'done', 1)
+    this.itemService.get_list('rut', this.rutID, 1, 'done')
     .subscribe(
       // build a itenID-Item key-value map
       res => res.items.forEach(i => this.itemIDs.set(i.id, i))

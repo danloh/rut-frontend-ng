@@ -16,11 +16,11 @@ export class ItemListComponent implements OnInit {
 
   items: Item[];
   totalCount: number;
-  paging: number = 1;
+  page: number = 1;
   hasMore: Boolean;
 
   ngOnInit() {
-    this.itemService.get_list(this.per, this.perid, this.flag, this.paging)
+    this.itemService.get_list(this.per, this.perid, this.page, this.flag)
     .subscribe((res: ItemListRes) => {
       this.items = res.items;
       this.totalCount = res.count;
@@ -29,11 +29,11 @@ export class ItemListComponent implements OnInit {
   }
 
   loadMore() {
-    this.itemService.get_list(this.per, this.perid, this.flag, this.paging+1)
+    this.itemService.get_list(this.per, this.perid, this.page+1, this.flag)
     .subscribe((res: ItemListRes) => {
       this.items.push(...res.items);
       this.checkMore();
-      this.paging += 1;
+      this.page += 1;
     });
   }
 

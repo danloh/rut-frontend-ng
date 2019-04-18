@@ -17,8 +17,12 @@ export class TagService {
       .pipe(map(data => data));
   }
 
-  get_list(per: string, id: string): Observable<TagListRes> {
-    return this.apiService.get('/tags/' + per + '/' + id)
+  get_list(
+    per: string, id: string,
+    p: number = 1, f: string = '', k: string = '', fr: string = ''
+  ): Observable<TagListRes> {
+    let qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
+    return this.apiService.get('/tags/' + per + '/' + id + qry)
       .pipe(map(data => data));
   }
 

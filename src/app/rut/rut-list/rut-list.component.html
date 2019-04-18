@@ -1,5 +1,7 @@
 <div class="rut-list-view">
-  <b *ngIf="action !== '0'"> {{ action | titleCase }}: {{ totalCount }}</b>
+  <div class="count-title" *ngIf="action !== '0'"> 
+    <b> {{ action | titleCase }}: {{ totalCount }}</b>
+  </div>
   <div class="rut-list">
     <app-rut-sum *ngFor="let rut of ruts" [rut]="rut"></app-rut-sum>
   </div>
