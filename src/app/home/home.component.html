@@ -2,6 +2,9 @@
 <div class="home-page">
   <app-rut-list [per]="per" [perid]="perid" [action]="action"></app-rut-list>
   <div class="home-side">
-    <small>Yet Another Collection</small>
+    <h4 class="right-title">Yet Another Collection</h4>
+    <div class="right-body" *ngFor="let tag of indexTags">
+      <a [routerLink]="'/tag/' + tag" [title]="tag">{{ tag.slice(0, 24) }}</a>
+    </div>
   </div>
 </div>

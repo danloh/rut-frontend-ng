@@ -5,7 +5,8 @@
   </div>
   <form [formGroup]="submitForm" (ngSubmit)="onSubmit()" class="submit-form">
     <mat-form-field class="full-width">
-      <textarea matInput #t maxlength="255" cdkTextareaAutosize required 
+      <textarea matInput #t maxlength="255" required 
+                cdkTextareaAutosize cdkAutosizeMinRows="2"
                 formControlName="title" placeholder="Title">
       </textarea>
       <mat-hint align="end">{{t.value?.length || 0}}/255</mat-hint>
@@ -23,7 +24,8 @@
       <mat-hint align="end">{{uid.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <textarea matInput #url maxlength="255" cdkTextareaAutosize 
+      <textarea matInput #url maxlength="255" 
+                cdkTextareaAutosize cdkAutosizeMinRows="2" 
                 formControlName="url" placeholder="or Source URL">
       </textarea>
       <mat-hint align="end">{{url.value?.length || 0}}/255</mat-hint>
@@ -37,7 +39,7 @@
       <mat-hint align="end">{{puber.value?.length || 0}}</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <textarea matInput #cover maxlength="255" cdkTextareaAutosize 
+      <textarea matInput #cover maxlength="255" cdkTextareaAutosize cdkAutosizeMinRows="2" 
                 formControlName="cover" placeholder="Cover Image URL">
       </textarea>
       <mat-hint align="end">{{cover.value?.length || 0}}/255</mat-hint>

@@ -22,7 +22,7 @@ export class TagService {
     p: number = 1, f: string = '', k: string = '', fr: string = ''
   ): Observable<TagListRes> {
     const qry = `?page=${p}&flag=${f}&kw=${k}&fr=${fr}`
-    return this.apiService.get('/tags/' + per + '/' + id + qry)
+    return this.apiService.get(`/tags/${per}/${id}` + qry)
       .pipe(map(data => data));
   }
 
