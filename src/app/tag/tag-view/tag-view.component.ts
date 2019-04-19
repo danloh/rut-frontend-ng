@@ -84,6 +84,7 @@ export class TagViewComponent implements OnInit {
   }
 
   checkFollow() {
+    if (!this.canUpdate) return;
     this.tagService.checkFollow(this.tname).subscribe(
       res => this.followStatus = res.message === 'star' ? 'unFollow' : 'Follow'
     );

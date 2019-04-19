@@ -6,11 +6,13 @@ import { WrapRutListComponent } from '../rut/rut-list/wrap-rut-list.component';
 import { WrapItemListComponent } from '../item/item-list/wrap-item-list.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserResolver } from './user-resolver.service';
+import { AuthGuard } from '../core';
 
 const routes: Routes = [
   {
     path: 'p/:id',   // as uname, general 
     component: ProfileComponent,
+    canActivate: [AuthGuard],
     resolve: {
       res: UserResolver
     },
@@ -45,6 +47,7 @@ const routes: Routes = [
   {
     path: 'updateuser/:id',   // as uname, general 
     component: UpdateUserComponent,
+    canActivate: [AuthGuard],
     resolve: {
       res: UserResolver
     }

@@ -58,9 +58,10 @@ export class RutViewComponent implements OnInit {
     this.authService.checkAuth();
     this.authService.actUser$.subscribe(user => this.uname = user.uname);
     this.authService.isAuthed$.subscribe(auth => {
+      console.log(auth);
       this.isAuthed = auth;
       this.canEdit = auth && this.uname === this.rut.uname;
-      this.checkStar();
+      if (auth) { this.checkStar();}
     });
   }
 
@@ -102,6 +103,7 @@ export class RutViewComponent implements OnInit {
   }
 
   checkStar() {
+    if (!this.isAuthed) return;
     this.rutService.checkStar(this.rutID).subscribe(
       res => this.starStatus = res.message === 'star' ? 'Unstar' : 'Star'
     );

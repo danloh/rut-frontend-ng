@@ -25,11 +25,12 @@ export class NewRutComponent implements OnInit {
   ngOnInit() {
     this.authService.checkAuth();
     this.authService.isAuthed$.subscribe(auth => this.canCreate = auth);
-    this.authService.actUser$.subscribe(user => this.uname = user.uname);
     if (!this.canCreate) {
-      alert("No Permission")
-      return
+      alert("No Permission");
+      return;
     }
+
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
 
     this.createForm = this.formBuild.group(
       { 'title': [null, [Validators.required]],

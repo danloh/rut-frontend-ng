@@ -25,26 +25,23 @@ export class ItemSumComponent implements OnInit {
   uname: string;
   cover: string;
   flagStatus: string = 'Options';
+  can: Boolean;
 
   ngOnInit() {
-    this.cover = this.item.cover;
-    if (this.checkCan()) {
+    this.authService.checkAuth();
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
+    this.authService.isAuthed$.subscribe(auth => this.can = auth);
+    
+    if (this.can) {
       this.itemService.checkStar(this.item.id).subscribe(
         res => this.flagStatus = res.message
       );
     }
-  }
-
-  checkCan(): boolean {
-    let can: boolean;
-    this.authService.checkAuth();
-    this.authService.actUser$.subscribe(user => this.uname = user.uname);
-    this.authService.isAuthed$.subscribe(auth => can = auth);
-    return can
+    this.cover = this.item.cover;
   }
 
   toAddDialog() {
-    if (!this.checkCan()) {
+    if (!this.can) {
       alert("Need to Log In");
       return;
     }
@@ -84,7 +81,7 @@ export class ItemSumComponent implements OnInit {
   }
   
   toFlagDialog(flag: FlagType) {
-    if (!this.checkCan()) {
+    if (!this.can) {
       alert("Need to Log In");
       return;
     }

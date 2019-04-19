@@ -29,12 +29,15 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     this.authService.checkAuth();
-    this.authService.actUser$.subscribe(user => this.uname = user.uname);
     this.authService.isAuthed$.subscribe(auth => this.ifAuthed = auth);
+    if (!this.ifAuthed) return;
+    
+    this.authService.actUser$.subscribe(user => this.uname = user.uname);
+    
 
     this.route.data.subscribe((data: { res: AuthUser }) => {
       this.user = data.res.user;
-      this.uname = this.user.uname;
+      if (this.uname !== this.user.uname) return;
     });
 
     this.userForm = this.formBuild.group(

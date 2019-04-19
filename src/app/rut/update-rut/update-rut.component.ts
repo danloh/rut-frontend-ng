@@ -34,13 +34,13 @@ export class UpdateRutComponent implements OnInit {
       this.rut = res.rut;
       this.rutID = this.rut.id;
       this.authService.isAuthed$.subscribe(auth => 
-        this.canUpdate = auth && res.status === 200 && this.uname === res.rut.uname
+        this.canUpdate = auth && (res.status === 200) && (this.uname === res.rut.uname)
       );
     });
 
     if (!this.canUpdate) {
-      alert("No Permission")
-      return
+      alert("No Permission");
+      return;
     }
 
     this.rutForm = this.formBuild.group(

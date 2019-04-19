@@ -34,14 +34,14 @@ export class UpdateItemComponent implements OnInit {
       const res = data.res;
       this.item = res.item;
       this.itemID = this.item.id;
-      this.authService.isAuthed$.subscribe(auth => 
-        this.canUpdate = auth && res.status === 200
+      this.authService.isAuthed$.subscribe(
+        auth => this.canUpdate = auth && (res.status === 200)
       );
     });
 
     if (!this.canUpdate) {
-      alert("No Permission")
-      return
+      alert("No Permission");
+      return;
     }
 
     this.cates = itemCates;

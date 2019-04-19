@@ -3,7 +3,7 @@
     <a [routerLink]="'/p/' + uname">
       <b style="font-size:1.6em">{{ user.nickname }}</b>
     </a>
-    <a [routerLink]="'/updateuser/' + uname">
+    <a *ngIf="canEditProfile" [routerLink]="'/updateuser/' + uname">
       <small> @{{uname}}</small>
     </a>
     <small class="location"> &nbsp; {{ user.location }}</small>
