@@ -8,14 +8,14 @@ import { AuthGuard } from '../core';
 
 const itemRoutes: Routes = [
   {
-    path: 'item/:id',
+    path: 'item/:slug',
     component: ItemViewComponent,
     resolve: {
       res: ItemResolver
     }
   },
   {
-    path: 'update/item/:id',
+    path: 'update/item/:slug',
     component: UpdateItemComponent,
     canActivate: [AuthGuard],
     resolve: {

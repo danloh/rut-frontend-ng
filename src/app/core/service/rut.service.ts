@@ -18,8 +18,8 @@ export class RutService {
 
   constructor (private apiService: ApiService) {}
 
-  get(id: string): Observable<RutRes> {
-    return this.apiService.get('/ruts/' + id)
+  get(slug: string): Observable<RutRes> {
+    return this.apiService.get('/ruts/' + slug)
       .pipe(map(data => data));
   }
 
@@ -37,8 +37,8 @@ export class RutService {
     .pipe(map(data => data));
   }
 
-  update(rutid: string, rut: UpdateRut): Observable<RutRes> {
-    return this.apiService.post('/ruts/' + rutid, rut)
+  update(rut: UpdateRut, rutid: string): Observable<RutRes> {
+    return this.apiService.post('/ruts/' + rutid, rut)  // tobe: put('/ruts', rut) 
     .pipe(map(data => data));
   }
 

@@ -12,5 +12,9 @@ export class RutSumComponent implements OnInit {
 
   @Input() rut: Rut;
 
-  ngOnInit() {}
+  pt: string;
+
+  ngOnInit() {
+    this.pt = this.rut.slug || this.rut.id;  // for backward compatible
+  }
 }

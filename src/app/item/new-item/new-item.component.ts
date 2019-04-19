@@ -59,7 +59,7 @@ export class NewItemComponent implements OnInit {
     }
     this.itemService.submit(item)
     .subscribe(
-      res => this.router.navigateByUrl('/item/' + res.item.id),
+      res => this.router.navigateByUrl('/item/' + res.item.slug || res.item.id), // for backward compatible
       err => console.log(err)
     );
   }

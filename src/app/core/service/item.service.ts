@@ -6,8 +6,8 @@ import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
 import { 
-  NewItem, MsgRes, ItemRes, ItemListRes, CollectsRes, CollectRes, 
-  UpdateCollect, StarRes 
+  NewItem, UpdateItem, MsgRes, ItemRes, ItemListRes, 
+  UpdateCollect, StarRes, CollectsRes, CollectRes
 } from '../model';
 
 @Injectable()
@@ -15,8 +15,8 @@ export class ItemService {
 
   constructor (private apiService: ApiService) {}
 
-  get(id: string): Observable<ItemRes> {
-    return this.apiService.get('/items/' + id)
+  get(slug: string): Observable<ItemRes> {
+    return this.apiService.get('/items/' + slug)
       .pipe(map(data => data));
   }
 
@@ -43,8 +43,8 @@ export class ItemService {
     .pipe(map(data => data));
   }
 
-  update(item: any, itemid: string): Observable<ItemRes> {
-    return this.apiService.post('/items/' + itemid, item)
+  update(item: UpdateItem, itemid: string): Observable<ItemRes> {
+    return this.apiService.post(`/items/${itemid}`, item) // tobe: put('/items', item)
     .pipe(map(data => data));
   }
 

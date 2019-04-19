@@ -15,10 +15,25 @@ export interface Item {
   rut_count: number;
   etc_count: number;
   done_count: number;
-  vote: number;   
+  vote: number;
+  slug: string; 
 }
 
 export interface NewItem {
+  title: string;
+  uiid: string;
+  authors: string;
+  pub_at: string;
+  publisher: string;
+  category: string;
+  url: string;
+  cover: string;
+  edition: string;
+  detail: string;
+}
+
+export interface UpdateItem {
+  id: string;
   title: string;
   uiid: string;
   authors: string;

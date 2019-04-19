@@ -53,7 +53,7 @@ export class NewRutComponent implements OnInit {
     }
     this.rutService.create(rutdata)
     .subscribe(
-      res => this.router.navigateByUrl('/r/' + res.rut.id),
+      res => this.router.navigateByUrl('/r/' + res.rut.slug || res.rut.id), // for backward compatible
       err => console.log(err)
     );
   }

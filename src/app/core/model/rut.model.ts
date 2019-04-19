@@ -15,6 +15,7 @@ export interface Rut {
   comment_count: number;
   star_count: number;
   vote: number;
+  slug: string;
 }
 
 export interface NewRut {

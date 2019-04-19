@@ -9,14 +9,14 @@ import { AuthGuard } from '../core';
 
 const rutRoutes: Routes = [
   {
-    path: 'r/:id',
+    path: 'r/:slug',
     component: RutViewComponent,
     resolve: {
       res: RutResolver
     }
   },
   {
-    path: 'update/r/:id',
+    path: 'update/r/:slug',
     component: UpdateRutComponent,
     canActivate: [AuthGuard],
     resolve: {

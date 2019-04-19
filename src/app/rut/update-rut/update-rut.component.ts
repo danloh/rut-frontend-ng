@@ -63,9 +63,9 @@ export class UpdateRutComponent implements OnInit {
       alert("Invalid Input");
       return;
     }
-    this.rutService.update(this.rutID, rutdata)
+    this.rutService.update(rutdata, this.rutID)
     .subscribe(
-      res => this.router.navigateByUrl('/r/' + res.rut.id),
+      res => this.router.navigateByUrl('/r/' + res.rut.slug || res.rut.id), // for backward compatible
       err => console.log(err)
     );
   }
