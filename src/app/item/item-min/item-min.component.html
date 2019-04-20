@@ -1,6 +1,6 @@
 <div class="item-info">
   <!-- <sup class="indicator" *ngIf="order">#{{order}}&nbsp;</sup>  -->
-  <a [routerLink]="'/item/' + pt">{{ item.title }}</a>
+  <a [routerLink]="'/item/' + item.slug || item.id">{{ item.title }}</a>
   <small class="meta">
     <br>{{item.category}} |&nbsp;{{item.uiid}} |&nbsp;{{item.authors}} |&nbsp;{{item.pub_at}}
   </small>
