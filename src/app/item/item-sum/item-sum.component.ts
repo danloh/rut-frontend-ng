@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
 
-type FlagType = 'Todo' | 'Doing' | 'Done';  // for flag item
+type FlagType = 'todo' | 'doing' | 'done';  // for flag item
 
 @Component({
   selector: 'app-item-sum',
@@ -98,7 +98,7 @@ export class ItemSumComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (!res) return;
       // then flag
-      this.itemService.star(this.item.id, res.flag, res.rate, res.note || 'Love')
+      this.itemService.star(this.item.id, res.flag.toLowerCase(), res.rate, res.note || 'Love')
       .subscribe(
         res => this.flagStatus = res.message,
         err => console.log(err)

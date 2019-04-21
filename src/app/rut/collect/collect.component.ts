@@ -20,9 +20,14 @@ export class CollectComponent implements OnInit {
   editLable: string = 'Edit';
   collectContent: string = '';
 
+  pt: string;
+
   ngOnInit() {
     this.collectContent = this.collect.content;
     this.canEdit = this.canEdit && this.uname === this.collect.uname;
+
+    this.pt = this.item.slug || this.item.id;
+    console.log(this.pt)
 
   }
 

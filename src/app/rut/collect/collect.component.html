@@ -3,7 +3,7 @@
     <!-- component in 2 module issue or Circular dependency issue  -->
     <!-- <app-item-min [order]="collect.item_order" [item]="item"></app-item-min> -->
     <sup class="indicator" *ngIf="collect.item_order">#{{collect.item_order}}&nbsp;</sup> 
-    <a [routerLink]="'/item/' + item.slug || item.id">{{ item.title }}</a>
+    <a [routerLink]="'/item/' + pt">{{ item.title }}</a>
     <small class="meta">
       <br>{{item.category}} |&nbsp;{{item.uiid}} |&nbsp;{{item.authors}} |&nbsp;{{item.pub_at}}
     </small>

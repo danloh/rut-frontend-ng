@@ -24,8 +24,7 @@ export class ItemViewComponent implements OnInit {
       (data: { res: ItemRes }) => {
         this.item = data.res.item;
         this.itemID = this.item.id;
-
-        // Load starStatus
+        // to Load starStatus
       }
     );
     this.title.setTitle(this.item.title + ' - RutHub');
