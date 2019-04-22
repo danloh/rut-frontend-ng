@@ -47,7 +47,7 @@ export class UpdateRutComponent implements OnInit {
       { 'title': [this.rut.title, [Validators.required]],
         'url': [this.rut.url || ''],
         'content': [this.rut.content || ''],
-        'author_id': [this.rut.author_id || ''],
+        'author': [this.rut.author || ''],
         'credential': [this.rut.credential || '...'],
       }
     );
@@ -65,7 +65,7 @@ export class UpdateRutComponent implements OnInit {
     }
     this.rutService.update(rutdata, this.rutID)
     .subscribe(
-      res => this.router.navigateByUrl('/r/' + res.rut.slug || res.rut.id), // for backward compatible
+      res => this.router.navigateByUrl('/r/' + res.rut.slug),
       err => console.log(err)
     );
   }

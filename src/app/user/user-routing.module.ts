@@ -30,17 +30,17 @@ const routes: Routes = [
       {
         path: 'doings',
         component: WrapItemListComponent,
-        data: {per: 'user', flag: 'doing'}
+        data: {per: 'user', flag: '2'}
       },
       {
         path: 'todos',
         component: WrapItemListComponent,
-        data: {per: 'user', flag: 'todo'}
+        data: {per: 'user', flag: '1'}
       },
       {
         path: 'dones',
         component: WrapItemListComponent,
-        data: {per: 'user', flag: 'done'}
+        data: {per: 'user', flag: '3'}
       }
     ]
   },

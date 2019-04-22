@@ -27,6 +27,9 @@ export class ItemSumComponent implements OnInit {
   flagStatus: string = 'Options';
   can: Boolean;
 
+  flagMap = {'todo': 1, 'doing': 2, 'done': 3};
+  mapFlag = {'1': 'todo', '2': 'doing', '3': 'done', 'Options': 'Options'};
+
   ngOnInit() {
     this.authService.checkAuth();
     this.authService.actUser$.subscribe(user => this.uname = user.uname);
@@ -34,7 +37,7 @@ export class ItemSumComponent implements OnInit {
     
     if (this.can) {
       this.itemService.checkStar(this.item.id).subscribe(
-        res => this.flagStatus = res.message
+        res => this.flagStatus = this.mapFlag[res.message]
       );
     }
     this.cover = this.item.cover;
@@ -90,7 +93,7 @@ export class ItemSumComponent implements OnInit {
       width: '350px',
       data: {
         flag: flag,
-        note: '',
+        note: flag,
         rate: 1, // to do
       }
     });
@@ -98,9 +101,12 @@ export class ItemSumComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (!res) return;
       // then flag
-      this.itemService.star(this.item.id, res.flag.toLowerCase(), res.rate, res.note || 'Love')
+      const flg = res.flag.toLowerCase();
+      this.itemService.star(
+        this.item.id, this.flagMap[flg], res.rate, res.note || 'Love'
+      )
       .subscribe(
-        res => this.flagStatus = res.message,
+        res => this.flagStatus = this.mapFlag[res.message],
         err => console.log(err)
       );
     });
@@ -145,6 +151,7 @@ export class AddToListDialog {
 export interface FlagData {
   flag: string;  // todo|doing|done
   note: string;
+  rate: number;
 }
 
 @Component({

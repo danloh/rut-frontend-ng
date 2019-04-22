@@ -17,7 +17,7 @@
       <h2>{{ rut.title }}</h2>
       <div class="meta">
         <span *ngIf="rutUrl; else profile">
-          <a [href]="rutUrl" target="_blank">{{ rut.author_id || rut.uname }}</a>
+          <a [href]="rutUrl" target="_blank">{{ rut.author || rut.uname }}</a>
         </span>
         <ng-template #profile>
           <a [routerLink]="'/p/' + rut.uname">{{ rut.uname }}</a>
@@ -61,7 +61,7 @@
     <div class="credential">
       <span class="credential-title">About Creator(s)</span>
       <div class="credential-body">
-        <span>{{ rut.author_id }}: </span>
+        <span>{{ rut.author }}: </span>
         <span>{{ rut.credential }}</span>
       </div>
     </div>

@@ -9,10 +9,10 @@
       </span>
     </div>
     <ng-template #toPage>
-      <a [routerLink]="'/r/' + pt"><b>{{ rut.title }}</b></a>
+      <a [routerLink]="'/r/' + rut.slug"><b>{{ rut.title }}</b></a>
     </ng-template>
   </span>
-  <a [routerLink]="'/r/' + pt">
+  <a [routerLink]="'/r/' + rut.slug">
     <span>
       <img class="cover" [src]="rut.logo" referrerPolicy="no-referrer">
     </span>

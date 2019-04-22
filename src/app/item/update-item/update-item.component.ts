@@ -72,7 +72,7 @@ export class UpdateItemComponent implements OnInit {
     }
     this.itemService.update(itemdata, this.itemID)
     .subscribe(
-      res => this.router.navigateByUrl('/item/' + res.item.slug || res.item.id), // for backward compatible
+      res => this.router.navigateByUrl('/item/' + res.item.slug),
       err => console.log(err)
     );
   }

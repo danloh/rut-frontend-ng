@@ -13,10 +13,6 @@ export class ItemMinComponent implements OnInit {
   @Input() item: Item;
   @Input() order: number;
 
-  pt: string; 
-
-  ngOnInit() {
-    this.pt = this.item.slug || this.item.id;
-  }
+  ngOnInit() {}
 
 }

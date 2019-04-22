@@ -48,7 +48,9 @@ export class ItemService {
     .pipe(map(data => data));
   }
 
-  star(itemid: string, flag: string, rate: number, note: string): Observable<StarRes> {
+  star(
+    itemid: string, flag: number, rate: number = 1, note: string = 'Love'
+  ): Observable<StarRes> {
     return this.apiService.get(`/staritem/${itemid}/${flag}/${rate}/${note}`)
     .pipe(map(data => data));
   }

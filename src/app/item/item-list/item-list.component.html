@@ -1,6 +1,6 @@
 <div class="item-list-view">
   <div class="count-title" *ngIf="flag"> 
-    <b>{{ flag | titleCase }}: {{ totalCount }}</b>
+    <b>{{ mapFlag[flag] | titleCase }}: {{ totalCount }}</b>
   </div>
   <div class="item-list">
     <app-item-min *ngFor="let item of items" [item]="item"></app-item-min>

@@ -19,6 +19,8 @@ export class ItemListComponent implements OnChanges {
   page: number = 1;
   hasMore: Boolean;
 
+  mapFlag = {'1': 'todo', '2': 'doing', '3': 'done'};
+
   ngOnChanges() {
     this.itemService.get_list(this.per, this.perid, this.page, this.flag)
     .subscribe((res: ItemListRes) => {

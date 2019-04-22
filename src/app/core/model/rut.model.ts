@@ -7,7 +7,7 @@ export interface Rut {
   content: string;
   create_at: string;
   renew_at: string;
-  author_id: string;
+  author: string;
   uname: string;
   credential: string;
   logo: string;
@@ -23,7 +23,7 @@ export interface NewRut {
   url: string;
   content: string;
   uname: string;
-  author_id: string;
+  author: string;
   credential: string;
 }
 
@@ -32,7 +32,7 @@ export interface UpdateRut {
   title: string;
   url: string;
   content: string;
-  author_id: string;
+  author: string;
   credential: string;
 }
 
