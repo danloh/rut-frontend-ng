@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Item, Collect, ItemService } from '../../core';
 
 @Component({
@@ -6,7 +6,7 @@ import { Item, Collect, ItemService } from '../../core';
   templateUrl: './collect.component.html',
   styleUrls: ['./collect.component.css']
 })
-export class CollectComponent implements OnInit {
+export class CollectComponent implements OnInit, OnChanges {
 
   constructor(
     private itemService: ItemService,
@@ -22,14 +22,21 @@ export class CollectComponent implements OnInit {
 
   pt: string;
 
-  ngOnInit() {
+  ngOnChanges() {
     this.collectContent = this.collect.content;
     this.canEdit = this.canEdit && this.uname === this.collect.uname;
-    
-    // why sometime, cannot read the this.item(is undefined) wehn init??
+
     this.pt = this.item.slug || this.item.id;
     console.log(this.pt)
+  }
 
+  ngOnInit() {
+    //this.collectContent = this.collect.content;
+    //this.canEdit = this.canEdit && this.uname === this.collect.uname;
+    
+    // why sometime, cannot read the this.item(is undefined) wehn init??
+    //this.pt = this.item.slug || this.item.id;
+    //console.log(this.pt)
   }
 
   onShowEdit() {
