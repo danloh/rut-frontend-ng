@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component,Input, OnInit, OnChanges } from '@angular/core';
 import { Item, ItemListRes, ItemService } from '../../core';
 
 @Component({
@@ -6,7 +6,7 @@ import { Item, ItemListRes, ItemService } from '../../core';
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.css']
 })
-export class ItemListComponent implements OnInit {
+export class ItemListComponent implements OnChanges {
 
   constructor(private itemService: ItemService) {}
 
@@ -19,7 +19,7 @@ export class ItemListComponent implements OnInit {
   page: number = 1;
   hasMore: Boolean;
 
-  ngOnInit() {
+  ngOnChanges() {
     this.itemService.get_list(this.per, this.perid, this.page, this.flag)
     .subscribe((res: ItemListRes) => {
       this.items = res.items;
@@ -27,6 +27,8 @@ export class ItemListComponent implements OnInit {
       this.checkMore();
     });
   }
+
+  //ngOnInit() {}
 
   loadMore() {
     this.itemService.get_list(this.per, this.perid, this.page+1, this.flag)

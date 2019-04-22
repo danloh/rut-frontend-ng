@@ -27,7 +27,6 @@ export class CollectComponent implements OnInit, OnChanges {
     this.canEdit = this.canEdit && this.uname === this.collect.uname;
 
     this.pt = this.item.slug || this.item.id;
-    console.log(this.pt)
   }
 
   ngOnInit() {

@@ -39,7 +39,6 @@ export class AddItemComponent implements OnInit {
   }
 
   onSearch(key: string){
-    console.log(key);
     if ( key.length < 6) return;  // check the keyword length
     const per = regUrl.test(key) ? 'url' : 'uiid';
     const perid = per === 'url' ? Base64.encode(key) : key;
