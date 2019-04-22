@@ -25,7 +25,8 @@ export class CollectComponent implements OnInit {
   ngOnInit() {
     this.collectContent = this.collect.content;
     this.canEdit = this.canEdit && this.uname === this.collect.uname;
-
+    
+    // why sometime, cannot read the this.item(is undefined) wehn init??
     this.pt = this.item.slug || this.item.id;
     console.log(this.pt)
 
