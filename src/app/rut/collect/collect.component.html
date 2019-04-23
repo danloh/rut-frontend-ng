@@ -1,5 +1,5 @@
-<div class="collect-sum">
-  <div class="item-info" *ngIf="collect && item">
+<div class="collect-sum"  *ngIf="collect && item">
+  <div class="item-info">
     <!-- component in 2 module issue or Circular dependency issue  -->
     <!-- <app-item-min [order]="collect.item_order" [item]="item"></app-item-min> -->
     <sup class="indicator" *ngIf="collect.item_order">#{{collect.item_order}}&nbsp;</sup> 
@@ -11,7 +11,7 @@
       <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
     </span>
   </div>
-  <div class="content" [innerHTML]="collectContent | md" *ngIf="!showEdit"></div>
+  <div class="collect-content" [innerHTML]="collectContent | md" *ngIf="!showEdit"></div>
   <div *ngIf="canEdit">
     <button mat-button class="hiden-edit" color="warn" (click)="onDel()">Delete</button>
     <button mat-button color="primary" *ngIf="showEdit; else editbox" (click)="onShowEdit()">Cancel Edit</button>

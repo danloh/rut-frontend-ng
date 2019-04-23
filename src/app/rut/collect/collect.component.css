@@ -1,11 +1,11 @@
 .collect-sum {
   padding: 5px;
   background-color: #f5f7f8;
+  border-bottom: 0.5px dashed #ddd;
 }
 .item-info {
   padding-right: 40px;
   position: relative;
-  border-bottom: 0.5px dashed #ddd;
 }
 .item-info .indicator {
   font-size: 0.6em;
@@ -21,6 +21,9 @@
   max-height: 40px;
   top: 2px;
   right: 0px;
+}
+.collect-content {
+  border-bottom: 0px dashed #ddd;
 }
 .hiden-edit {
   cursor: pointer;

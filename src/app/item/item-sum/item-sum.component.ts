@@ -25,6 +25,7 @@ export class ItemSumComponent implements OnInit {
   uname: string;
   cover: string;
   flagStatus: string = 'Options';
+  flagNote: string = '';
   can: Boolean;
 
   flagMap = {'todo': 1, 'doing': 2, 'done': 3};
@@ -37,7 +38,10 @@ export class ItemSumComponent implements OnInit {
     
     if (this.can) {
       this.itemService.checkStar(this.item.id).subscribe(
-        res => this.flagStatus = this.mapFlag[res.message]
+        res => { 
+          this.flagStatus = this.mapFlag[res.message];
+          this.flagNote = res.note;
+        }
       );
     }
     this.cover = this.item.cover;
@@ -93,8 +97,8 @@ export class ItemSumComponent implements OnInit {
       width: '350px',
       data: {
         flag: flag,
-        note: flag,
-        rate: 1, // to do
+        note: this.flagNote,
+        rate: 0, // to do
       }
     });
 
@@ -106,7 +110,10 @@ export class ItemSumComponent implements OnInit {
         this.item.id, this.flagMap[flg], res.rate, res.note || 'Love'
       )
       .subscribe(
-        res => this.flagStatus = this.mapFlag[res.message],
+        resp => {
+          this.flagStatus = this.mapFlag[resp.message];
+          this.flagNote = resp.note;
+        },
         err => console.log(err)
       );
     });

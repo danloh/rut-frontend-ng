@@ -30,6 +30,12 @@
           <a [href]="item.url" *ngIf="item.url">...src</a>
         </td>
       </tr>
+      <tr *ngIf="flagNote">
+        <td><small class="indicator">Note</small></td>
+        <td>
+          <small class="flag-note">{{ flagNote }}</small>
+        </td>
+      </tr>
     </table>
   </div>
   <div class="operate">

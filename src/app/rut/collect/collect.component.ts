@@ -15,19 +15,17 @@ export class CollectComponent implements OnInit, OnChanges {
   @Input() collect: Collect;
   @Input() item: Item;
   @Input() uname: string;
-  @Input() canEdit: boolean = false;
+  @Input() canEdit: boolean;
   showEdit: boolean = false;
   editLable: string = 'Edit';
   collectContent: string = '';
 
   ngOnChanges() {
     this.collectContent = this.collect.content;
-    this.canEdit = this.canEdit && this.uname === this.collect.uname;
   }
 
   ngOnInit() {
     //this.collectContent = this.collect.content;
-    //this.canEdit = this.canEdit && this.uname === this.collect.uname;
     
     // why sometime, cannot read the this.item(is undefined) wehn init??
   }

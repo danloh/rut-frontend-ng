@@ -34,7 +34,7 @@ export class AddItemComponent implements OnInit {
   }
 
   loadDoneItems() {
-    this.itemService.get_list('user', this.uname, 1, 'done')
+    this.itemService.get_list('user', this.uname, 1, '3')  // 3-done
       .subscribe(res => this.items= res.items)
   }
 
@@ -42,8 +42,8 @@ export class AddItemComponent implements OnInit {
     if ( key.length < 6) return;  // check the keyword length
     const per = regUrl.test(key) ? 'url' : 'uiid';
     const perid = per === 'url' ? Base64.encode(key) : key;
-    this.itemService.get_list(per, perid, 1, 'done')
-      .subscribe(res => this.items= res.items)
+    this.itemService.get_list(per, perid, 1, '3')  // '3' now just a placeholder, todo: search in done item
+      .subscribe(res => this.items = res.items)
   }
 
   onAdd() {

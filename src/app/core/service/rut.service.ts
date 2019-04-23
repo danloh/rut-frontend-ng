@@ -37,8 +37,8 @@ export class RutService {
     .pipe(map(data => data));
   }
 
-  update(rut: UpdateRut, rutid: string): Observable<RutRes> {
-    return this.apiService.post('/ruts/' + rutid, rut)  // tobe: put('/ruts', rut) 
+  update(rut: UpdateRut): Observable<RutRes> {
+    return this.apiService.put('/ruts', rut)
     .pipe(map(data => data));
   }
 

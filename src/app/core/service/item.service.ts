@@ -43,8 +43,8 @@ export class ItemService {
     .pipe(map(data => data));
   }
 
-  update(item: UpdateItem, itemid: string): Observable<ItemRes> {
-    return this.apiService.post(`/items/${itemid}`, item) // tobe: put('/items', item)
+  update(item: UpdateItem): Observable<ItemRes> {
+    return this.apiService.put('/items', item)
     .pipe(map(data => data));
   }
 

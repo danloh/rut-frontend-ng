@@ -70,7 +70,7 @@ export class UpdateItemComponent implements OnInit {
       alert("Invalid Input");
       return
     }
-    this.itemService.update(itemdata, this.itemID)
+    this.itemService.update(itemdata)
     .subscribe(
       res => this.router.navigateByUrl('/item/' + res.item.slug),
       err => console.log(err)

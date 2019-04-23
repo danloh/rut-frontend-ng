@@ -5,7 +5,7 @@
       nzShowSearch nzServerSearch nzAllowClear
       (nzOnSearch)="onSearch($event)"
       formControlName="item_id"
-      nzPlaceHolder="Input ISBN or Other UID, Then Search and Select">
+      nzPlaceHolder="Input UID like ISBN or Source URL, Then Search and Select">
       <nz-option *ngFor="let item of items" 
                 [nzLabel]="item.title" 
                 [nzValue]="item.id">
@@ -17,6 +17,6 @@
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
     </mat-form-field><br>
-    <button mat-button class="full-width" color="primary">Add</button>
+    <button mat-button class="full-width" color="primary">Add To List</button>
   </form>
 </div>
