@@ -5,6 +5,8 @@ import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
 
 type FlagType = 'todo' | 'doing' | 'done';  // for flag item
 
+let ModRuts: Rut[] = [];  // as global
+
 @Component({
   selector: 'app-item-sum',
   templateUrl: './item-sum.component.html',
@@ -21,7 +23,7 @@ export class ItemSumComponent implements OnInit {
   ) {}
 
   @Input() item: Item;
-  ruts: Rut[];
+  //ruts: Rut[];
   uname: string;
   cover: string;
   flagStatus: string = 'Options';
@@ -55,7 +57,7 @@ export class ItemSumComponent implements OnInit {
     // pre-fetch created ruts, then open dialog
     this.rutService.get_list('user', this.uname, 1, 'create')
     .subscribe(res => {
-      const ruts = res.ruts;
+      const ruts = ModRuts = res.ruts;
       const dialogRef = this.dialog.open(AddToListDialog, {
         width: '550px',
         data: {
@@ -80,7 +82,18 @@ export class ItemSumComponent implements OnInit {
         }
         this.rutService.collect(res.selectedRutID, cdata)
         .subscribe(
-          res => this.router.navigateByUrl('/r/' + res.collect.rut_id), 
+          res => { 
+            console.log(ModRuts)
+            const rutid = res.collect.rut_id;
+            // alert: the ruts canbe changed in dialog component!!
+            // how to sync?
+            const selected = ModRuts.filter(r => r.id === rutid)[0];
+            if (!selected) {
+              this.router.navigateByUrl('/item/' + this.item.slug);
+              return;
+            }
+            this.router.navigateByUrl('/r/' + selected.slug);
+          },
           err => console.log(err)
         );
       });
@@ -149,7 +162,11 @@ export class AddToListDialog {
   onSearch(key: string){
     if (key.length < 6) return;
     this.rutService.get_list('key', this.data.uname, 1, 'create', key, 'user')
-    .subscribe(res => { this.ruts = res.ruts;})
+    // is there a way to sync the new ruts to item-sum? golable var?
+    .subscribe(res => { 
+      this.ruts.unshift(...res.ruts);
+      ModRuts = this.ruts;
+    })
   }
 
 }

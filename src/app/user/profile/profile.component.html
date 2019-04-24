@@ -1,7 +1,7 @@
 <div class="profile-page">
   <div class="profile-head">
     <a [routerLink]="'/p/' + uname">
-      <b style="font-size:1.6em">{{ user.nickname }}</b>
+      <b style="font-size:1.6em">{{ user.nickname || uname }}</b>
     </a>
     <a *ngIf="canEditProfile" [routerLink]="'/updateuser/' + uname">
       <small> @{{uname}}</small>

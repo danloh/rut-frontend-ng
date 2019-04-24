@@ -5,6 +5,7 @@
 #social-share-bar > .share-link {
   cursor: pointer;
   display: inline-block;
+  line-height: 36px;
   text-align: center;
 }
 

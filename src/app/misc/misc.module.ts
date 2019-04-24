@@ -5,4 +5,4 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [ CommonModule ]
 })
-export class MiscModule { }
+export class MiscModule {}

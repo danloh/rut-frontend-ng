@@ -4,7 +4,7 @@
 }
 .tagmeta {
   background-color: #fcfcfa;
-  min-height: 120px;
+  min-height: 125px;
   padding: 5px 120px 5px 10px;
   margin-bottom: 5px;
   position: relative;
@@ -16,9 +16,8 @@
   text-align: right;
 }
 .taglogo {
-  max-width: 105px;
-  max-height: 105px;
-  margin-top: 2px;
+  max-width: 100px;
+  max-height: 100px;
 }
 .edit-tag {
   padding: 10px;
