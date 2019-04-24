@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { Router, RoutesRecognized } from '@angular/router';
-import { filter, pairwise } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '../core';
 
@@ -21,6 +20,7 @@ export class SigninComponent implements OnInit {
     private authService: AuthService,
     private location: Location,
     public router: Router,
+    private route: ActivatedRoute,
     private formBuild: FormBuilder
   ) {}
 
@@ -36,7 +36,17 @@ export class SigninComponent implements OnInit {
     const authdata = this.authForm.value;
     this.authService.signIn(authdata)
     .subscribe(
-      _ => this.location.back(), // todo: avoid back to /signup
+      _ => {
+        let redUrl: string;
+        this.route.queryParamMap.subscribe(
+          (params: any) => redUrl = params.get('redirect')
+        );
+        if (redUrl) {
+          this.router.navigateByUrl(redUrl);
+        } else {
+          this.location.back();
+        }
+      }, // avoid back to /signup
       err => console.log(err),
     );
   }

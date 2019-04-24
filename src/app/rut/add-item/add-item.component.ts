@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Base64 } from 'js-base64';
 import { ItemService, RutService, Item, Rut, ItemListRes } from '../../core';
@@ -9,7 +9,7 @@ import { regUrl } from '../../shared';
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css']
 })
-export class AddItemComponent implements OnInit {
+export class AddItemComponent implements OnChanges {
   
   @Input() rutID: string;
   @Input() itemnum: number;
@@ -24,7 +24,7 @@ export class AddItemComponent implements OnInit {
     private formBuild: FormBuilder
   ) {}
 
-  ngOnInit() {
+  ngOnChanges() {
     this.addForm = this.formBuild.group(
       { 'item_id': [null, [Validators.required]],
         'content': [''],

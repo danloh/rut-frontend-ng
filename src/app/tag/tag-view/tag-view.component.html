@@ -41,8 +41,8 @@
     <app-rut-list [per]="'tag'" [perid]="tname" [action]="'0'"></app-rut-list>
   </div>
   <div class="tag-side">
-    <h4 class="sidetitle"> Related Tags</h4>
-    <div class="sidebody" *ngFor="let tag of relatedTags">
+    <h4 class="side-title"> Related Tags</h4>
+    <div class="side-body" *ngFor="let tag of relatedTags">
       <a [routerLink]="'/tag/' + tag">{{ tag }}</a>
     </div>
   </div>

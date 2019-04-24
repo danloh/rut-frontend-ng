@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Item } from '../../core';
 
 @Component({
@@ -6,13 +6,13 @@ import { Item } from '../../core';
   templateUrl: './item-min.component.html',
   styleUrls: ['./item-min.component.css']
 })
-export class ItemMinComponent implements OnInit {
+export class ItemMinComponent implements OnChanges {
 
   constructor() {}
 
   @Input() item: Item;
   @Input() order: number;
 
-  ngOnInit() {}
+  ngOnChanges() {}
 
 }

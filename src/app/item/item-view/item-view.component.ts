@@ -20,14 +20,13 @@ export class ItemViewComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched data
-    this.route.data.subscribe(
-      (data: { res: ItemRes }) => {
-        this.item = data.res.item;
-        this.itemID = this.item.id;
-        // to Load starStatus
-      }
-    );
-    this.title.setTitle(this.item.title + ' - RutHub');
+    this.route.data.subscribe((data: { res: ItemRes }) => {
+      this.item = data.res.item;
+      this.itemID = this.item.id;
+
+      // set document title
+      this.title.setTitle(this.item.title + ' - RutHub');
+    });
   }
 
 }

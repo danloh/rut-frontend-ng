@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Rut, RutService, RutListRes } from '../../core';
 
 @Component({
@@ -6,9 +6,9 @@ import { Rut, RutService, RutListRes } from '../../core';
   templateUrl: './rut-list.component.html',
   styleUrls: ['./rut-list.component.css']
 })
-export class RutListComponent implements OnInit {
+export class RutListComponent implements OnChanges {
   
-  constructor( private rutService: RutService) { }
+  constructor( private rutService: RutService) {}
 
   @Input() per: string;
   @Input() perid: string;
@@ -19,7 +19,7 @@ export class RutListComponent implements OnInit {
   paging: number = 1;
   hasMore: Boolean;
 
-  ngOnInit() {
+  ngOnChanges() {
     this.rutService.get_list(this.per, this.perid, this.paging, this.action)
     .subscribe((res: RutListRes) => {
       this.ruts = res.ruts;

@@ -1,4 +1,4 @@
-import { Component,Input, OnInit, OnChanges } from '@angular/core';
+import { Component,Input, OnChanges } from '@angular/core';
 import { Item, ItemListRes, ItemService } from '../../core';
 
 @Component({
@@ -29,8 +29,6 @@ export class ItemListComponent implements OnChanges {
       this.checkMore();
     });
   }
-
-  //ngOnInit() {}
 
   loadMore() {
     this.itemService.get_list(this.per, this.perid, this.page+1, this.flag)

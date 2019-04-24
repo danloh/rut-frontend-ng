@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html'
 })
-export class AvatarComponent implements OnInit {
+export class AvatarComponent implements OnChanges {
 
   constructor() {}
 
@@ -25,7 +25,7 @@ export class AvatarComponent implements OnInit {
     '#FFC107', '#FF9800', '#B3E5FC', '#607D8B'
   ];
 
-  ngOnInit() {
+  ngOnChanges() {
     this.isImage = Boolean(this.src);
     if (!this.isImage) {
       this.initial(this.uname);

@@ -15,8 +15,8 @@ export class TagViewComponent implements OnInit {
   canUpdate: Boolean;
   tagForm: FormGroup;
   tag: Tag;
-  tname: string;
-  relatedTags: Tag[];
+  tname: string;  // current tag
+  relatedTags: string[];
   toEdit: boolean = false;
   followStatus: string = 'Follow';
 
@@ -33,15 +33,28 @@ export class TagViewComponent implements OnInit {
     this.route.data.subscribe((data: { res: TagRes }) => {
       this.tag = data.res.tag;
       this.tname = this.tag.tname;
-      this.relatedTags = []; // to do
-    });
-    this.title.setTitle('#' + this.tag.tname + ' - RutHub');
-    
-    this.authService.checkAuth();
-    this.authService.isAuthed$.subscribe(auth => {
-      this.canUpdate = auth;
-      if (auth) { this.checkFollow();}
-    });
+      const pname = this.tag.pname;
+      if (pname) { 
+        this.get_related_tags(this.tag.pname); 
+      } else {
+        this.relatedTags = [];
+      }
+      this.title.setTitle('#' + this.tag.tname + ' - RutHub');
+      this.authService.checkAuth();
+      this.authService.isAuthed$.subscribe(auth => {
+        this.canUpdate = auth;
+        if (auth) { this.checkFollow();}
+      });
+    }); 
+  }
+
+  get_related_tags(pname: string) {
+    this.tagService.get_list('tag', pname).subscribe(
+      res => { 
+        this.relatedTags = res.tags.filter( t => t !== this.tname);
+        this.relatedTags.push(pname);
+      }
+    )
   }
 
   onShowEdit() {

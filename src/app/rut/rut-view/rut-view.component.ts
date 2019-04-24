@@ -20,7 +20,9 @@ export class RutViewComponent implements OnInit {
     private itemService: ItemService,
     private tagService: TagService,
     private rutService: RutService
-  ) {}
+  ) {
+    //this.router.events.subscribe( (event) => console.log(event))
+  }
 
   rutID: string;
   rut: Rut;
@@ -52,15 +54,16 @@ export class RutViewComponent implements OnInit {
       this.getItems();
       this.getCollects();
       this.getTags();
-    });
-    this.title.setTitle(this.rut.title + ' - RutHub');
-
-    this.authService.checkAuth();
-    this.authService.actUser$.subscribe(user => this.uname = user.uname);
-    this.authService.isAuthed$.subscribe(auth => {
-      this.isAuthed = auth;
-      this.canEdit = auth && this.uname === this.rut.uname;
-      if (auth) { this.checkStar();}
+      // set docment title
+      this.title.setTitle(this.rut.title + ' - RutHub');
+      // check auth
+      this.authService.checkAuth();
+      this.authService.actUser$.subscribe(user => this.uname = user.uname);
+      this.authService.isAuthed$.subscribe(auth => {
+        this.isAuthed = auth;
+        this.canEdit = auth && this.uname === this.rut.uname;
+        if (auth) { this.checkStar();}
+      });
     });
   }
 

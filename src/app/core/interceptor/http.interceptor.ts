@@ -52,8 +52,10 @@ export class ResponIntercept implements HttpInterceptor {
         alert('UnAuthorized or Expired Authorization');
         this.redirectTo('/signin');
         break;
-      case 403:
       case 404:
+        this.redirectTo('/404');
+        break;
+      case 403:
       case 500:
         this.redirectTo('/');
         break;

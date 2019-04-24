@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Input } from '@angular/core';
+import { Component, Inject, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
@@ -12,7 +12,7 @@ let ModRuts: Rut[] = [];  // as global
   templateUrl: './item-sum.component.html',
   styleUrls: ['./item-sum.component.css']
 })
-export class ItemSumComponent implements OnInit {
+export class ItemSumComponent implements OnChanges {
 
   constructor(
     private router: Router,
@@ -33,7 +33,7 @@ export class ItemSumComponent implements OnInit {
   flagMap = {'todo': 1, 'doing': 2, 'done': 3};
   mapFlag = {'1': 'todo', '2': 'doing', '3': 'done', 'Options': 'Options'};
 
-  ngOnInit() {
+  ngOnChanges() {
     this.authService.checkAuth();
     this.authService.actUser$.subscribe(user => this.uname = user.uname);
     this.authService.isAuthed$.subscribe(auth => this.can = auth);
