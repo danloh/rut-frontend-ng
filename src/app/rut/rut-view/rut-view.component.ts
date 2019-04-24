@@ -137,21 +137,22 @@ export class RutViewComponent implements OnInit {
       alert('Need To Log in');
       return;
     }
-
-    let newTg = this.newTag.trim().replace(/[ ]/gi, '-');
-    const len = newTg.length;
-    if (len <= 1 || len > 42) {
-      alert('Must be 2 - 42 length');
-      return; 
-    }
-    let act_tag = tag || newTg;
-    let act: string;
+    let act_tag: string;
+    let act: number;
     if (tag) {
-      act = '0';
       let cf = confirm('Are You Sure to Delete this Tag?');
       if (!cf) return;
+      act = 0;
+      act_tag = tag;
     } else {
-      act = '1'
+      const newTg = this.newTag.trim().replace(/[ ]/gi, '-');
+      const len = newTg.length;
+      if (len <= 1 || len > 42) {
+        alert('Must be 2 - 42 length');
+        return; 
+      }
+      act = 1;
+      act_tag = newTg;
     }
     const tagData = {
       tnames: [act_tag],
@@ -162,9 +163,9 @@ export class RutViewComponent implements OnInit {
     this.rutService.tagRut(act, this.rutID, tagData)
     .subscribe(() => {
       this.showAddTag = false;
-      if (act === '1') {
+      if (act === 1) {
         this.tags.push(act_tag);
-      } else if (act === '0') {
+      } else if (act === 0) {
         this.tags.splice(this.tags.indexOf(act_tag), 1);
       }
     });

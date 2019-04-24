@@ -10,7 +10,7 @@
       </span>
       <span class="tag" *ngFor="let tag of tags">
         <a [routerLink]="'/tag/' + tag"><b>{{ tag }}</b></a>
-        <sup class="hiden-del-tag" (click)="addOrDelTag(tag)"> x</sup>
+        <span class="hiden-del-tag" (click)="addOrDelTag(tag)"> x</span>
       </span>
     </div>
     <div class="title">

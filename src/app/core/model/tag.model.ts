@@ -16,7 +16,7 @@ export interface Tag {
 export interface TagRut {
   tnames: string[];
   rut_id: string;
-  action: string;
+  action: number;
 }
 
 export interface TagRes {

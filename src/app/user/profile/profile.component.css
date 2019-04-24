@@ -46,3 +46,8 @@
 .aboutme, .user-info, .fobar {
   font-size: 0.85em;
 }
+.fo-tag a:hover {
+  background-color: #ddd;
+  padding: 2px;
+  font-size: 1.05em;
+}

@@ -34,8 +34,10 @@
         <b style="color:coral">~</b> Done
       </a><br><br>
       <b># Topic: </b><br>
-      <span *ngFor="let tag of tags">
-        <a [routerLink]="'/tag/' + tag"><small>{{tag}} &nbsp;</small></a>
+      <span class="fo-tag" *ngFor="let tag of tags">
+        <a [routerLink]="'/tag/' + tag">
+          <small>{{ tag }}&nbsp;</small>
+        </a>
       </span>
     </div>
   </div>

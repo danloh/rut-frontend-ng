@@ -61,7 +61,7 @@ export class RutService {
     .pipe(map(data => data));
   }
 
-  tagRut(act: string, rutid: string, tag: TagRut): Observable<MsgRes> {
+  tagRut(act: number, rutid: string, tag: TagRut): Observable<MsgRes> {
     return this.apiService.post(`/tagr/${act}/${rutid}`, tag)
     .pipe(map(data => data));
   }
