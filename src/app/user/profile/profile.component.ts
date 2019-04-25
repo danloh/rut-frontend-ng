@@ -36,10 +36,11 @@ export class ProfileComponent implements OnInit {
       this.user = data.res.user;
       this.uname = this.user.uname;
       this.canEditProfile = (this.actname === this.uname) && this.ifAuthed;
+    
+      this.tagService.get_list('user', this.uname).subscribe(
+        res => this.tags = res.tags
+      );
+      this.title.setTitle('@' + this.uname + ' - RutHub');
     });
-    this.tagService.get_list('user', this.uname).subscribe(
-      res => this.tags = res.tags
-    );
-    this.title.setTitle('@' + this.uname + ' - RutHub');
   }
 }

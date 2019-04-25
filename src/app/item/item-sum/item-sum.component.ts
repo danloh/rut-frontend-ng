@@ -83,7 +83,6 @@ export class ItemSumComponent implements OnChanges {
         this.rutService.collect(res.selectedRutID, cdata)
         .subscribe(
           res => { 
-            console.log(ModRuts)
             const rutid = res.collect.rut_id;
             // alert: the ruts canbe changed in dialog component!!
             // how to sync?

@@ -1,6 +1,7 @@
 .item-info {
-  padding-right: 40px;
+  padding: 5px 45px 5px 10px;
   position: relative;
+  min-height: 48px;
   border-bottom: 0.5px dashed #ddd;
 }
 .item-info .indicator {
@@ -15,6 +16,6 @@
   position: absolute;
   max-width: 40px;
   max-height: 40px;
-  top: 2px;
-  right: 0px;
+  top: 5px;
+  right: 2px;
 }

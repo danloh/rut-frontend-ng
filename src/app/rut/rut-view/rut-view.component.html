@@ -30,10 +30,10 @@
       </div>
     </div>
     <div class="content">
-      <div [innerHTML]="rut.content | md"></div>
       <div class="org-src" *ngIf="rut.url">
         <a [href]="rut.url" target="_blank"><b>Origin Source</b></a>
       </div>
+      <div [innerHTML]="rut.content | md"></div>
     </div>
     <!-- match collect / item per item_id -->
     <app-collect *ngFor="let c of collects" 

@@ -18,6 +18,11 @@ const routes: Routes = [
     },
     children: [
       {
+        path: '',
+        redirectTo: 'doings',
+        pathMatch: 'full',
+      },
+      {
         path: 'create',
         component: WrapRutListComponent,
         data: {per: 'user', action: 'create'}
