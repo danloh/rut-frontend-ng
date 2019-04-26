@@ -8,7 +8,11 @@
       </span>
     </div>
     <div class="item-detail">
-      <div [innerHTML]="item.detail || '...'"></div>
+      <div *ngIf="ifShowMore; else alldetail" [innerHTML]="item.detail | showLess"></div>
+      <ng-template #alldetail>
+        <div [innerHTML]="(item.detail || '...') | md"></div>
+      </ng-template>
+      <a (click)="showMoreOrLess()">{{ moreOrLessLabel }}</a>
     </div>
   </div>
   <div class="include">

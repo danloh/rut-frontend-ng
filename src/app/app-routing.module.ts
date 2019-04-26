@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { NotFoundComponent } from './misc';
+import { NotFoundComponent, AboutComponent } from './misc';
 
 const routes: Routes = [
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
   {
     path: '404',
     component: NotFoundComponent,

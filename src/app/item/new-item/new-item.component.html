@@ -54,14 +54,20 @@
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
     </mat-form-field>
-    <mat-form-field class="full-width">
+    <!-- <mat-form-field class="full-width">
       <mat-select formControlName="category" placeholder="Category">
         <mat-option *ngFor="let cate of cates" [value]="cate">
           {{cate}}
         </mat-option>
       </mat-select>
-    </mat-form-field>
-    <br>
+    </mat-form-field> -->
+    <nz-select nzMode="tags" formControlName="category"
+      [nzMaxTagCount]="1" nzPlaceHolder="Category"
+    >
+      <nz-option *ngFor="let cate of cates" [nzLabel]="cate" [nzValue]="cate">
+      </nz-option>
+    </nz-select>
+    <br><br>
     <button mat-raised-button class="full-width" color="primary">Submit</button>
   </form>
 </div>

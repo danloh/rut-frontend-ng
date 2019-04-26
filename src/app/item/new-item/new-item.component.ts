@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ItemService, AuthService } from '../../core';
-import { itemCates } from '../../shared';
+import { itemCates, regUiid } from '../../shared';
 
 @Component({
   selector: 'app-new-item',
@@ -40,7 +40,7 @@ export class NewItemComponent implements OnInit {
         'authors': [null, [Validators.required]],
         'pub_at': [''],
         'publisher': [''],
-        'category': ['Book'],
+        'category': [['Book']],
         'url': [''],
         'cover': [''],
         'edition': [''],
@@ -51,8 +51,10 @@ export class NewItemComponent implements OnInit {
 
   onSubmit() {
     const item = this.submitForm.value;
+    item.uiid = item.uiid.replace(regUiid, ''); // do a bit process
+    item.category = item.category[0] || 'Book'; // nz-select stopgap
     const either_url_uiid = Boolean(item.url.trim()) || Boolean(item.uiid.trim());
-
+    console.log(item.category);
     if (this.submitForm.invalid || !either_url_uiid || !this.canSubmit ) {
       alert("Invalid Input");
       return

@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared';
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { FooterComponent, HeaderComponent, NotFoundComponent } from './misc';
+import { FooterComponent, HeaderComponent, NotFoundComponent, AboutComponent } from './misc';
 import { MaterialModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
@@ -24,6 +24,7 @@ registerLocaleData(en);
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    AboutComponent,
     NotFoundComponent
   ],
   imports: [

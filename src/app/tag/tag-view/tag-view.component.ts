@@ -20,6 +20,9 @@ export class TagViewComponent implements OnInit {
   toEdit: boolean = false;
   followStatus: string = 'Follow';
 
+  ifShowMore: boolean;
+  moreOrLessLabel: string;
+
   constructor( 
     private route: ActivatedRoute,
     private title: Title,
@@ -45,6 +48,9 @@ export class TagViewComponent implements OnInit {
         this.canUpdate = auth;
         if (auth) { this.checkFollow();}
       });
+      // for show more or less tag descript
+      this.ifShowMore = this.tag.intro.length > 256;
+      this.showLabel();
     }); 
   }
 
@@ -112,6 +118,16 @@ export class TagViewComponent implements OnInit {
         this.checkFollow();
       }
     );
+  }
+
+  // for show more or less tag descript
+  showMoreOrLess() {
+    this.ifShowMore = !this.ifShowMore;
+    this.showLabel();
+  }
+  // for show more or less tag descript
+  showLabel() {
+    this.moreOrLessLabel = this.ifShowMore ? '...More' : '...Less';
   }
 
 }

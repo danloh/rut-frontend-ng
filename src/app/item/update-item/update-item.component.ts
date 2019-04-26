@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ItemService, AuthService, Item, ItemRes } from '../../core';
-import { itemCates } from '../../shared';
+import { itemCates, regUiid } from '../../shared';
 
 @Component({
   selector: 'app-update-item',
@@ -52,7 +52,7 @@ export class UpdateItemComponent implements OnInit {
         'authors': [this.item.authors || '', [Validators.required]],
         'pub_at': [this.item.pub_at || ''],
         'publisher': [this.item.publisher || ''],
-        'category': [this.item.category || 'Book'],
+        'category': [[this.item.category]],
         'url': [this.item.url || ''],
         'cover': [this.item.cover || ''],
         'edition': [this.item.edition || ''],
@@ -63,9 +63,10 @@ export class UpdateItemComponent implements OnInit {
 
   onUpdate() {
     const item_up = this.itemForm.value;
+    item_up.uiid = item_up.uiid.replace(regUiid, ''); // do a bit process
+    item_up.category = item_up.category[0] || 'Book'; // stopgap
     const itemdata = Object.assign(item_up, { id: this.itemID });
     const either_url_uid = Boolean(item_up.url.trim()) || Boolean(item_up.uiid.trim());
-
     if (this.itemForm.invalid || !either_url_uid || !this.canUpdate ) {
       alert("Invalid Input");
       return

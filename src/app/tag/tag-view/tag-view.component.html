@@ -5,7 +5,11 @@
       <a *ngIf="canUpdate" (click)="onToEdit()"><small> Edit</small></a>
     </h4>
     <div>
-      <div [innerHTML]="(tag.intro | md) || '...'"></div>
+      <div *ngIf="ifShowMore; else alldetail" [innerHTML]="tag.intro | showLess"></div>
+      <ng-template #alldetail>
+        <div [innerHTML]="(tag.intro || '...') | md"></div>
+      </ng-template>
+      <a (click)="showMoreOrLess()">{{ moreOrLessLabel }}</a>
     </div>
     <div class="fobtn">
       <button mat-button (click)="onFoOrUnFo()">{{ followStatus }}</button><br>
