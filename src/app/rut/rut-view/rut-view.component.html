@@ -4,7 +4,7 @@
       <button mat-button (click)="toAddTag()">+Tag:</button>
       <span *ngIf="showAddTag">
         <mat-form-field>
-          <input matInput maxlength="42" [(ngModel)]="newTag"/>
+          <input matInput maxlength="42" [(ngModel)]="newTag" placeholder="seperate with ,"/>
         </mat-form-field>
         <button mat-button (click)="addOrDelTag()">Add</button>
       </span>

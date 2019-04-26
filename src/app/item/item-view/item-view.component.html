@@ -2,7 +2,7 @@
   <div class="item-main">
     <app-item-sum [item]="item"></app-item-sum>
     <div>
-      <b>More Details</b>
+      <small>More Details</small>
       <span style="float:right">
         <a [routerLink]="'/update/item/' + item.slug"><small>Edit..</small></a>
       </span>
@@ -12,7 +12,9 @@
       <ng-template #alldetail>
         <div [innerHTML]="(item.detail || '...') | md"></div>
       </ng-template>
-      <a (click)="showMoreOrLess()">{{ moreOrLessLabel }}</a>
+      <a (click)="showMoreOrLess()">
+        <small class="help-tips">{{ moreOrLessLabel }}</small>
+      </a>
     </div>
   </div>
   <div class="include">

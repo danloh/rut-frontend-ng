@@ -19,6 +19,13 @@ export interface TagRut {
   action: number;
 }
 
+export interface TagAny {
+  tnames: string[];
+  tag_to: string,
+  to_id: string;
+  action: number;
+}
+
 export interface TagRes {
   status: number;
   message: string;

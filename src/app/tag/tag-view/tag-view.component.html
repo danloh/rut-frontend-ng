@@ -9,7 +9,9 @@
       <ng-template #alldetail>
         <div [innerHTML]="(tag.intro || '...') | md"></div>
       </ng-template>
-      <a (click)="showMoreOrLess()">{{ moreOrLessLabel }}</a>
+      <a (click)="showMoreOrLess()">
+        <small class="help-tips">{{ moreOrLessLabel }}</small>
+      </a>
     </div>
     <div class="fobtn">
       <button mat-button (click)="onFoOrUnFo()">{{ followStatus }}</button><br>
