@@ -20,7 +20,11 @@
     <div class="right-nav">
       <a [routerLink]="'/p/' + uname + '/create'" routerLinkActive="active">
         <b style="color:royalblue">*</b> Post
-      </a><br>
+      </a>
+      <a routerLink="/new">
+        <small style="color:orange">  +New</small>
+      </a>
+      <br>
       <a [routerLink]="'/p/' + uname + '/star'" routerLinkActive="active">
         <b style="color:royalblue">*</b> Star
       </a><br>
