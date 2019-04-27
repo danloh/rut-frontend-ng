@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { RutService, AuthService } from '../../core';
 
@@ -19,7 +20,8 @@ export class NewRutComponent implements OnInit {
     private router: Router,
     private rutService: RutService,
     private authService: AuthService,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private title: Title
   ) {}
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class NewRutComponent implements OnInit {
         'credential': [''],
       }
     );
+    this.title.setTitle('Post New Collection - RutHub');
   }
 
   onCreate() {

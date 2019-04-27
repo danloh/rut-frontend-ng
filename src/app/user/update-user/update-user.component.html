@@ -1,4 +1,5 @@
 <div>
+  <a [routerLink]="'/p/' + uname"><small> Cancel and back </small></a>
   <button mat-button (click)="onSwitch()">
     {{ showUserForm ? 'Change Password': 'Update My Profile' }}
   </button>

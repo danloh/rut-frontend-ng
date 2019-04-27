@@ -3,6 +3,7 @@ import {
   FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors 
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { AuthService } from '../core';
 import { regName } from '../shared';
@@ -13,13 +14,14 @@ import { regName } from '../shared';
   styleUrls: ['./auth.component.css']
 })
 export class RegComponent implements OnInit {
-  title: string = 'Register';
+
   regForm: FormGroup;
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private title: Title
   ) {}
 
   matchValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
@@ -39,6 +41,7 @@ export class RegComponent implements OnInit {
       }
       //, {validators: this.matchValidator}
     );
+    this.title.setTitle('Register - RutHub');
   }
 
   onReg() {

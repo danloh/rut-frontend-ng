@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { ItemService, AuthService } from '../../core';
 import { itemCates, regUiid } from '../../shared';
@@ -21,7 +22,8 @@ export class NewItemComponent implements OnInit {
     private router: Router,
     private itemService: ItemService,
     private authService: AuthService,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private title: Title
   ) {}
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class NewItemComponent implements OnInit {
         'detail': [''],
       }
     );
+    this.title.setTitle('Submit New Item - RutHub');
   }
 
   onSubmit() {

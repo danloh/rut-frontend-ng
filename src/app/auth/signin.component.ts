@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { AuthService } from '../core';
 
@@ -11,7 +12,7 @@ import { AuthService } from '../core';
   styleUrls: ['./auth.component.css']
 })
 export class SigninComponent implements OnInit {
-  title: string = 'Sign In';
+  
   authForm: FormGroup;
 
   preUrl: string;
@@ -21,7 +22,8 @@ export class SigninComponent implements OnInit {
     private location: Location,
     public router: Router,
     private route: ActivatedRoute,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private title: Title
   ) {}
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class SigninComponent implements OnInit {
       'uname': [null, [Validators.required]],
       'password': [null, [Validators.required]]
     });
+    this.title.setTitle('Log in - RutHub');
   }
 
   onLogin() {

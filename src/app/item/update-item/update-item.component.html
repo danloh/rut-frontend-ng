@@ -13,10 +13,10 @@
       <mat-hint align="end">{{t.value?.length || 0}}/255</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <textarea matInput #author maxlength="255" cdkTextareaAutosize required 
+      <textarea matInput #author maxlength="128" cdkTextareaAutosize required 
                 formControlName="authors" placeholder="Author or Instructor">
       </textarea>
-      <mat-hint align="end">{{author.value?.length || 0}}/255</mat-hint>
+      <mat-hint align="end">{{author.value?.length || 0}}/128</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
       <textarea matInput #uid maxlength="32" cdkTextareaAutosize 
