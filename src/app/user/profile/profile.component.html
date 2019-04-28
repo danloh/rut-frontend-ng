@@ -3,7 +3,7 @@
     <a [routerLink]="'/p/' + uname">
       <b style="font-size:1.6em">{{ user.nickname || uname }}</b>
     </a>
-    <a *ngIf="canEditProfile" [routerLink]="'/updateuser/' + uname">
+    <a *ngIf="canEditProfile" [routerLink]="'/p/update/' + uname">
       <small> @{{uname}}</small>
     </a>
     <small class="location"> &nbsp; {{ user.location }}</small>
@@ -21,7 +21,7 @@
       <a [routerLink]="'/p/' + uname + '/create'" routerLinkActive="active">
         <b style="color:royalblue">*</b> Post
       </a>
-      <a routerLink="/new">
+      <a routerLink="/r/new">
         <small style="color:orange">  +New</small>
       </a>
       <br>

@@ -1,8 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AuthGuard } from './core';
 import { NotFoundComponent, AboutComponent } from './misc';
 
 const routes: Routes = [
+  {
+    path: 'p',  // user
+    loadChildren: './user/user.module#UserModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'item',
+    loadChildren: './item/item.module#ItemModule'
+  },
+  {
+    path: 'r',  // rut
+    loadChildren: './rut/rut.module#RutModule'
+  },
+  {
+    path: 'tag',
+    loadChildren: './tag/tag.module#TagModule'
+  },
   {
     path: 'about',
     component: AboutComponent,

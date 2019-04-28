@@ -8,25 +8,25 @@ import { AuthGuard } from '../core';
 
 const itemRoutes: Routes = [
   {
-    path: 'item/:slug',
+    path: 'submit',  // prefix '/item/'
+    component: NewItemComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: ':slug',
     component: ItemViewComponent,
     resolve: {
       res: ItemResolver
     }
   },
   {
-    path: 'update/item/:slug',
+    path: 'update/:slug',
     component: UpdateItemComponent,
     canActivate: [AuthGuard],
     resolve: {
       res: ItemResolver
     }
   },
-  {
-    path: 'submit',
-    component: NewItemComponent,
-    canActivate: [AuthGuard]
-  }
 ];
 
 @NgModule({

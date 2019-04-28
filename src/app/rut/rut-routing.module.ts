@@ -9,25 +9,25 @@ import { AuthGuard } from '../core';
 
 const rutRoutes: Routes = [
   {
-    path: 'r/:slug',
+    path: 'new',  // prefix '/r/'
+    component: NewRutComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: ':slug',  
     component: RutViewComponent,
     resolve: {
       res: RutResolver
     }
   },
   {
-    path: 'update/r/:slug',
+    path: 'update/:slug',
     component: UpdateRutComponent,
     canActivate: [AuthGuard],
     resolve: {
       res: RutResolver
     }
   },
-  {
-    path: 'new',
-    component: NewRutComponent,
-    canActivate: [AuthGuard]
-  }
 ];
 
 @NgModule({

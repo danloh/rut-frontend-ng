@@ -24,7 +24,7 @@
         </ng-template>
         | <span> {{ rut.renew_at | date }}</span>
         | including {{ itemCount | plur:"item" }} 
-        <a [routerLink]="'/update/r/' + rut.slug" *ngIf="canEdit">
+        <a [routerLink]="'/r/update/' + rut.slug" *ngIf="canEdit">
           <b> |  ....Edit....</b>
         </a>
       </div>

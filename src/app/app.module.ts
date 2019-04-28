@@ -9,10 +9,10 @@ import { FooterComponent, HeaderComponent, NotFoundComponent, AboutComponent } f
 import { MaterialModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
-import { ItemModule } from './item/item.module';
-import { RutModule } from './rut/rut.module';
-import { TagModule } from './tag/tag.module';
+//import { UserModule } from './user/user.module';
+//import { ItemModule } from './item/item.module';
+//import { RutModule } from './rut/rut.module';
+//import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { registerLocaleData } from '@angular/common';
@@ -35,10 +35,10 @@ registerLocaleData(en);
     CoreModule,
     HomeModule,
     AuthModule,
-    UserModule,
-    ItemModule,
-    RutModule,
-    TagModule,
+    //UserModule,
+    //ItemModule,
+    //RutModule,
+    //TagModule,
     AppRoutingModule
   ],
   providers: [Title],

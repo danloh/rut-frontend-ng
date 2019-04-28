@@ -10,7 +10,7 @@ import { AuthGuard } from '../core';
 
 const routes: Routes = [
   {
-    path: 'p/:id',   // as uname, general 
+    path: ':id',   // as uname, general  // prefix 'p/'
     component: ProfileComponent,
     canActivate: [AuthGuard],
     resolve: {
@@ -50,7 +50,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'updateuser/:id',   // as uname, general 
+    path: 'update/:id',   // as uname, general 
     component: UpdateUserComponent,
     canActivate: [AuthGuard],
     resolve: {

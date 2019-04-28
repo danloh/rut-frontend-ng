@@ -1,7 +1,7 @@
 // auth
 
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, CanActivateChild, CanLoad } from '@angular/router';
 import { Observable,  BehaviorSubject,  ReplaySubject } from 'rxjs';
 import { map, take, distinctUntilChanged } from 'rxjs/operators';
 import * as Cookies from 'js-cookie'
@@ -92,11 +92,23 @@ export class AuthService {
 }
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   constructor(private authService: AuthService) {}
 
   canActivate(): Observable<boolean> {
+    return this.checkAuthed();
+  }
+
+  canActivateChild(): Observable<boolean> {
+    return this.checkAuthed();
+  }
+
+  canLoad(): Observable<boolean> {
+    return this.checkAuthed();
+  }
+
+  checkAuthed(): Observable<boolean> {
     this.authService.checkAuth();
     return this.authService.isAuthed$.pipe(take(1));
   }

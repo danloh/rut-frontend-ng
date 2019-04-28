@@ -6,7 +6,7 @@ import { TagResolver } from './tag-resolver.service';
 
 const tagRoutes: Routes = [
   {
-    path: 'tag/:tname',
+    path: ':tname',  // '/tag/'
     component: TagViewComponent,
     resolve: {
       res: TagResolver
