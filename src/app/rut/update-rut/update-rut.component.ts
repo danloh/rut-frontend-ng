@@ -66,7 +66,7 @@ export class UpdateRutComponent implements OnInit {
     this.rutService.update(rutdata)
     .subscribe(
       res => this.router.navigateByUrl('/r/' + res.rut.slug),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 }

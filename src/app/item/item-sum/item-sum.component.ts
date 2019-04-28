@@ -93,7 +93,7 @@ export class ItemSumComponent implements OnChanges {
             }
             this.router.navigateByUrl('/r/' + selected.slug);
           },
-          err => console.log(err)
+          //err => console.log(err)
         );
       });
     })
@@ -126,7 +126,7 @@ export class ItemSumComponent implements OnChanges {
           this.flagStatus = this.mapFlag[resp.message];
           this.flagNote = resp.note;
         },
-        err => console.log(err)
+        //err => console.log(err)
       );
     });
   }

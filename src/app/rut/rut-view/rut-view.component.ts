@@ -20,9 +20,7 @@ export class RutViewComponent implements OnInit {
     private itemService: ItemService,
     private tagService: TagService,
     private rutService: RutService
-  ) {
-    //this.router.events.subscribe( (event) => console.log(event))
-  }
+  ) {}
 
   rutID: string;
   rut: Rut;

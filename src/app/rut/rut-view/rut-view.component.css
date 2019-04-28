@@ -34,8 +34,7 @@
 .org-src {
   font-size: 12px;
   text-align: center;
-  padding: 2px;
-  background-color: #f3f5f8;
+  padding: 0 2px;
 }
 .toolbar {
   display: flex;

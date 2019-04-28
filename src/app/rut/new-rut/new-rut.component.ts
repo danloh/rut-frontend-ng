@@ -57,7 +57,7 @@ export class NewRutComponent implements OnInit {
     this.rutService.create(rutdata)
     .subscribe(
       res => this.router.navigateByUrl('/r/' + res.rut.slug),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 

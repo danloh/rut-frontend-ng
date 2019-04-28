@@ -74,7 +74,7 @@ export class UpdateItemComponent implements OnInit {
     this.itemService.update(itemdata)
     .subscribe(
       res => this.router.navigateByUrl('/item/' + res.item.slug),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 

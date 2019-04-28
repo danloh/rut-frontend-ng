@@ -68,7 +68,7 @@ export class UpdateUserComponent implements OnInit {
     const userData = Object.assign(user_up, { uname: this.uname });
     this.userService.update(this.uname, userData).subscribe(
       res => this.router.navigateByUrl('/p/' + res.user.uname),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 
@@ -83,7 +83,7 @@ export class UpdateUserComponent implements OnInit {
     const pswData = Object.assign(psw, { uname: this.uname });
     this.userService.changePsw(this.uname, pswData).subscribe(
       res => this.router.navigateByUrl('/p/' + this.uname),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 

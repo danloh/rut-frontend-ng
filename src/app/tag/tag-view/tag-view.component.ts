@@ -98,7 +98,7 @@ export class TagViewComponent implements OnInit {
         this.toEdit = false;
         this.tagForm.reset();
       },
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 

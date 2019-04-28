@@ -27,12 +27,12 @@
         <a [routerLink]="'/r/update/' + rut.slug" *ngIf="canEdit">
           <b> |  ....Edit....</b>
         </a>
+        <span class="org-src" style="float:right" *ngIf="rut.url">
+          <a [href]="rut.url" target="_blank"><b>Origin: {{ rut.url | host }}</b></a>
+        </span>
       </div>
     </div>
     <div class="content">
-      <div class="org-src" *ngIf="rut.url">
-        <a [href]="rut.url" target="_blank"><b>Origin Source</b></a>
-      </div>
       <div [innerHTML]="rut.content | md"></div>
     </div>
     <!-- match collect / item per item_id -->
@@ -59,7 +59,7 @@
   </div>
   <div class="rut-side">
     <div class="credential">
-      <span class="credential-title">About <b>{{ rut.author || rut.uname }}</b> :</span>
+      <span class="credential-title">About <b>{{ (rut.author || rut.uname).slice(0,25) }}</b> :</span>
       <div class="credential-body">
         <span>{{ rut.credential }}</span>
       </div>

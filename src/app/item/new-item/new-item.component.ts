@@ -57,7 +57,6 @@ export class NewItemComponent implements OnInit {
     item.uiid = item.uiid.replace(regUiid, ''); // do a bit process
     item.category = item.category[0] || 'Book'; // nz-select stopgap
     const either_url_uiid = Boolean(item.url.trim()) || Boolean(item.uiid.trim());
-    console.log(item.category);
     if (this.submitForm.invalid || !either_url_uiid || !this.canSubmit ) {
       alert("Invalid Input");
       return
@@ -65,7 +64,7 @@ export class NewItemComponent implements OnInit {
     this.itemService.submit(item)
     .subscribe(
       res => this.router.navigateByUrl('/item/' + res.item.slug),
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 

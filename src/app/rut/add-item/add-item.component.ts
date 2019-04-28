@@ -63,7 +63,7 @@ export class AddItemComponent implements OnChanges {
       res => {
         this.added.emit(true);
       },   // pass res up, to parent rut view
-      err => console.log(err)
+      //err => console.log(err)
     );
   }
 }
