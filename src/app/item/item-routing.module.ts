@@ -8,7 +8,7 @@ import { AuthGuard } from '../core';
 
 const itemRoutes: Routes = [
   {
-    path: 'submit',  // prefix '/item/'
+    path: 'submit',  // prefix '/item/' // must before :slug for router match
     component: NewItemComponent,
     canActivate: [AuthGuard]
   },

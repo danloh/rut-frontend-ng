@@ -9,7 +9,7 @@ import { AuthGuard } from '../core';
 
 const rutRoutes: Routes = [
   {
-    path: 'new',  // prefix '/r/'
+    path: 'new',  // prefix '/r/'  // must before :slug for router match
     component: NewRutComponent,
     canActivate: [AuthGuard]
   },
