@@ -48,12 +48,8 @@ const modules = [
 ];
 
 @NgModule({
-  imports: [
-    ...modules
-  ],
-  exports: [
-    ...modules
-  ],
+  imports: [ ...modules ],
+  exports: [ ...modules ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
 })
 export class MaterialModule {}

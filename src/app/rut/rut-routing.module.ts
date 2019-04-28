@@ -34,4 +34,4 @@ const rutRoutes: Routes = [
   imports: [RouterModule.forChild(rutRoutes)],
   exports: [RouterModule]
 })
-export class RutRoutingModule { }
+export class RutRoutingModule {}

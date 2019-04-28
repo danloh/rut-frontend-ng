@@ -4,7 +4,7 @@ import { MaterialModule, PipeModule } from '../shared';
 import { TagRoutingModule } from './tag-routing.module';
 import { TagViewComponent } from './tag-view/tag-view.component';
 import { TagResolver } from './tag-resolver.service';
-import { RutModule } from '../rut/rut.module';
+import { RutListModule, ItemListModule } from '../shared';
 
 @NgModule({
   declarations: [
@@ -12,10 +12,10 @@ import { RutModule } from '../rut/rut.module';
   ],
   imports: [
     CommonModule,
+    TagRoutingModule,
     MaterialModule,
     PipeModule,
-    RutModule,
-    TagRoutingModule
+    RutListModule,
   ],
   providers: [
     TagResolver

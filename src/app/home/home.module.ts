@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { RutModule } from '../rut/rut.module';
 import { HomeComponent } from './home.component';
+import { RutListModule } from '../shared';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    RutModule
+    RutListModule
   ]
 })
 export class HomeModule {}
