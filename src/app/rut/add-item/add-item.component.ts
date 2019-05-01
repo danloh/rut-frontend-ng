@@ -17,6 +17,7 @@ export class AddItemComponent implements OnChanges {
   @Output() added = new EventEmitter<boolean>();
   items: Item[];  // items by search
   addForm: FormGroup;
+  showLoading: boolean = false;
 
   constructor(
     private itemService: ItemService,
@@ -40,10 +41,16 @@ export class AddItemComponent implements OnChanges {
 
   onSearch(key: string){
     if ( key.length < 6) return;  // check the keyword length
+    this.showLoading = true;
     const per = regUrl.test(key) ? 'url' : 'uiid';
-    const perid = per === 'url' ? Base64.encode(key) : key;
-    this.itemService.get_list(per, perid, 1, '3')  // '3' now just a placeholder, todo: search in done item
-      .subscribe(res => this.items = res.items)
+    const perid = per === 'url' ? 'perurl' : key;
+    // put url in  query param as kw, avoid route error
+    const kw =  per === 'url' ? Base64.encode(key) : '';
+    this.itemService.get_list(per, perid, 1, '3', kw)  // '3' now just a placeholder, todo: search in done item
+      .subscribe(res => {
+        this.items = res.items;
+        this.showLoading = false;
+      })
   }
 
   onAdd() {

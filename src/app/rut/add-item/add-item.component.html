@@ -1,5 +1,6 @@
 <div class="add-page">
   <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
+    <small *ngIf="showLoading">Loading...</small>
     <!-- cannot call onEnter ?? -->
     <nz-select #slct class="full-width"
       nzShowSearch nzServerSearch nzAllowClear

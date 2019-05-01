@@ -42,8 +42,6 @@ const modules = [
   MatOptionModule,
   MatMenuModule,
   MatDialogModule,
-  MatDividerModule,
-  MatProgressBarModule,
   NgZorroAntdModule
 ];
 
