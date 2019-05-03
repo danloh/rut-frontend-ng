@@ -1,7 +1,7 @@
 <div class="rut-sum">
   <span class="title">
     <div *ngIf="rut.url; else toPage">
-      <b>{{ rut.title }}</b>
+      {{ rut.title }}
       <span class="host">
         <a [href]="rut.url" target="_blank" rel="nofollow noopener noreferrer">
           | {{ rut.url | host }}
@@ -9,7 +9,7 @@
       </span>
     </div>
     <ng-template #toPage>
-      <a [routerLink]="'/r/' + rut.slug"><b>{{ rut.title }}</b></a>
+      <a [routerLink]="'/r/' + rut.slug">{{ rut.title }}</a>
     </ng-template>
   </span>
   <a [routerLink]="'/r/' + rut.slug">
