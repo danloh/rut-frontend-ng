@@ -1,10 +1,12 @@
 <h1 mat-dialog-title>Add Item to a List</h1>
 <div mat-dialog-content>
+  <!-- some issue on search per keyword, backend -->
   <nz-select #slct class="full-width"
     nzShowSearch nzServerSearch nzAllowClear
     (nzOnSearch)="onSearch($event)"
+    (nzScrollToBottom)="onLoadMore()"
     [(ngModel)]="data.selectedRutID"
-    nzPlaceHolder="Select a Collection or Input Keyword to Search">
+    nzPlaceHolder="Select a Collection from My Posts">
     <nz-option *ngFor="let rut of ruts" 
                 [nzLabel]="rut.title" 
                 [nzValue]="rut.id">

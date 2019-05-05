@@ -16,11 +16,11 @@ export class RutListComponent implements OnChanges {
 
   ruts: Rut[];
   totalCount: number;
-  paging: number = 1;
+  page: number = 1;
   hasMore: Boolean;
 
   ngOnChanges() {
-    this.rutService.get_list(this.per, this.perid, this.paging, this.action)
+    this.rutService.get_list(this.per, this.perid, this.page, this.action)
     .subscribe((res: RutListRes) => {
       this.ruts = res.ruts;
       this.totalCount = res.count;
@@ -29,12 +29,12 @@ export class RutListComponent implements OnChanges {
   }
 
   loadMore() {
-    this.rutService.get_list(this.per, this.perid, this.paging + 1, this.action)
+    this.page += 1;
+    this.rutService.get_list(this.per, this.perid, this.page, this.action)
     .subscribe((res: RutListRes) => {
       const res_ruts = res.ruts;
       this.ruts.push(...res_ruts);
       this.checkMore();
-      this.paging += 1;
     });
   }
 

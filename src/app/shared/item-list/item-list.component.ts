@@ -31,11 +31,11 @@ export class ItemListComponent implements OnChanges {
   }
 
   loadMore() {
-    this.itemService.get_list(this.per, this.perid, this.page+1, this.flag)
+    this.page += 1;
+    this.itemService.get_list(this.per, this.perid, this.page, this.flag)
     .subscribe((res: ItemListRes) => {
       this.items.push(...res.items);
       this.checkMore();
-      this.page += 1;
     });
   }
 

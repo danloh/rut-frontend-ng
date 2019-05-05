@@ -62,3 +62,11 @@ blockquote {
   color: orange;
   font-weight: 800;
 }
+
+/* to fix the no-needed scrollbar and overlap content, autosize textarea*/
+textarea[cdktextareaautosize].mat-input-element {
+  overflow: hidden;
+  resize: vertical;
+  padding: 0;
+  margin: 0;
+}

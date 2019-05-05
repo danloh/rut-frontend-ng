@@ -6,7 +6,7 @@
       nzShowSearch nzServerSearch nzAllowClear
       (nzOnSearch)="onSearch($event)"
       formControlName="item_id"
-      nzPlaceHolder="Input UID like ISBN or Source URL, Then Search and Select">
+      nzPlaceHolder="https://...">
       <nz-option *ngFor="let item of items" 
                 [nzLabel]="item.title" 
                 [nzValue]="item.id">
@@ -14,7 +14,7 @@
     </nz-select>
     <mat-form-field class="full-width">
       <textarea matInput #d cdkTextareaAutosize cdkAutosizeMinRows="5" 
-                formControlName="content" placeholder="Compose..., like Reading tips, etc.">
+                formControlName="content" placeholder="Compose..., like Reading tips or key takeaway, etc.">
       </textarea>
       <mat-hint align="end">{{d.value?.length || 0}}</mat-hint>
     </mat-form-field><br>

@@ -2,6 +2,7 @@ import { Component, Inject, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
+import { Console } from '@angular/core/src/console';
 
 type FlagType = 'todo' | 'doing' | 'done';  // for flag item
 
@@ -86,6 +87,7 @@ export class ItemSumComponent implements OnChanges {
             const rutid = res.collect.rut_id;
             // alert: the ruts canbe changed in dialog component!!
             // how to sync?
+            // currently, via a global rut-list to get selected rut
             const selected = ModRuts.filter(r => r.id === rutid)[0];
             if (!selected) {
               this.router.navigateByUrl('/item/' + this.item.slug);
@@ -153,21 +155,38 @@ export class AddToListDialog {
   ) {}
 
   ruts: Rut[];
+  page: number = 1;
+  hasMore: boolean = true;
 
   ngOnInit() {
     this.ruts = this.data.ruts;
+    this.hasMore = this.ruts.length === 20;  // maybe has next page
   }
 
   onSearch(key: string){
     if (key.length < 6) return;
     this.rutService.get_list('key', this.data.uname, 1, 'create', key, 'user')
-    // is there a way to sync the new ruts to item-sum? golable var?
+    // is there a way to sync the new ruts to item-sum?
+    // currently golable var
     .subscribe(res => { 
       this.ruts.unshift(...res.ruts);
       ModRuts = this.ruts;
     })
   }
 
+  onLoadMore() {
+    if (!this.hasMore) return;
+    this.page += 1;
+    this.rutService.get_list('user', this.data.uname, this.page, 'create')
+    .subscribe(res => {
+      const res_ruts = res.ruts
+      this.ruts.push(...res_ruts);
+      ModRuts = this.ruts;
+      if (res_ruts.length < 20 ) {
+        this.hasMore = false;
+      }
+    });
+  }
 }
 
 // type of inject to flag item dialog
