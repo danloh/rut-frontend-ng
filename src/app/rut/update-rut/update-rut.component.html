@@ -1,9 +1,6 @@
 <div class="update-page">
   <div class="title">
-    <span>
-      Update List: <br>
-      <small class="help-tips">{{ rut.title}}</small>
-    </span>
+    <span>Update List:<br> <small class="help-tips">{{ rut.title}}</small></span>
   </div>
   <form [formGroup]="rutForm" (ngSubmit)="onUpdate()" class="rut-form">
     <mat-form-field class="full-width">
@@ -32,5 +29,6 @@
     </mat-form-field>
     <button mat-raised-button class="full-width" color="primary">Update</button>
   </form>
+  <a [routerLink]="'/r/' + rut.slug"><small> Cancel and back </small></a>
 </div>
 

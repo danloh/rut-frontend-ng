@@ -5,3 +5,7 @@
 .title {
   margin-bottom: 20px;
 }
+.rut-form {
+  padding: 20px;
+  border: 1px dotted #689f38;
+}

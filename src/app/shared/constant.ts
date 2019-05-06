@@ -9,5 +9,5 @@ export const regTag = /[\n|\r|\s]#(\w+)/g; // /(?<=[\n|\r|\s])#(\w+)/g N/A SAFAR
 export const regUiid = /[-_ ]/g;
 
 export const itemCates: string[] = [
-  'Book','Documentary','Movie','Course','Paper','WebPage','Other'
+  'Book','Documentary','Movie','Course','Paper','Album','WebPage'
 ];

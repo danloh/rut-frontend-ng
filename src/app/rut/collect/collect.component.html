@@ -22,7 +22,7 @@
     <div class="edit-box" *ngIf="canEdit && showEdit">
       <mat-form-field class="full-width" *ngIf="showEdit">
         <textarea matInput #c cdkTextareaAutosize cdkAutosizeMinRows="5"
-                  [(ngModel)]="collectContent" placeholder="Compose..., like Reading tips, etc.">
+                  [(ngModel)]="collectContent" placeholder="Compose..., like Reading tips or key takeaway, etc.">
         </textarea>
         <mat-hint align="end">{{c.value?.length || 0}}</mat-hint>
       </mat-form-field><br>
