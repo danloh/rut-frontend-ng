@@ -27,8 +27,10 @@
         <a [routerLink]="'/r/update/' + rut.slug" *ngIf="canEdit">
           <b> |  ....Edit....</b>
         </a>
-        <span class="org-src" style="float:right" *ngIf="rut.url">
-          <a [href]="rut.url" target="_blank"><b>Origin: {{ rut.url | host }}</b></a>
+        <span class="org-src" *ngIf="rut.url">
+          <a [href]="rut.url" target="_blank">
+            <b class="origin">Origin: {{ rut.url | host }}</b>
+          </a>
         </span>
       </div>
     </div>

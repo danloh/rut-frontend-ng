@@ -4,12 +4,12 @@
       <b>{{ rut.title }}</b>
       <span class="host">
         <a [href]="rut.url" target="_blank" rel="nofollow noopener noreferrer">
-          | {{ rut.url | host }}
+          | <span style="color: #37a">{{ rut.url | host }}</span>
         </a>
       </span>
     </div>
     <ng-template #toPage>
-      <a [routerLink]="'/r/' + rut.slug">{{ rut.title }}</a>
+      <a [routerLink]="'/r/' + rut.slug"><b>{{ rut.title }}</b></a>
     </ng-template>
   </span>
   <a [routerLink]="'/r/' + rut.slug">

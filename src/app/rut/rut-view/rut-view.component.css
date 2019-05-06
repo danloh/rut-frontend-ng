@@ -18,23 +18,28 @@
 }
 .tag a:hover {
   background-color: #ddd;
+  color: #828282;
   padding: 2px;
 }
 .rut-view .title {
     padding: 0 10px;
 }
-.rut-view .title .meta {
+.title .meta {
   color: #828282;
   font-size: 12px;
+}
+.meta .origin {
+  color: #37a;
+  font-size: 12px;
+}
+.meta .org-src {
+  text-align: center;
+  padding: 0 2px;
+  float: right;
 }
 .rut-view .content {
   padding: 10px;
   border-bottom: 2px solid #eee;
-}
-.org-src {
-  font-size: 12px;
-  text-align: center;
-  padding: 0 2px;
 }
 .toolbar {
   display: flex;

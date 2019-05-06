@@ -10,11 +10,11 @@ body {
   overflow-wrap: break-word;
 }
 a {
-  color: #37a;
+  color: #828282;
   text-decoration: none;
 }
 a:hover {
-  color: green;
+  color: orange;
 }
 h2, h3, h4 {
   margin: 8px 0;
