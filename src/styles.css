@@ -10,7 +10,7 @@ body {
   overflow-wrap: break-word;
 }
 a {
-  color: #828282;
+  color: rgba(0,0,0,.75);
   text-decoration: none;
 }
 a:hover {

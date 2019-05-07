@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ItemService, AuthService, Item, ItemRes } from '../../core';
-import { itemCates, regUiid } from '../../shared';
+import { itemCates, regSpecial } from '../../shared';
 
 @Component({
   selector: 'app-update-item',
@@ -63,7 +63,7 @@ export class UpdateItemComponent implements OnInit {
 
   onUpdate() {
     const item_up = this.itemForm.value;
-    item_up.uiid = item_up.uiid.replace(regUiid, ''); // do a bit process
+    item_up.uiid = item_up.uiid.replace(regSpecial, ''); // do a bit process
     item_up.category = item_up.category[0] || 'Book'; // stopgap
     const itemdata = Object.assign(item_up, { id: this.itemID });
     const either_url_uid = Boolean(item_up.url.trim()) || Boolean(item_up.uiid.trim());

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from './api.service';
-import { TagAny, TagRes, TagListRes, MsgRes } from '../model';
+import { UpdateTag, TagAny, TagRes, TagListRes, MsgRes } from '../model';
 
 
 @Injectable()
@@ -26,7 +26,7 @@ export class TagService {
       .pipe(map(data => data));
   }
 
-  update(tag: any, tname: string): Observable<TagRes> {
+  update(tag: UpdateTag, tname: string): Observable<TagRes> {
     return this.apiService.put('/tags/' + tname, tag)
     .pipe(map(data => data));
   }

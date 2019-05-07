@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Base64 } from 'js-base64';
 import { ItemService, RutService, Item, Rut, ItemListRes } from '../../core';
-import { regUrl, regUiid } from '../../shared';
+import { regUrl, regSpecial } from '../../shared';
 
 @Component({
   selector: 'app-add-item',
@@ -43,7 +43,7 @@ export class AddItemComponent implements OnChanges {
     if ( key.length < 6) return;  // check the keyword length
     this.showLoading = true;
     const per = regUrl.test(key) ? 'url' : 'uiid';
-    const perid = per === 'url' ? 'perurl' : key.replace(regUiid, '');
+    const perid = per === 'url' ? 'perurl' : key.replace(regSpecial, '');
     // put url in  query param as kw, avoid route error
     const kw =  per === 'url' ? Base64.encode(key) : '';
     this.itemService.get_list(per, perid, 1, '3', kw)  // '3' now just a placeholder, todo: search in done item

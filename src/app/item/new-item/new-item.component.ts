@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { ItemService, AuthService } from '../../core';
-import { itemCates, regUiid } from '../../shared';
+import { itemCates, regSpecial } from '../../shared';
 
 @Component({
   selector: 'app-new-item',
@@ -54,7 +54,7 @@ export class NewItemComponent implements OnInit {
 
   onSubmit() {
     const item = this.submitForm.value;
-    item.uiid = item.uiid.replace(regUiid, ''); // do a bit process
+    item.uiid = item.uiid.replace(regSpecial, ''); // do a bit process
     item.category = item.category[0] || 'Book'; // nz-select stopgap
     const either_url_uiid = Boolean(item.url.trim()) || Boolean(item.uiid.trim());
     if (this.submitForm.invalid || !either_url_uiid || !this.canSubmit ) {
