@@ -9,14 +9,12 @@ import { FooterComponent, HeaderComponent, NotFoundComponent, AboutComponent } f
 import { MaterialModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
-//import { UserModule } from './user/user.module';
-//import { ItemModule } from './item/item.module';
-//import { RutModule } from './rut/rut.module';
-//import { TagModule } from './tag/tag.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData(en);
 
 @NgModule({
@@ -35,11 +33,8 @@ registerLocaleData(en);
     CoreModule,
     HomeModule,
     AuthModule,
-    //UserModule,
-    //ItemModule,
-    //RutModule,
-    //TagModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [Title],
   bootstrap: [AppComponent]
