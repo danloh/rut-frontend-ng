@@ -55,7 +55,7 @@ export class RegComponent implements OnInit {
     }
     this.authService.signUp(authdata)
     .subscribe(
-      _ => this.router.navigateByUrl('/signin?redirect=%2F'),
+      _ => this.router.navigateByUrl('/auth/signin?redirect=%2F'),
       //err => console.log(err)
     );
   }

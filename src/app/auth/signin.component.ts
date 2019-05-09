@@ -45,7 +45,7 @@ export class SigninComponent implements OnInit {
           (params: any) => redUrl = params.get('redirect')
         );
         if (redUrl) {
-          this.router.navigateByUrl(redUrl); // avoid back to /signup 
+          this.router.navigateByUrl(redUrl); // avoid back to auth-signup 
         } else {
           this.location.back();
         }

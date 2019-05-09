@@ -50,7 +50,7 @@ export class ResponIntercept implements HttpInterceptor {
         // del all saved token
         this.authService.delAuth();
         alert('UnAuthorized or Expired Authorization');
-        this.redirectTo('/signin');
+        this.redirectTo('/auth/signin');
         break;
       case 404:
         this.redirectTo('/404');

@@ -5,6 +5,14 @@ import { NotFoundComponent, AboutComponent } from './misc';
 
 const routes: Routes = [
   {
+    path: '',  // home
+    loadChildren: './home/home.module#HomeModule'
+  },
+  {
+    path: 'auth', 
+    loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
     path: 'p',  // user
     loadChildren: './user/user.module#UserModule',
     canLoad: [AuthGuard]

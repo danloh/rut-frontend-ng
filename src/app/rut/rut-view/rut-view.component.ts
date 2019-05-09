@@ -128,7 +128,7 @@ export class RutViewComponent implements OnInit {
   toAddTag() {
     if (!this.isAuthed) {
       alert('Need To Log in');
-      //this.router.navigateByUrl('/signin');
+      //this.router.navigateByUrl('/auth/signin');
       return;
     }
     this.showAddTag = !this.showAddTag;
