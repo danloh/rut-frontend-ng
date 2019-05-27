@@ -30,8 +30,8 @@
     "js-base64": "^2.5.1",
     "js-cookie": "^2.2.0",
     "marked": "^0.6.2",
-    "ng-zorro-antd": "^7.3.3",
-    "rxjs": "~6.5.1",
+    "ng-zorro-antd": "^7.4.1",
+    "rxjs": "~6.5.2",
     "tslib": "^1.9.3",
     "zone.js": "~0.9.1"
   },
@@ -53,7 +53,7 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "protractor": "~5.4.2",
     "tar": "^4.4.8",
-    "ts-node": "~8.1.0",
+    "ts-node": "~8.2.0",
     "tslint": "~5.16.0",
     "typescript": "~3.2.4"
   }
