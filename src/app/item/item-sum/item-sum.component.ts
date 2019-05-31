@@ -1,8 +1,7 @@
 import { Component, Inject, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Item, Rut, RutService, ItemService, AuthService } from '../../core';
-import { Console } from '@angular/core/src/console';
 
 type FlagType = 'todo' | 'doing' | 'done';  // for flag item
 
