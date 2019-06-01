@@ -39,6 +39,9 @@
   line-height: 28px;
   font-weight: 400;
 }
+.right-nav a:hover {
+  color: green;
+}
 .right-nav a.active {
   color: green;
   font-weight: 800;

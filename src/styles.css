@@ -10,11 +10,11 @@ body {
   overflow-wrap: break-word;
 }
 a {
-  color: rgba(0,0,0,.75);
+  color: #000000bf;
   text-decoration: none;
 }
 a:hover {
-  color: orange;
+  color: #03a87c;
 }
 h2, h3, h4 {
   margin: 8px 0;
@@ -45,22 +45,6 @@ blockquote {
 .help-tips {
   color: green;
   font-size: 0.8em;
-}
-
-.submenu {
-  margin-bottom: 5px;
-  border-bottom: 1px solid #eee;
-}
-.submenu a {
-  color: grey;
-  margin-right: 0.85em;
-}
-.submenu a:hover {
-  color: darkgreen;
-}
-.submenu a.active {
-  color: orange;
-  font-weight: 800;
 }
 
 /* to fix the no-needed scrollbar and overlap content, autosize textarea*/
