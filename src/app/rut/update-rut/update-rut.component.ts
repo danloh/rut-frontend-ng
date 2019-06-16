@@ -31,15 +31,18 @@ export class UpdateRutComponent implements OnInit {
     
     this.route.data.subscribe((data: { res: RutRes }) => {
       let res = data.res;
-      this.rut = res.rut;
-      this.rutID = this.rut.id;
+      
       this.authService.isAuthed$.subscribe(auth => 
         this.canUpdate = auth && (res.status === 200) && (this.uname === res.rut.uname)
       );
+
+      this.rut = res.rut;
+      this.rutID = this.rut.id;
     });
 
     if (!this.canUpdate) {
       alert("No Permission");
+      this.router.navigateByUrl('/r/' + this.rut.slug);
       return;
     }
 
