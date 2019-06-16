@@ -58,7 +58,7 @@ export class UpdateRutComponent implements OnInit {
 
   onUpdate() {
     const rut_up = this.rutForm.value;
-    const rutdata = Object.assign(rut_up, { id: this.rutID });
+    const rutdata = Object.assign(rut_up, { id: this.rutID, uname: '' });
 
     let either_url_ctn = Boolean(rut_up.content.trim()) || Boolean(rut_up.url.trim());
 

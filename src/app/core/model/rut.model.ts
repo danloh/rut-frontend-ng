@@ -29,6 +29,7 @@ export interface NewRut {
 
 export interface UpdateRut {
   id: string;
+  uname: string; // just a placeholder
   title: string;
   url: string;
   content: string;
