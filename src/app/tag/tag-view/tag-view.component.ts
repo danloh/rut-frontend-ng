@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Title } from '@angular/platform-browser';
 import { Tag, TagRes, TagService, AuthService } from '../../core';
-import { regUrl, regSpecial } from '../../shared';
+import { regUrl, regSpecialcn } from '../../shared';
 
 @Component({
   selector: 'app-tag-view',
@@ -91,7 +91,7 @@ export class TagViewComponent implements OnInit {
       tname: tag_up.tname,
       logo: regUrl.test(tag_up.logo) ? tag_up.logo : '',
       intro: tag_up.intro,
-      pname: tag_up.pname.trim().replace(regSpecial, '-'),
+      pname: tag_up.pname.trim().replace(regSpecialcn, '-'),
     };
 
     if (this.tagForm.invalid || !this.canUpdate ) {

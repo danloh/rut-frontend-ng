@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { 
   Rut, RutRes, Collect, AuthService, RutService, TagService, ItemService 
 } from '../../core';
-import { regSpecial } from '../../shared';
+import { regSpecialcn } from '../../shared';
 
 @Component({
   selector: 'app-rut-view',
@@ -149,7 +149,7 @@ export class RutViewComponent implements OnInit {
     } else {
       const newTgs = this.newTag.trim()
         .split(/[,;:，。；]/)
-        .map(t => t.trim().replace(regSpecial, '-'))   // rep special char
+        .map(t => t.trim().replace(regSpecialcn, '-'))   // rep special char
         .filter(t => 1 < t.length && t.length <= 42);
       if (newTgs.length <= 0) return; 
       act = 1;

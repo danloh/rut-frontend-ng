@@ -6,6 +6,7 @@ export const regPsw = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[#@!~%^$&*-])[a-zA-Z\d#@!~%^$
 export const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 export const regName = /^[\w-]{3,16}$/;
 export const regHashTag = /[\n|\r|\s]#(\w+)/g; // /(?<=[\n|\r|\s])#(\w+)/g N/A SAFARI, FIREFOX
+export const regSpecialcn = /[`~!@#$%^&*()+=|{}\]\['":;,.\\?\/<>《》；：。，、“‘’”【】「」——（）……¥！～·]/g;
 export const regSpecial = /[^a-zA-Z0-9]/g;
 
 export const itemCates: string[] = [
