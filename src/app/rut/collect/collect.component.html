@@ -6,7 +6,7 @@
     <a [routerLink]="'/item/' + item.slug">{{ item.title }}</a>
     <small class="meta">
       <br>{{item.category}} |&nbsp;{{item.uiid}} |&nbsp;{{item.authors}} |&nbsp;{{item.pub_at}}
-      <a [href]="item.url" target="_blank" *ngIf="item.url">&nbsp;:::</a>
+      <a [href]="item.url" target="_blank" *ngIf="item.url">&nbsp;.:::</a>
     </small>
     <span>
       <img class="thumb" [src]="item.cover" referrerPolicy="no-referrer">
