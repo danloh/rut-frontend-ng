@@ -30,7 +30,7 @@ export class NewItemComponent implements OnInit {
     this.authService.checkAuth();
     this.authService.isAuthed$.subscribe(auth => this.canSubmit = auth);
     if (!this.canSubmit) {
-      alert("No Permission");
+      alert("No Permission，Please login");
       return;
     }
 

@@ -10,7 +10,7 @@ const itemRoutes: Routes = [
   {
     path: 'submit',  // prefix '/item/' // must before :slug for router match
     component: NewItemComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: ':slug',
