@@ -6,7 +6,7 @@
       nzShowSearch nzServerSearch nzAllowClear
       (nzOnSearch)="onSearch($event)"
       formControlName="item_id"
-      nzPlaceHolder="https://...">
+      nzPlaceHolder="https://... or item title or UID like ISBN ">
       <nz-option *ngFor="let item of items" 
                 [nzLabel]="item.title" 
                 [nzValue]="item.id">
