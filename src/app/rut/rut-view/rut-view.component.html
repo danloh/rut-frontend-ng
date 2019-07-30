@@ -36,6 +36,9 @@
     </div>
     <div class="content">
       <div [innerHTML]="rut.content | md"></div>
+      <a [href]="rut.url" target="_blank" *ngIf="rut.url">
+        <div class="orgsrc">Origin: {{ rut.url | host }}</div>
+      </a>
     </div>
     <!-- match collect / item per item_id -->
     <app-collect *ngFor="let c of collects" 

@@ -41,6 +41,15 @@
   padding: 10px;
   border-bottom: 2px solid #eee;
 }
+.orgsrc {
+  font-size: 12px;
+  text-align: center;
+  padding: 1px;
+  background-color: #f3f4f8;
+}
+.orgsrc:hover, .org-src:hover {
+  background-color: #ddd;
+}
 .toolbar {
   display: flex;
   justify-content: flex-end;

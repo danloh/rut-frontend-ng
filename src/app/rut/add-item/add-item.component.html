@@ -1,4 +1,6 @@
 <div class="add-page">
+  <span>Add via Spider per url, ISBN, etc. </span>
+  <a routerLink="/item/submit" style="float:right"><small>or Submit new Item Manually</small></a>
   <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
     <small *ngIf="showLoading">Loading...</small>
     <!-- cannot call onEnter ?? -->
