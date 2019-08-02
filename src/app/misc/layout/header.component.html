@@ -3,8 +3,10 @@
     <a routerLink="/"><b class="logo">RutHub</b></a><sup class="logo-sup">alpha</sup>
     <div class="right-menu">
       <div *ngIf="ifAuthed; else login">
-        <nz-dropdown>
-          <button nz-button nz-dropdown><i nz-icon type="down"></i></button>
+        <button nz-button nz-dropdown nz-dropdown [nzDropdownMenu]="menu">
+          <i nz-icon type="down"></i>
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
             <li nz-menu-item>
               <a routerLink="/r/new"><b style="color: orange">Post New List</b></a>
@@ -19,7 +21,7 @@
               <a (click)="onLogOut()">Sign Out</a>
             </li>
           </ul>
-        </nz-dropdown>
+        </nz-dropdown-menu>
       </div>
       <ng-template #login>
         <!-- <a routerLink="/auth/signup">Sign up</a>  |  -->

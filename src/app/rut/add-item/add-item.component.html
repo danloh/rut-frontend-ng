@@ -1,14 +1,10 @@
 <div class="add-page">
-  <span>Add via Spider per url, ISBN, etc. </span>
-  <a routerLink="/item/submit" style="float:right"><small>or Submit new Item Manually</small></a>
   <form [formGroup]="addForm" (ngSubmit)="onAdd()" class="add-form">
     <small *ngIf="showLoading">Loading...</small>
     <!-- cannot call onEnter ?? -->
     <nz-select #slct class="full-width"
-      nzShowSearch nzServerSearch nzAllowClear
-      (nzOnSearch)="onSearch($event)"
       formControlName="item_id"
-      nzPlaceHolder="https://... or item title or UID like ISBN ">
+      nzPlaceHolder="The items you have done">
       <nz-option *ngFor="let item of items" 
                 [nzLabel]="item.title" 
                 [nzValue]="item.id">
@@ -23,3 +19,6 @@
     <button mat-button class="full-width" color="primary">Add To List</button>
   </form>
 </div>
+
+<!-- nzShowSearch nzServerSearch nzAllowClear
+(nzOnSearch)="onSearch($event)" -->
