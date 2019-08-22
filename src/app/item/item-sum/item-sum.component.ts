@@ -131,7 +131,6 @@ export class ItemSumComponent implements OnChanges {
       );
     });
   }
-
 }
 
 // type of inject to addtolist dialog
