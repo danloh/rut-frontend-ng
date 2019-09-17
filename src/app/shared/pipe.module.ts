@@ -79,10 +79,8 @@ export class MarkdownPipe implements PipeTransform {
       return `
       <a href="${src}" 
         target="_blank" rel="nofollow noopener noreferrer">
-        <img src="${src}" 
-          referrerPolicy="no-referrer" 
+        <img class="md-img" src="${src}" 
           title="${title || alt || 'RutHub'}" 
-          style="width:10%; height:15%"
           alt="${alt || title || src}"
         />
       </a>`.replace(/\s+/g, ' ').replace('\n', '');
