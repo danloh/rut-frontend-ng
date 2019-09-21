@@ -4,7 +4,8 @@
   border-bottom: 0.5px dashed #ddd;
 }
 .item-info {
-  padding-right: 40px;
+  padding-right: 85px;
+  min-height: 85px;
   position: relative;
 }
 .item-info .indicator {
@@ -17,8 +18,8 @@
 }
 .item-info .thumb {
   position: absolute;
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 80px;
+  max-height: 80px;
   top: 2px;
   right: 0px;
 }

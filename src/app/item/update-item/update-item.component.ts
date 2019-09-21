@@ -77,5 +77,4 @@ export class UpdateItemComponent implements OnInit {
       //err => console.log(err)
     );
   }
-
 }

@@ -4,7 +4,7 @@
     <div class="right-menu">
       <div *ngIf="ifAuthed; else login">
         <button nz-button nz-dropdown nz-dropdown [nzDropdownMenu]="menu">
-          <i nz-icon type="down"></i>
+          <i nz-icon nzType="down"></i>
         </button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
